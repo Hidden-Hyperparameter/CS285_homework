@@ -37,7 +37,7 @@ def sample_trajectory(env:gym.Env, policy:
     
         # TODO use the most recent ob to decide what to do
         d = policy(torch.from_numpy(ob).float())
-        ac = d.sample((1,))
+        ac = d.sample((1,)).cpu()
         ac = ac[0]
 
         # TODO: take that action and get reward and next ob
@@ -79,6 +79,77 @@ def sample_trajectories(env, policy, min_timesteps_per_batch, max_path_length, r
 
         #collect rollout
         path = sample_trajectory(env, policy, max_path_length, render)
+        paths.append(path)
+
+        #count steps
+        timesteps_this_batch += get_pathlength(path)
+
+    return paths, timesteps_this_batch
+
+def sample_trajectory_4expert(env:gym.Env, policy:
+                      MLPPolicySL, max_path_length, render=False):
+    print('in: sample_trajectory')
+    """Sample a rollout in the environment from a policy."""
+    
+    # initialize env for the beginning of a new rollout
+    ob =  env.reset() # TODO: initial observation after resetting the env
+
+    # init vars
+    obs, acs, rewards, next_obs, terminals, image_obs = [], [], [], [], [], []
+    steps = 0
+    while True:
+
+        # render image of the simulated env
+        if render:
+            if hasattr(env, 'sim'):
+                img = env.sim.render(camera_name='track', height=500, width=500)[::-1]
+            else:
+                img = env.render(mode='single_rgb_array')
+            image_obs.append(cv2.resize(img, dsize=(250, 250), interpolation=cv2.INTER_CUBIC))
+    
+        # TODO use the most recent ob to decide what to do
+        ac = policy(torch.from_numpy(ob).float().to(ptu.device)).detach().cpu()
+        ac = ac[0]
+
+        # TODO: take that action and get reward and next ob
+        # env.step(ac)
+        next_ob, rew, done, _ = env.step(ac.numpy())
+        
+        # TODO rollout can end due to done, or due to max_path_length
+        steps += 1
+        rollout_done = bool(done or max_path_length < steps) # HINT: this is either 0 or 1
+        
+        # record result of taking that action
+        obs.append(ob)
+        acs.append(ac)
+        rewards.append(rew)
+        next_obs.append(next_ob)
+        terminals.append(rollout_done)
+
+        ob = next_ob # jump to next timestep
+
+        # end the rollout if the rollout ended
+        if rollout_done:
+            break
+
+    return {"observation" : np.array(obs, dtype=np.float32),
+            "image_obs" : np.array(image_obs, dtype=np.uint8),
+            "reward" : np.array(rewards, dtype=np.float32),
+            "action" : np.array(acs, dtype=np.float32),
+            "next_observation": np.array(next_obs, dtype=np.float32),
+            "terminal": np.array(terminals, dtype=np.float32)}
+
+
+def sample_trajectories_4expert(env, policy, min_timesteps_per_batch, max_path_length, render=False):
+    print('in sample_trajectories')
+    """Collect rollouts until we have collected min_timesteps_per_batch steps."""
+
+    timesteps_this_batch = 0
+    paths = []
+    while timesteps_this_batch < min_timesteps_per_batch:
+
+        #collect rollout
+        path = sample_trajectory_4expert(env, policy, max_path_length, render)
         paths.append(path)
 
         #count steps

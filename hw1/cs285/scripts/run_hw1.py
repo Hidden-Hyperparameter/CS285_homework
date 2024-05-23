@@ -136,16 +136,17 @@ def run_training_loop(params):
             # TODO: collect `params['batch_size']` transitions
             # HINT: use utils.sample_trajectories
             # TODO: implement missing parts of utils.sample_trajectory
-            paths, envsteps_this_batch = utils.sample_trajectories(env,expert_policy,params['batch_size'],1)
-
+            paths, envsteps_this_batch = utils.sample_trajectories(env,actor,params['batch_size'],params['ep_len'])
             # relabel the collected obs with actions from a provided expert policy
             if params['do_dagger']:
                 print("\nRelabelling collected observations with labels from an expert policy...")
-
                 # TODO: relabel collected obsevations (from our policy) with labels from expert policy
                 # HINT: query the policy (using the get_action function) with paths[i]["observation"]
                 # and replace paths[i]["action"] with these expert labels
-                paths = None
+                # print([path['observation'].shape for path in paths])
+                for i,path in enumerate(paths):
+                    ac = expert_policy.get_action(path['observation'])
+                    paths[i]['action'] = ac
 
         total_envsteps += envsteps_this_batch
         # add collected data to replay buffer
@@ -191,6 +192,10 @@ def run_training_loop(params):
             print("\nCollecting data for eval...")
             eval_paths, eval_envsteps_this_batch = utils.sample_trajectories(
                 env, actor, params['eval_batch_size'], params['ep_len'])
+
+            expert_paths, eval_envsteps_this_batch = utils.sample_trajectories_4expert(
+                env, expert_policy, params['eval_batch_size'], params['ep_len'])
+            print('Expert :',np.mean([expert["reward"].sum() for expert in expert_paths]))
 
             logs = utils.compute_metrics(paths, eval_paths)
             # compute additional metrics
