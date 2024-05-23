@@ -86,8 +86,8 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         super().__init__(**kwargs)
 
         # init vars
-        self.ac_dim = ac_dim
-        self.ob_dim = ob_dim
+        self.ac_dim = ac_dim # 27
+        self.ob_dim = ob_dim # 8
         self.n_layers = n_layers
         self.size = size
         self.learning_rate = learning_rate
@@ -129,6 +129,9 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         # through it. For example, you can return a torch.FloatTensor. You can also
         # return more flexible objects, such as a
         # `torch.distributions.Distribution` object. It's up to you!
+
+        d = distributions.Normal(self.mean_net(observation),torch.exp(self.logstd))
+        return d
         raise NotImplementedError
 
     def update(self, observations, actions):
@@ -141,7 +144,12 @@ class MLPPolicySL(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
             dict: 'Training Loss': supervised learning loss
         """
         # TODO: update the policy and return the loss
-        loss = TODO
+        d = self(observations)
+        # print('actions',actions)
+        self.optimizer.zero_grad()
+        loss = -d.log_prob(actions).sum()
+        loss.backward()
+        self.optimizer.step()
         return {
             # You can add extra logging information here, but keep this line
             'Training Loss': ptu.to_numpy(loss),
