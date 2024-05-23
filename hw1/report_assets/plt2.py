@@ -1,0 +1,22 @@
+# d = {'Expert': [3717.1812, 3718.3386, 3717.517, 3719.399, 3718.357, 3718.7454, 3716.7793, 3715.4207, 3719.151, 3718.6335], 'Eval_AverageReturn': [1056.007568359375, 3347.837158203125, 3656.62060546875, 3695.2890625, 2693.412841796875, 3707.66015625, 3704.05322265625, 3714.576904296875, 1619.3026123046875, 3713.41845703125], 'Eval_StdReturn': [103.00814056396484, 820.9945068359375, 22.305103302001953, 17.644832611083984, 900.4948120117188, 3.766848087310791, 8.924980163574219, 5.032972812652588, 693.3961791992188, 4.714305877685547]}
+d = {'Expert': [4644.59, 4625.838, 4715.096, 4787.743, 4686.4023, 4732.0356, 4709.5317, 4718.458, 4782.131, 4741.0405], 'Eval_AverageReturn': [4534.62353515625, 4715.75439453125, 4693.69287109375, 4746.42822265625, 4696.947265625, 4729.27099609375, 4770.8046875, 4736.87109375, 4669.740234375, 4748.376953125], 'Eval_StdReturn': [96.71721649169922, 51.419219970703125, 100.81425476074219, 101.80760192871094, 157.31602478027344, 71.4904556274414, 33.97126770019531, 42.03663635253906, 153.8781280517578, 86.66629028320312]}
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.linspace(0,len(d['Eval_AverageReturn']),len(d['Eval_AverageReturn']))
+
+plt.plot(x, d['Eval_AverageReturn'], marker='o', linestyle='-',label='dagger')
+
+# Add error bars
+plt.errorbar(x, d['Eval_AverageReturn'], yerr=d['Eval_StdReturn'], fmt='o', color='black')
+# plt.plot
+    # Customize the plot
+plt.plot(x,np.ones_like(x)*np.mean(np.array(d['Expert'])),label='Expert Policy')
+plt.plot(x,np.ones_like(x)*4534,label='Behavior Cloning')
+plt.xlabel('iter')
+plt.ylabel('rewards')
+plt.title('Ant')
+
+# Show the plot
+plt.legend()
+# plt.show()
+plt.savefig('./4-2-1.png')
