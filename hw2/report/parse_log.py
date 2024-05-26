@@ -18,6 +18,8 @@ TimeSinceStart : 0.03225994110107422
 Initial_DataCollection_AverageReturn : 37.0
     """
     def convert(s:str):
+        if s=='nan':
+            return 0
         if s.find('.')!=-1:
             return float(s)
         return int(s)
