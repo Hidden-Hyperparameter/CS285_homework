@@ -190,7 +190,7 @@ class PGAgent(nn.Module):
         """
         T = len(rewards)-1
         gam = self.gamma ** np.arange(0,T+1)
-        mask = (np.arange(0,T).reshape(-1,1)>=np.arange(0,T).reshape(1,-1)).astype(np.float32) # mask[i,j]=1 iff i>=j
+        mask = (np.arange(0,T+1).reshape(-1,1)>=np.arange(0,T+1).reshape(1,-1)).astype(np.float32) # mask[i,j]=1 iff i>=j
         ans = np.einsum('pt,t,p->t',mask,gam**-1,gam*rewards)
         # ans = np.einsum('pt,t,p,bp->bt',mask,gam**-1,gam,rewards) # batched
         return ans
