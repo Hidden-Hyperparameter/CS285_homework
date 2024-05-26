@@ -62,7 +62,7 @@ class PGAgent(nn.Module):
         """
 
         # step 1: calculate Q values of each (s_t, a_t) point, using rewards (r_0, ..., r_t, ..., r_T)
-        rewards = np.concatenate(tuple(rewards),axis=0)
+        # rewards = np.concatenate(tuple(rewards),axis=0)
         # print(rewards.shape) # [batch,]
         q_values: Sequence[np.ndarray] = self._calculate_q_vals(rewards)
 
@@ -72,6 +72,7 @@ class PGAgent(nn.Module):
         obs = np.concatenate(obs,axis=0) # [batch,4]
         actions = np.concatenate(actions,axis=0) # [batch,]
         terminals = np.concatenate(terminals,axis=0) # [batch,]
+        rewards = np.concatenate(rewards,axis=0) # [batch,]
 
         # step 2: calculate advantages from Q values
         advantages: np.ndarray = self._estimate_advantage(
@@ -177,9 +178,12 @@ class PGAgent(nn.Module):
         Note that all entries of the output list should be the exact same because each sum is from 0 to T (and doesn't
         involve t)!
         """
-        T = len(rewards)-1
-        gam = self.gamma ** np.arange(0,T+1)
-        return np.ones_like(rewards)*np.sum(gam*rewards)
+        l = []
+        for reward in rewards:
+            T = len(reward)-1
+            gam = self.gamma ** np.arange(0,T+1)
+            l.append(np.ones_like(reward)*np.sum(gam*reward))
+        return np.concatenate(l,axis=0)
         # return torch.einsum('t,b->bt',np.ones([T+1]),torch.einsum('t,bt->b',gam,rewards)) # batched
 
 
@@ -188,9 +192,11 @@ class PGAgent(nn.Module):
         Helper function which takes a list of rewards {r_0, r_1, ..., r_t', ... r_T} and returns a list where the entry
         in each index t is sum_{t'=t}^T gamma^(t'-t) * r_{t'}.
         """
-        T = len(rewards)-1
-        gam = self.gamma ** np.arange(0,T+1)
-        mask = (np.arange(0,T).reshape(-1,1)>=np.arange(0,T).reshape(1,-1)).astype(np.float32) # mask[i,j]=1 iff i>=j
-        ans = np.einsum('pt,t,p->t',mask,gam**-1,gam*rewards)
+        l = []
+        for reward in rewards:
+            T = len(reward)-1
+            gam = self.gamma ** np.arange(0,T+1)
+            mask = (np.arange(0,T+1).reshape(-1,1)>=np.arange(0,T+1).reshape(1,-1)).astype(np.float32) # mask[i,j]=1 iff i>=j
+            l.append(np.einsum('pt,t,p->t',mask,gam**-1,gam*reward))
         # ans = np.einsum('pt,t,p,bp->bt',mask,gam**-1,gam,rewards) # batched
-        return ans
+        return np.concatenate(l,axis=0)
