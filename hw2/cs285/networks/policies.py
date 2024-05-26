@@ -64,9 +64,9 @@ class MLPPolicy(nn.Module):
         if self.discrete:
             # print('get_action: disrcete')
             ans = self.logits_net(obs)
-            self.ac_dim = ans.shape[-1]
             ans = torch.argmax(ans,dim=-1)
         else:
+            raise NotImplementedError()
             # print('get_action: not disrcete')
             ans = torch.distributions.Normal(self.mean_net(obs),torch.exp(self.logstd)).sample(obs.shape[0])
 
@@ -82,6 +82,7 @@ class MLPPolicy(nn.Module):
             # TODO: define the forward pass for a policy with a discrete action space.
             return self.logits_net(obs)
         else:
+            raise NotImplementedError()
             # TODO: define the forward pass for a policy with a continuous action space.
             return torch.distributions.Normal(self.mean_net(obs),torch.exp(self.logstd))
         return None
@@ -118,9 +119,9 @@ class MLPPolicyPG(MLPPolicy):
             loss.backward()
             self.optimizer.step()
         else:
+            raise NotImplementedError()
             loss = self(obs).log_prob(actions)*advantages
             print('continous')
-            raise NotImplementedError('continous!!!!!')
             loss = loss.sum()
             self.optimizer.zero_grad()
             loss.backward()

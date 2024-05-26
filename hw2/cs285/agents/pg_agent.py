@@ -62,14 +62,16 @@ class PGAgent(nn.Module):
         """
 
         # step 1: calculate Q values of each (s_t, a_t) point, using rewards (r_0, ..., r_t, ..., r_T)
+        rewards = np.concatenate(tuple(rewards),axis=0)
+        # print(rewards.shape) # [batch,]
         q_values: Sequence[np.ndarray] = self._calculate_q_vals(rewards)
 
         # TODO: flatten the lists of arrays into single arrays, so that the rest of the code can be written in a vectorized
         # way. obs, actions, rewards, terminals, and q_values should all be arrays with a leading dimension of `batch_size`
         # beyond this point.
-        obs = np.concatenate(obs,axis=0) # [59,4]
-        actions = np.concatenate(actions,axis=0) # [59,]
-        terminals = np.concatenate(terminals,axis=0) # [59,]
+        obs = np.concatenate(obs,axis=0) # [batch,4]
+        actions = np.concatenate(actions,axis=0) # [batch,]
+        terminals = np.concatenate(terminals,axis=0) # [batch,]
 
         # step 2: calculate advantages from Q values
         advantages: np.ndarray = self._estimate_advantage(
@@ -126,15 +128,18 @@ class PGAgent(nn.Module):
         """
         if self.critic is None:
             # TODO: if no baseline, then what are the advantages?
-            advantages = q_values.reshape(-1)
+            # print('TODO: if no baseline, then what are the advantages?')
+            advantages = q_values
         else:
             # TODO: run the critic and use it as a baseline
+            # print('TODO: if no baseline, then what are the advantages?')
             values = self.critic(obs)
             assert values.shape == q_values.shape
 
             if self.gae_lambda is None:
+                # print('if using a baseline, but not GAE, what are the advantages?')
                 # TODO: if using a baseline, but not GAE, what are the advantages?
-                advantages = (values - q_values).reshape(-1)
+                advantages = (values - q_values)
             else:
                 # TODO: implement GAE
                 batch_size = obs.shape[0]
@@ -151,7 +156,7 @@ class PGAgent(nn.Module):
                     # batch size = T+1
                     # i starts from T, ends to 0
                     T = batch_size-1
-                    if i==batch_size-1:
+                    if terminals[i]:
                         advantages[i]=advantages[i+1]+rewards[T]-values[T]
                     else:
                         advantages[i]=advantages[i+1]+(rewards[T]-values[T]+self.gamma*values[T+1])*((self.gamma*self.gae_lambda)**(T-i))
@@ -162,7 +167,6 @@ class PGAgent(nn.Module):
         # TODO: normalize the advantages to have a mean of zero and a standard deviation of one within the batch
         if self.normalize_advantages:
             advantages = (advantages - advantages.mean())/advantages.std()
-            pass
         return advantages
 
     def _discounted_return(self, rewards: Sequence[float]) -> Sequence[float]:
@@ -176,6 +180,7 @@ class PGAgent(nn.Module):
         T = len(rewards)-1
         gam = self.gamma ** np.arange(0,T+1)
         return np.ones_like(rewards)*np.sum(gam*rewards)
+        # return torch.einsum('t,b->bt',np.ones([T+1]),torch.einsum('t,bt->b',gam,rewards)) # batched
 
 
     def _discounted_reward_to_go(self, rewards: Sequence[float]) -> Sequence[float]:
@@ -187,4 +192,5 @@ class PGAgent(nn.Module):
         gam = self.gamma ** np.arange(0,T+1)
         mask = (np.arange(0,T).reshape(-1,1)>=np.arange(0,T).reshape(1,-1)).astype(np.float32) # mask[i,j]=1 iff i>=j
         ans = np.einsum('pt,t,p->t',mask,gam**-1,gam*rewards)
+        # ans = np.einsum('pt,t,p,bp->bt',mask,gam**-1,gam,rewards) # batched
         return ans
