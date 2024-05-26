@@ -54,14 +54,23 @@ class MLPPolicy(nn.Module):
         )
 
         self.discrete = discrete
+        print('MLPPolicy.__init__',ob_dim,ac_dim)
 
     @torch.no_grad()
     def get_action(self, obs: np.ndarray) -> np.ndarray:
         """Takes a single observation (as a numpy array) and returns a single action (as a numpy array)."""
         # TODO: implement get_action
-        action = None
+        obs = torch.from_numpy(obs).to(ptu.device)
+        if self.discrete:
+            # print('get_action: disrcete')
+            ans = self.logits_net(obs)
+            self.ac_dim = ans.shape[-1]
+            ans = torch.argmax(ans,dim=-1)
+        else:
+            # print('get_action: not disrcete')
+            ans = torch.distributions.Normal(self.mean_net(obs),torch.exp(self.logstd)).sample(obs.shape[0])
 
-        return action
+        return ans.detach().cpu().numpy()
 
     def forward(self, obs: torch.FloatTensor):
         """
@@ -71,10 +80,10 @@ class MLPPolicy(nn.Module):
         """
         if self.discrete:
             # TODO: define the forward pass for a policy with a discrete action space.
-            pass
+            return self.logits_net(obs)
         else:
             # TODO: define the forward pass for a policy with a continuous action space.
-            pass
+            return torch.distributions.Normal(self.mean_net(obs),torch.exp(self.logstd))
         return None
 
     def update(self, obs: np.ndarray, actions: np.ndarray, *args, **kwargs) -> dict:
@@ -93,12 +102,29 @@ class MLPPolicyPG(MLPPolicy):
     ) -> dict:
         """Implements the policy gradient actor update."""
         obs = ptu.from_numpy(obs)
-        actions = ptu.from_numpy(actions)
-        advantages = ptu.from_numpy(advantages)
+        actions = ptu.from_numpy(actions) 
+        advantages = ptu.from_numpy(advantages) 
 
         # TODO: implement the policy gradient actor update.
-        loss = None
-
+        if self.discrete:
+            # print('MLPPolicyPG, update',obs.shape) # [22,4]
+            # print('MLPPolicyPG, update',actions.shape)#[22]
+            # print('MLPPolicyPG, update',advantages.shape)#[22]
+            actions = actions.to(torch.long)
+            # print('self(obs).shape',self(obs).shape)
+            # print(actions)
+            loss = -F.nll_loss(F.softmax(self(obs),dim=-1)*advantages.reshape(-1,1),actions)
+            self.optimizer.zero_grad()
+            loss.backward()
+            self.optimizer.step()
+        else:
+            loss = self(obs).log_prob(actions)*advantages
+            print('continous')
+            raise NotImplementedError('continous!!!!!')
+            loss = loss.sum()
+            self.optimizer.zero_grad()
+            loss.backward()
+            self.optimizer.step()
         return {
             "Actor Loss": ptu.to_numpy(loss),
         }
