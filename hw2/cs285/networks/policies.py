@@ -64,7 +64,7 @@ class MLPPolicy(nn.Module):
         if self.discrete:
             # print('get_action: disrcete')
             ans = self.logits_net(obs)
-            ans = torch.argmax(ans,dim=-1)
+            ans = torch.distributions.Categorical(torch.softmax(ans,dim=-1)).sample()
         else:
             raise NotImplementedError()
             # print('get_action: not disrcete')
@@ -111,8 +111,8 @@ class MLPPolicyPG(MLPPolicy):
             # print('MLPPolicyPG, update',obs.shape) # [22,4]
             # print('MLPPolicyPG, update',actions.shape)#[22]
             # print('MLPPolicyPG, update',advantages.shape)#[22]
-            actions = actions.to(torch.long)            
-            loss = -F.nll_loss(F.softmax(self(obs),dim=-1)*advantages.reshape(-1,1),actions)
+            actions = actions.to(torch.long)
+            loss = F.nll_loss(torch.log(F.softmax(self(obs),dim=-1))*advantages.reshape(-1,1),actions)
             self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
