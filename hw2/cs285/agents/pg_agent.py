@@ -91,9 +91,11 @@ class PGAgent(nn.Module):
         # step 4: if needed, use all datapoints (s_t, a_t, q_t) to update the PG critic/baseline
         if self.critic is not None:
             # TODO: perform `self.baseline_gradient_steps` updates to the critic/baseline network
-            critic_info: dict ={'Baseline Loss':[]}
-            for _ in self.baseline_gradient_steps:
-                critic_info['Baseline Loss'].append(self.critic.update(obs,q_values))
+            s=0;n=0
+            for _ in range(self.baseline_gradient_steps):
+                s+=self.critic.update(obs,q_values)['Baseline Loss'].item()
+                n+=1
+            critic_info: dict ={'Baseline Loss':s/n}
 
             info.update(critic_info)
 
@@ -133,7 +135,7 @@ class PGAgent(nn.Module):
         else:
             # TODO: run the critic and use it as a baseline
             # print('TODO: if no baseline, then what are the advantages?')
-            values = self.critic(obs)
+            values = self.critic(obs).detach().cpu().numpy()
             assert values.shape == q_values.shape
 
             if self.gae_lambda is None:
@@ -147,20 +149,15 @@ class PGAgent(nn.Module):
                 # HINT: append a dummy T+1 value for simpler recursive calculation
                 values = np.append(values, [0])
                 advantages = np.zeros(batch_size + 1)
-
+                # print('terminals',[x for x in terminals])
                 for i in reversed(range(batch_size)):
                     # TODO: recursively compute advantage estimates starting from timestep T.
                     # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
                     # trajectory, and 0 otherwise.
-                    
-                    # batch size = T+1
-                    # i starts from T, ends to 0
-                    raise NotImplementedError()
-                    T = batch_size-1
                     if terminals[i]:
-                        advantages[i]=advantages[i+1]+rewards[T]-values[T]
+                        advantages[i]=rewards[i]-values[i]
                     else:
-                        advantages[i]=advantages[i+1]+(rewards[T]-values[T]+self.gamma*values[T+1])*((self.gamma*self.gae_lambda)**(T-i))
+                        advantages[i]=advantages[i+1]*(self.gae_lambda*self.gamma)+(rewards[i]-values[i]+self.gamma*values[i+1])
 
                 # remove dummy advantage
                 advantages = advantages[:-1]

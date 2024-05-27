@@ -2,20 +2,21 @@ import re,json
 def load(logname:str):
     s = open(f'{logname}.log').readlines()
     D = """
-Eval_AverageReturn : 9.642857551574707
-Eval_StdReturn : 0.7178482413291931
-Eval_MaxReturn : 11.0
-Eval_MinReturn : 8.0
-Eval_AverageEpLen : 9.642857142857142
-Train_AverageReturn : 37.0
-Train_StdReturn : 0.0
-Train_MaxReturn : 37.0
-Train_MinReturn : 37.0
-Train_AverageEpLen : 37.0
-Actor Loss : 18.721797943115234
-Train_EnvstepsSoFar : 37
-TimeSinceStart : 0.03225994110107422
-Initial_DataCollection_AverageReturn : 37.0
+Eval_AverageReturn : -708.81103515625
+Eval_StdReturn : 0.0
+Eval_MaxReturn : -708.81103515625
+Eval_MinReturn : -708.81103515625
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : -662.6456909179688
+Train_StdReturn : 34.013126373291016
+Train_MaxReturn : -625.0535888671875
+Train_MinReturn : -721.0574340820312
+Train_AverageEpLen : 1000.0
+Actor Loss : -554552.375
+Baseline Loss : 190.6030303955078
+Train_EnvstepsSoFar : 5000
+TimeSinceStart : 0.7141199111938477
+Initial_DataCollection_AverageReturn : -662.6456909179688
     """
     def convert(s:str):
         if s=='nan':
