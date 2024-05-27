@@ -1,4 +1,5 @@
 import os
+from tqdm import tqdm
 import time
 
 from cs285.agents.pg_agent import PGAgent
@@ -66,7 +67,7 @@ def run_training_loop(args):
     total_envsteps = 0
     start_time = time.time()
 
-    for itr in range(args.n_iter):
+    for itr in tqdm(range(args.n_iter)):
         print(f"\n********** Iteration {itr} ************")
         # TODO: sample `args.batch_size` transitions using utils.sample_trajectories
         # make sure to use `max_ep_len`

@@ -4,9 +4,9 @@
 # python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 1000 \
 #     -rtg --exp_name cartpole_rtg \
 #     > log_cartpole_rtg.log
-python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 1000 \
-    -na --exp_name cartpole_na \
-    > log_cartpole_na.log
+# python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 1000 \
+#     -na --exp_name cartpole_na \
+#     > log_cartpole_na.log
 # python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 1000 \
 #     -rtg -na --exp_name cartpole_rtg_na \
 #     > log_cartpole_rtg_na.log
