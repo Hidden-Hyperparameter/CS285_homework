@@ -167,7 +167,21 @@ From the figures, we can see that the decreasing the learning rate of the baseli
 \newpage\section{Generalized Advantage Estimation}
 \begin{itemize}
         \item Provide a single plot with the learning curves for the \verb|LunarLander-v2| experiments that you tried. Describe in words how $\lambda$ affected task performance. The run with the best performance should achieve an average score close to 200 (180+).
+
+\MYSOLUTION
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{./report/assets/E3_all.png} % Replace with your graph
+        \caption{Learning curves for different $\lambda$ values}
+        \label{fig:E3}
+\end{figure}
         \item Consider the parameter $\lambda$. What does $\lambda = 0$ correspond to? What about $\lambda = 1$? Relate this to the task performance in \verb|LunarLander-v2| in one or two sentences.
+        
+\MYSOLUTION
+
+$\lambda=0$ corresponds to the model only take care of one step when calculating the advantage, while $\lambda=1$ corresponds to not using the GAE method (since the terms cancel out and left only the $Q-V$ term).
+
 \end{itemize}
 
 \newpage\section{Hyperparameter Tuning}
