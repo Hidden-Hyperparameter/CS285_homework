@@ -150,17 +150,28 @@ class PGAgent(nn.Module):
                 values = np.append(values, [0])
                 advantages = np.zeros(batch_size + 1)
                 # print('terminals',[x for x in terminals])
-                for i in reversed(range(batch_size)):
-                    # TODO: recursively compute advantage estimates starting from timestep T.
-                    # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
-                    # trajectory, and 0 otherwise.
-                    if terminals[i]:
-                        advantages[i]=rewards[i]-values[i]
-                    else:
-                        advantages[i]=advantages[i+1]*(self.gae_lambda*self.gamma)+(rewards[i]-values[i]+self.gamma*values[i+1])
 
+                # for i in reversed(range(batch_size)):
+                #     # TODO: recursively compute advantage estimates starting from timestep T.
+                #     # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
+                #     # trajectory, and 0 otherwise.
+                #     advantages[i]=(advantages[i+1]*(self.gae_lambda*self.gamma)+self.gamma*values[i+1])*(1-terminals[i])+(rewards[i]-values[i])
+                indices = [i for (i,x) in enumerate(terminals) if x>0.9]
+                indices = [0]+indices+[batch_size]
+                l = []
+                for i,begin_point in enumerate(indices[:-1]):
+                    stop_point = indices[i+1]
+                    leng = stop_point-begin_point
+                    slice_value = values[begin_point:stop_point+1]
+                    slice_value[-1]=0
+                    slice_r = rewards[begin_point:stop_point]
+                    delta = slice_r + self.gamma * slice_value[1:] - slice_value[:-1]
+                    reverse_a = np.cumsum(((self.gae_lambda*self.gamma)**(-np.arange(0,leng)))*delta[::-1])
+                    a = (reverse_a)[::-1]*((self.gae_lambda*self.gamma)**(np.arange(0,leng)))
+                    l.append(a)
                 # remove dummy advantage
-                advantages = advantages[:-1]
+                advantages = np.concatenate(l,axis=0)
+                # advantages = advantages[:-1]
 
         # TODO: normalize the advantages to have a mean of zero and a standard deviation of one within the batch
         if self.normalize_advantages:
