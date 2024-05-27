@@ -14,7 +14,6 @@
 \usepackage{natbib}
 \usepackage{listings}
 \usepackage{tikz}
-\usepackage{quiver}
 
 \newcommand{\xb}{\mathbf{x}}
 \newcommand{\yb}{\mathbf{y}}
@@ -56,7 +55,7 @@ backgroundcolor = \color{light-yellow}
     \textbf{Due September 25, 11:59 pm} \\
 \end{centering}
 
-\setcounter{section}{3}
+\setcounter{section}{2}
 \section{Policy Gradients}
 \begin{itemize}
 \item Create two graphs:
@@ -99,88 +98,9 @@ backgroundcolor = \color{light-yellow}
     \item Plot a learning curve for the Humanoid-v4 environment. You should expect to achieve an average return of at least 600 by the end of training. Discuss what changes, if any, you made to complete this problem (for example: optimizations to the original code, hyperparameter changes, algorithmic changes).
 \end{enumerate}
 
-\newpage\section{Analysis}
-\label{sec:analysis}
-Consider the following infinite-horizon MDP:
-% https://q.uiver.app/#q=WzAsMixbMCwwLCJzIl0sWzAsMSwic19GIl0sWzAsMSwiYV8yIl1d
-\[\begin{tikzcd}
-	s_1 & {s_F}
-	\arrow["{a_2}", from=1-1, to=1-2]
-    \arrow["{a_1}", loop left, from=1-1, to=1-1]
-\end{tikzcd}\]
-\newcommand{\Rmax}[0]{R_{\textrm{max}}}
-\newcommand{\E}[0]{\mathbb{E}}
-\newcommand{\var}[0]{\textrm{Var}}
-\crefname{question}{part}{parts}
-\Crefname{question}{Part}{Parts}
-\newcommand\question[1][]{\item\refstepcounter{subsection}\label[question]{#1}}
 
-At each step, the agent stays in state $s_1$ and receives reward 1 if it takes action $a_1$, and receives reward 0 and terminates the episode otherwise.
-Parametrize the policy as stationary (not dependent on time) with a single parameter:
-\[\pi_\theta(a_1|s_1) = \theta, \pi_\theta(a_2|s_1) = 1-\theta\]
 
-\begin{enumerate}
-\question[sec:analysis1] Applying policy gradients
-\begin{enumerate}
-    \item Use policy gradients to compute the gradient of the expected return $R(\tau)$ with respect to the parameter $\theta$. \textbf{Do not use discounting.}
-
-    \textbf{Hint}: to compute $\sum_{k=1}^\infty k\alpha^{k-1}$, you can write:
-    \[\sum_{k=1}^\infty k\alpha^{k-1} = \sum_{k=1}^\infty \frac{d}{d\alpha}\alpha^k = \frac{d}{d\alpha}\sum_{k=1}^\infty\alpha^k\]
-
-\textbf{Solution:}
-
-    \item \label{exact_gradient} Compute the expected return of the policy $\E_{\tau \sim \pi_\theta} R(\tau)$ directly. Compute the gradient of this expression with respect to $\theta$ and verify that this matches the policy gradient.
-
-\textbf{Solution:}
-
-\end{enumerate}
-\newpage
-\question[sec:analysis2] Compute the variance of the policy gradient in closed form and describe the properties of the variance with respect to $\theta$. For what value(s) of $\theta$ is variance minimal? Maximal? (Once you have an exact expression for the variance you can eyeball the min/max).
-
-\textbf{Hint:}  Once you have it expressed as a sum of terms $P(\theta)/Q(\theta)$ where $P$ and $Q$ are polynomials, you can use a symbolic computing program (Mathematica, SymPy, etc) to simplify to a single rational expression.
-
-\textbf{Solution:}
-
-\newpage
-\question[sec:analysis3] Apply return-to-go as an advantage estimator.
-\begin{enumerate}
-    \item Write the modified policy gradient and confirm that it is unbiased.
-
-\textbf{Solution:}
-
-    \item Compute the variance of the return-to-go policy gradient and plot it on $[0, 1]$ alongside the variance of the original estimator.
-
-\textbf{Solution:}
-
-\end{enumerate}
-\newpage
-\question[sec:analysis4] Consider a finite-horizon $H$-step MDP with sparse reward:
-% https://q.uiver.app/#q=WzAsNixbMCwwLCJzXzEiXSxbMSwwLCJzXzIiXSxbMiwwLCJzXzMiXSxbMiwxLCJzX0YiXSxbMywwLCJcXGRvdHMiXSxbNCwwLCJzX0giXSxbMCwxLCJhXzEiXSxbMSwyLCJhXzEiXSxbMCwzLCJhXzIiLDJdLFsyLDQsImFfMSJdLFs0LDVdLFsxLDMsImFfMiJdLFsyLDMsImFfMiIsMV0sWzQsMywiYV8yIiwxXV0=
-\[\begin{tikzcd}
-	{s_1} & {s_2} & {s_3} & \dots & {s_H} \\
-	&& {s_F}
-	\arrow["{a_1}", from=1-1, to=1-2]
-	\arrow["{a_1}", from=1-2, to=1-3]
-	\arrow["{a_2}"', from=1-1, to=2-3]
-	\arrow["{a_1}", from=1-3, to=1-4]
-	\arrow[from=1-4, to=1-5]
-	\arrow["{a_2}", from=1-2, to=2-3]
-	\arrow["{a_2}"{description}, from=1-3, to=2-3]
-	\arrow["{a_2}"{description}, from=1-4, to=2-3]
-\end{tikzcd}\]
-
-The agent receives reward $\Rmax$ if it arrives at $s_H$ and reward $0$ if it arrives at $s_F$ (a terminal state). In other words, the return for a trajectory $\tau$ is given by:
-\[R(\tau) = \begin{cases}1 & \tau \textrm{ ends at } s_H \\ 0 & \tau \textrm{ ends at } s_F \end{cases}\]
-Using the same policy parametrization as above, consider off-policy policy gradients via importance sampling. Assume we want to compute policy gradients for a policy $\pi_\theta$ with samples drawn from $\pi_{\theta'}$.
-\begin{enumerate}
-    \item Write the policy gradient with importance sampling.
-
-    \item Compute its variance.
-
-\end{enumerate}
-
-\end{enumerate}
-
+\setcounter{section}{8}
 \newpage\section{Survey}
 \label{sec:survey}
 Please estimate, in minutes, for each problem, how much time you spent (a) writing code and (b) waiting for the results. This will help us calibrate the difficulty for future homeworks. 
