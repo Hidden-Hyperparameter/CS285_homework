@@ -180,14 +180,35 @@ From the figures, we can see that the decreasing the learning rate of the baseli
         
 \MYSOLUTION
 
-$\lambda=0$ corresponds to the model only take care of one step when calculating the advantage, while $\lambda=1$ corresponds to not using the GAE method (since the terms cancel out and left only the $Q-V$ term).
+$\lambda=0$ corresponds to the model only take care of one step when calculating the advantage, while $\lambda=1$ corresponds to not using the GAE method (since the terms cancel out and left only the $Q-V$ term). From the experiment, we can see that $\lambda=1$ is the best (this may be a little bit confusing, since GAE should have improved the result by decreasing bias of the original baseline model). $\lambda=0$ is worse, since it doesn't take the future into account.
 
 \end{itemize}
 
 \newpage\section{Hyperparameter Tuning}
 \begin{enumerate}
         \item Provide a set of hyperparameters that achieve high return on \verb|InvertedPendulum-v4| in as few environment steps as possible.
+        
+
+\MYSOLUTION
+\begin{verbatim}
+    python cs285/scripts/run_hw2.py --env_name InvertedPendulum-v4 -n 150 \
+        --exp_name pendulum_${NAME}_s$seed \
+        -rtg --use_baseline -na \
+        --batch_size 2000 \
+        --seed $seed \
+        --discount 0.99 \
+        --gae_lambda 0.98
+\end{verbatim}
         \item Show learning curves for the average returns with your hyperparameters and with the default settings, with environment steps on the $x$-axis. Returns should be averaged over 5 seeds.
+        
+\MYSOLUTION
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{./report/assets/E4_all.png} % Replace with your graph
+        \caption{Training curve for different hyperparameters}
+        \label{fig:E3}      
+\end{figure}
 \end{enumerate}
 
 \newpage\section{(Extra Credit) Humanoid}
@@ -195,23 +216,25 @@ $\lambda=0$ corresponds to the model only take care of one step when calculating
         \item Plot a learning curve for the Humanoid-v4 environment. You should expect to achieve an average return of at least 600 by the end of training. Discuss what changes, if any, you made to complete this problem (for example: optimizations to the original code, hyperparameter changes, algorithmic changes).
 \end{enumerate}
 
+\section{Writing Problem}
+
+\MYSOLUTION
+
+Please see the link to the writing homework folder.
 
 
 \setcounter{section}{8}
 \newpage\section{Survey}
 \label{sec:survey}
 Please estimate, in minutes, for each problem, how much time you spent (a) writing code and (b) waiting for the results. This will help us calibrate the difficulty for future homeworks. 
+
+\MYSOLUTION
+
+I spent most of my time on two parts (excluding the writing homework):
+
 \begin{itemize}
-        \item \textbf{Policy Gradients:}
-        \item \textbf{Neural Network Baseline:}
-        \item \textbf{Generalized Advantage Estimation:}
-        \item \textbf{Hyperparameters and Sample Efficiency:}
-        \item \textbf{Humanoid:}
-        \item \textbf{Humanoid:}
-        \item \textbf{Analysis -- applying policy gradients:}
-        \item \textbf{Analysis -- PG variance:}
-        \item \textbf{Analysis -- return-to-go:}
-        \item \textbf{Analysis -- importance sampling:}
+        \item At first, I don't understand that the \verb|get_policy| should sample from the distribution (instead of just returning the argmax). This cost me a lot of time to debug (together with the problem of the sign of the log-likelihood term).
+        \item GAE takes me a lot of time to debug, and I finally find that I have a off-by-one problem in the calculation of the advantage.
 \end{itemize}
 
 \end{document}
