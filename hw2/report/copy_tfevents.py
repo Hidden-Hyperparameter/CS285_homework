@@ -30,4 +30,4 @@ for k,v in dic1.items():
             oldfolder = os.path.join('./run_logs',k+'_'+datetime.strftime(dic2[k],'%d-%m-%Y_%H-%M-%S'))
             # print(f'try to replace {oldfolder} with {file}')
             os.system(f'rm -rf {oldfolder}')
-        os.system(f'cp -r ./data/{file} ./run_logs/{file}')
+            os.system(f'cp -r ./data/{file} ./run_logs/{file}')
