@@ -64,6 +64,8 @@ class MLPPolicy(nn.Module):
         if self.discrete:
             # print('get_action: disrcete')
             ans = self.logits_net(obs)
+            if ans.isnan().any():
+                ans=torch.zeros_like(ans)
             ans = torch.distributions.Categorical(torch.softmax(ans,dim=-1)).sample()
         else:
             raise NotImplementedError()
