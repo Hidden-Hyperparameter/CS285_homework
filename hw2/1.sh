@@ -16,10 +16,9 @@
 # python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 4000 \
 #     -rtg --exp_name cartpole_lb_rtg \
 #     > log_cartpole_lb_rtg.log
-python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 4000 \
-    -na --exp_name cartpole_lb_na \
-    --video_log_freq 10
-    # > log_cartpole_lb_na.log
+# python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 4000 \
+#     -na --exp_name cartpole_lb_na \
+#     > log_cartpole_lb_na.log
 # python cs285/scripts/run_hw2.py --env_name CartPole-v0 -n 100 -b 4000 \
 #     -rtg -na --exp_name cartpole_lb_rtg_na \
 #     > log_cartpole_lb_rtg_na.log
