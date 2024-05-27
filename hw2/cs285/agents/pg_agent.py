@@ -150,13 +150,12 @@ class PGAgent(nn.Module):
                 values = np.append(values, [0])
                 advantages = np.zeros(batch_size + 1)
                 # print('terminals',[x for x in terminals])
-
                 # for i in reversed(range(batch_size)):
                 #     # TODO: recursively compute advantage estimates starting from timestep T.
                 #     # HINT: use terminals to handle edge cases. terminals[i] is 1 if the state is the last in its
                 #     # trajectory, and 0 otherwise.
                 #     advantages[i]=(advantages[i+1]*(self.gae_lambda*self.gamma)+self.gamma*values[i+1])*(1-terminals[i])+(rewards[i]-values[i])
-                indices = [i for (i,x) in enumerate(terminals) if x>0.9]
+                indices = [i+1 for (i,x) in enumerate(terminals) if x>0.9]
                 indices = [0]+indices+[batch_size]
                 l = []
                 for i,begin_point in enumerate(indices[:-1]):
@@ -166,9 +165,12 @@ class PGAgent(nn.Module):
                     slice_value[-1]=0
                     slice_r = rewards[begin_point:stop_point]
                     delta = slice_r + self.gamma * slice_value[1:] - slice_value[:-1]
-                    reverse_a = np.cumsum(((self.gae_lambda*self.gamma)**(-np.arange(0,leng)))*delta[::-1])
-                    a = (reverse_a*((self.gae_lambda*self.gamma)**(np.arange(0,leng))))[::-1]
-                    l.append(a)
+                    if abs(self.gae_lambda)>1e-4:
+                        reverse_a = np.cumsum(((self.gae_lambda*self.gamma)**(-np.arange(0,leng)))*delta[::-1])
+                        a = (reverse_a*((self.gae_lambda*self.gamma)**(np.arange(0,leng))))[::-1]
+                        l.append(a)
+                    else:
+                        l.append(delta)
                 # remove dummy advantage
                 advantages = np.concatenate(l,axis=0)
                 # advantages = advantages[:-1]
