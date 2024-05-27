@@ -1,0 +1,3156 @@
+########################
+logging outputs to  /home/zhh/MyFile/OnlineCourses/Berkeley285/homework_repo/hw2/cs285/scripts/../../data/q2_pg_pendulum_discount0.99_smallbatch_gae0.98_s4_InvertedPendulum-v4_27-05-2024_22-46-27
+########################
+Using CPU.
+MLPPolicy.__init__ 4 1
+
+********** Iteration 0 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 11.823529243469238
+Eval_StdReturn : 6.572986602783203
+Eval_MaxReturn : 32.0
+Eval_MinReturn : 4.0
+Eval_AverageEpLen : 11.823529411764707
+Train_AverageReturn : 7.789883136749268
+Train_StdReturn : 3.964165210723877
+Train_MaxReturn : 30.0
+Train_MinReturn : 3.0
+Train_AverageEpLen : 7.78988326848249
+Actor Loss : -127.29486846923828
+Baseline Loss : 34.70527267456055
+Train_EnvstepsSoFar : 2002
+TimeSinceStart : 0.2688288688659668
+Initial_DataCollection_AverageReturn : 7.789883136749268
+Done logging...
+
+
+
+********** Iteration 1 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 12.393939018249512
+Eval_StdReturn : 6.573313236236572
+Eval_MaxReturn : 33.0
+Eval_MinReturn : 4.0
+Eval_AverageEpLen : 12.393939393939394
+Train_AverageReturn : 10.167512893676758
+Train_StdReturn : 5.842897415161133
+Train_MaxReturn : 31.0
+Train_MinReturn : 3.0
+Train_AverageEpLen : 10.16751269035533
+Actor Loss : -57.21330261230469
+Baseline Loss : 43.29164428710938
+Train_EnvstepsSoFar : 4005
+TimeSinceStart : 0.5237352848052979
+Done logging...
+
+
+
+********** Iteration 2 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 14.851851463317871
+Eval_StdReturn : 7.053781032562256
+Eval_MaxReturn : 27.0
+Eval_MinReturn : 5.0
+Eval_AverageEpLen : 14.851851851851851
+Train_AverageReturn : 13.767123222351074
+Train_StdReturn : 8.704463958740234
+Train_MaxReturn : 55.0
+Train_MinReturn : 3.0
+Train_AverageEpLen : 13.767123287671232
+Actor Loss : -42.646610260009766
+Baseline Loss : 70.50736618041992
+Train_EnvstepsSoFar : 6015
+TimeSinceStart : 0.7626488208770752
+Done logging...
+
+
+
+********** Iteration 3 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 21.526315689086914
+Eval_StdReturn : 12.453570365905762
+Eval_MaxReturn : 52.0
+Eval_MinReturn : 9.0
+Eval_AverageEpLen : 21.526315789473685
+Train_AverageReturn : 17.814159393310547
+Train_StdReturn : 9.921415328979492
+Train_MaxReturn : 54.0
+Train_MinReturn : 4.0
+Train_AverageEpLen : 17.8141592920354
+Actor Loss : -121.33708190917969
+Baseline Loss : 76.30152435302735
+Train_EnvstepsSoFar : 8028
+TimeSinceStart : 1.010380506515503
+Done logging...
+
+
+
+********** Iteration 4 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 20.75
+Eval_StdReturn : 8.005467414855957
+Eval_MaxReturn : 45.0
+Eval_MinReturn : 13.0
+Eval_AverageEpLen : 20.75
+Train_AverageReturn : 21.294736862182617
+Train_StdReturn : 12.84389877319336
+Train_MaxReturn : 72.0
+Train_MinReturn : 5.0
+Train_AverageEpLen : 21.294736842105262
+Actor Loss : -66.82359313964844
+Baseline Loss : 111.8764404296875
+Train_EnvstepsSoFar : 10051
+TimeSinceStart : 1.2437629699707031
+Done logging...
+
+
+
+********** Iteration 5 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 27.53333282470703
+Eval_StdReturn : 11.430173873901367
+Eval_MaxReturn : 50.0
+Eval_MinReturn : 10.0
+Eval_AverageEpLen : 27.533333333333335
+Train_AverageReturn : 25.212499618530273
+Train_StdReturn : 10.754875183105469
+Train_MaxReturn : 66.0
+Train_MinReturn : 10.0
+Train_AverageEpLen : 25.2125
+Actor Loss : -93.29850769042969
+Baseline Loss : 87.79729461669922
+Train_EnvstepsSoFar : 12068
+TimeSinceStart : 1.4969303607940674
+Done logging...
+
+
+
+********** Iteration 6 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 36.25
+Eval_StdReturn : 7.451230049133301
+Eval_MaxReturn : 52.0
+Eval_MinReturn : 24.0
+Eval_AverageEpLen : 36.25
+Train_AverageReturn : 31.046154022216797
+Train_StdReturn : 15.039875984191895
+Train_MaxReturn : 89.0
+Train_MinReturn : 9.0
+Train_AverageEpLen : 31.046153846153846
+Actor Loss : -30.712459564208984
+Baseline Loss : 146.50063781738282
+Train_EnvstepsSoFar : 14086
+TimeSinceStart : 1.7370712757110596
+Done logging...
+
+
+
+********** Iteration 7 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 31.14285659790039
+Eval_StdReturn : 10.76938247680664
+Eval_MaxReturn : 50.0
+Eval_MinReturn : 16.0
+Eval_AverageEpLen : 31.142857142857142
+Train_AverageReturn : 30.33333396911621
+Train_StdReturn : 13.95591926574707
+Train_MaxReturn : 76.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 30.333333333333332
+Actor Loss : -35.10027313232422
+Baseline Loss : 124.16442108154297
+Train_EnvstepsSoFar : 16088
+TimeSinceStart : 1.9641711711883545
+Done logging...
+
+
+
+********** Iteration 8 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 37.3636360168457
+Eval_StdReturn : 10.280366897583008
+Eval_MaxReturn : 54.0
+Eval_MinReturn : 24.0
+Eval_AverageEpLen : 37.36363636363637
+Train_AverageReturn : 32.74193572998047
+Train_StdReturn : 14.3515043258667
+Train_MaxReturn : 93.0
+Train_MinReturn : 12.0
+Train_AverageEpLen : 32.74193548387097
+Actor Loss : -52.353302001953125
+Baseline Loss : 131.20240173339843
+Train_EnvstepsSoFar : 18118
+TimeSinceStart : 2.1937499046325684
+Done logging...
+
+
+
+********** Iteration 9 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 34.33333206176758
+Eval_StdReturn : 14.319761276245117
+Eval_MaxReturn : 72.0
+Eval_MinReturn : 18.0
+Eval_AverageEpLen : 34.333333333333336
+Train_AverageReturn : 33.966102600097656
+Train_StdReturn : 14.17919921875
+Train_MaxReturn : 64.0
+Train_MinReturn : 10.0
+Train_AverageEpLen : 33.96610169491525
+Actor Loss : -36.87356185913086
+Baseline Loss : 121.54306182861328
+Train_EnvstepsSoFar : 20122
+TimeSinceStart : 2.4174180030822754
+Done logging...
+
+
+
+********** Iteration 10 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 42.599998474121094
+Eval_StdReturn : 13.573503494262695
+Eval_MaxReturn : 59.0
+Eval_MinReturn : 21.0
+Eval_AverageEpLen : 42.6
+Train_AverageReturn : 47.02325439453125
+Train_StdReturn : 22.931129455566406
+Train_MaxReturn : 124.0
+Train_MinReturn : 18.0
+Train_AverageEpLen : 47.02325581395349
+Actor Loss : -34.00891876220703
+Baseline Loss : 255.80853576660155
+Train_EnvstepsSoFar : 22144
+TimeSinceStart : 2.6525466442108154
+Done logging...
+
+
+
+********** Iteration 11 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 44.88888931274414
+Eval_StdReturn : 10.224637985229492
+Eval_MaxReturn : 59.0
+Eval_MinReturn : 30.0
+Eval_AverageEpLen : 44.888888888888886
+Train_AverageReturn : 40.040000915527344
+Train_StdReturn : 17.86052703857422
+Train_MaxReturn : 90.0
+Train_MinReturn : 13.0
+Train_AverageEpLen : 40.04
+Actor Loss : 25.113500595092773
+Baseline Loss : 162.45999755859376
+Train_EnvstepsSoFar : 24146
+TimeSinceStart : 2.8802011013031006
+Done logging...
+
+
+
+********** Iteration 12 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 45.66666793823242
+Eval_StdReturn : 13.441229820251465
+Eval_MaxReturn : 70.0
+Eval_MinReturn : 26.0
+Eval_AverageEpLen : 45.666666666666664
+Train_AverageReturn : 42.38775634765625
+Train_StdReturn : 23.44234275817871
+Train_MaxReturn : 141.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 42.38775510204081
+Actor Loss : -46.35745620727539
+Baseline Loss : 233.7641174316406
+Train_EnvstepsSoFar : 26223
+TimeSinceStart : 3.1188883781433105
+Done logging...
+
+
+
+********** Iteration 13 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 40.272727966308594
+Eval_StdReturn : 13.889766693115234
+Eval_MaxReturn : 61.0
+Eval_MinReturn : 12.0
+Eval_AverageEpLen : 40.27272727272727
+Train_AverageReturn : 48.80487823486328
+Train_StdReturn : 21.09469985961914
+Train_MaxReturn : 102.0
+Train_MinReturn : 17.0
+Train_AverageEpLen : 48.80487804878049
+Actor Loss : -15.619001388549805
+Baseline Loss : 203.7572021484375
+Train_EnvstepsSoFar : 28224
+TimeSinceStart : 3.358384847640991
+Done logging...
+
+
+
+********** Iteration 14 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 60.71428680419922
+Eval_StdReturn : 17.774091720581055
+Eval_MaxReturn : 92.0
+Eval_MinReturn : 33.0
+Eval_AverageEpLen : 60.714285714285715
+Train_AverageReturn : 47.16279220581055
+Train_StdReturn : 17.396778106689453
+Train_MaxReturn : 87.0
+Train_MinReturn : 12.0
+Train_AverageEpLen : 47.16279069767442
+Actor Loss : 16.228057861328125
+Baseline Loss : 159.8020812988281
+Train_EnvstepsSoFar : 30252
+TimeSinceStart : 3.5941271781921387
+Done logging...
+
+
+
+********** Iteration 15 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 51.125
+Eval_StdReturn : 9.66226577758789
+Eval_MaxReturn : 75.0
+Eval_MinReturn : 41.0
+Eval_AverageEpLen : 51.125
+Train_AverageReturn : 51.150001525878906
+Train_StdReturn : 20.308311462402344
+Train_MaxReturn : 99.0
+Train_MinReturn : 12.0
+Train_AverageEpLen : 51.15
+Actor Loss : -33.495338439941406
+Baseline Loss : 191.31417541503907
+Train_EnvstepsSoFar : 32298
+TimeSinceStart : 3.8363754749298096
+Done logging...
+
+
+
+********** Iteration 16 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 54.875
+Eval_StdReturn : 18.610733032226562
+Eval_MaxReturn : 100.0
+Eval_MinReturn : 39.0
+Eval_AverageEpLen : 54.875
+Train_AverageReturn : 60.05882263183594
+Train_StdReturn : 30.112476348876953
+Train_MaxReturn : 167.0
+Train_MinReturn : 17.0
+Train_AverageEpLen : 60.05882352941177
+Actor Loss : -42.90552520751953
+Baseline Loss : 324.7096313476562
+Train_EnvstepsSoFar : 34340
+TimeSinceStart : 4.091094255447388
+Done logging...
+
+
+
+********** Iteration 17 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 46.44444274902344
+Eval_StdReturn : 16.391807556152344
+Eval_MaxReturn : 73.0
+Eval_MinReturn : 10.0
+Eval_AverageEpLen : 46.44444444444444
+Train_AverageReturn : 53.3684196472168
+Train_StdReturn : 17.09327507019043
+Train_MaxReturn : 103.0
+Train_MinReturn : 15.0
+Train_AverageEpLen : 53.36842105263158
+Actor Loss : 40.43248748779297
+Baseline Loss : 161.02648010253907
+Train_EnvstepsSoFar : 36368
+TimeSinceStart : 4.345006227493286
+Done logging...
+
+
+
+********** Iteration 18 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 57.42856979370117
+Eval_StdReturn : 16.534440994262695
+Eval_MaxReturn : 86.0
+Eval_MinReturn : 39.0
+Eval_AverageEpLen : 57.42857142857143
+Train_AverageReturn : 56.5
+Train_StdReturn : 21.100948333740234
+Train_MaxReturn : 111.0
+Train_MinReturn : 18.0
+Train_AverageEpLen : 56.5
+Actor Loss : -22.831470489501953
+Baseline Loss : 195.53549499511718
+Train_EnvstepsSoFar : 38402
+TimeSinceStart : 4.595828294754028
+Done logging...
+
+
+
+********** Iteration 19 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 62.85714340209961
+Eval_StdReturn : 17.867996215820312
+Eval_MaxReturn : 82.0
+Eval_MinReturn : 29.0
+Eval_AverageEpLen : 62.857142857142854
+Train_AverageReturn : 57.657142639160156
+Train_StdReturn : 28.735187530517578
+Train_MaxReturn : 145.0
+Train_MinReturn : 21.0
+Train_AverageEpLen : 57.65714285714286
+Actor Loss : 68.30982971191406
+Baseline Loss : 266.76185913085936
+Train_EnvstepsSoFar : 40420
+TimeSinceStart : 4.846895694732666
+Done logging...
+
+
+
+********** Iteration 20 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 67.14286041259766
+Eval_StdReturn : 25.379568099975586
+Eval_MaxReturn : 103.0
+Eval_MinReturn : 37.0
+Eval_AverageEpLen : 67.14285714285714
+Train_AverageReturn : 53.23684310913086
+Train_StdReturn : 20.700157165527344
+Train_MaxReturn : 119.0
+Train_MinReturn : 15.0
+Train_AverageEpLen : 53.23684210526316
+Actor Loss : -106.04984283447266
+Baseline Loss : 184.24935302734374
+Train_EnvstepsSoFar : 42443
+TimeSinceStart : 5.104348182678223
+Done logging...
+
+
+
+********** Iteration 21 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 53.5
+Eval_StdReturn : 17.051393508911133
+Eval_MaxReturn : 76.0
+Eval_MinReturn : 30.0
+Eval_AverageEpLen : 53.5
+Train_AverageReturn : 53.02631759643555
+Train_StdReturn : 17.650833129882812
+Train_MaxReturn : 99.0
+Train_MinReturn : 32.0
+Train_AverageEpLen : 53.026315789473685
+Actor Loss : -39.36558151245117
+Baseline Loss : 189.9948974609375
+Train_EnvstepsSoFar : 44458
+TimeSinceStart : 5.362566709518433
+Done logging...
+
+
+
+********** Iteration 22 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 96.0
+Eval_StdReturn : 30.19271469116211
+Eval_MaxReturn : 130.0
+Eval_MinReturn : 52.0
+Eval_AverageEpLen : 96.0
+Train_AverageReturn : 59.882354736328125
+Train_StdReturn : 25.172073364257812
+Train_MaxReturn : 143.0
+Train_MinReturn : 25.0
+Train_AverageEpLen : 59.88235294117647
+Actor Loss : -52.064453125
+Baseline Loss : 263.25654296875
+Train_EnvstepsSoFar : 46494
+TimeSinceStart : 5.619690418243408
+Done logging...
+
+
+
+********** Iteration 23 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 84.80000305175781
+Eval_StdReturn : 21.188676834106445
+Eval_MaxReturn : 124.0
+Eval_MinReturn : 62.0
+Eval_AverageEpLen : 84.8
+Train_AverageReturn : 59.55882263183594
+Train_StdReturn : 27.008920669555664
+Train_MaxReturn : 145.0
+Train_MinReturn : 8.0
+Train_AverageEpLen : 59.55882352941177
+Actor Loss : -3.353290557861328
+Baseline Loss : 282.24920043945315
+Train_EnvstepsSoFar : 48519
+TimeSinceStart : 5.876991271972656
+Done logging...
+
+
+
+********** Iteration 24 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 59.85714340209961
+Eval_StdReturn : 17.899948120117188
+Eval_MaxReturn : 86.0
+Eval_MinReturn : 31.0
+Eval_AverageEpLen : 59.857142857142854
+Train_AverageReturn : 55.10810852050781
+Train_StdReturn : 23.46910858154297
+Train_MaxReturn : 106.0
+Train_MinReturn : 16.0
+Train_AverageEpLen : 55.108108108108105
+Actor Loss : -4.47681999206543
+Baseline Loss : 240.18610534667968
+Train_EnvstepsSoFar : 50558
+TimeSinceStart : 6.126498222351074
+Done logging...
+
+
+
+********** Iteration 25 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 73.33333587646484
+Eval_StdReturn : 12.59188461303711
+Eval_MaxReturn : 93.0
+Eval_MinReturn : 58.0
+Eval_AverageEpLen : 73.33333333333333
+Train_AverageReturn : 59.117645263671875
+Train_StdReturn : 26.04607391357422
+Train_MaxReturn : 131.0
+Train_MinReturn : 11.0
+Train_AverageEpLen : 59.11764705882353
+Actor Loss : -49.506103515625
+Baseline Loss : 272.039111328125
+Train_EnvstepsSoFar : 52568
+TimeSinceStart : 6.361278057098389
+Done logging...
+
+
+
+********** Iteration 26 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 69.66666412353516
+Eval_StdReturn : 10.498677253723145
+Eval_MaxReturn : 81.0
+Eval_MinReturn : 51.0
+Eval_AverageEpLen : 69.66666666666667
+Train_AverageReturn : 66.0
+Train_StdReturn : 21.98386573791504
+Train_MaxReturn : 116.0
+Train_MinReturn : 14.0
+Train_AverageEpLen : 66.0
+Actor Loss : -71.21014404296875
+Baseline Loss : 253.29857482910157
+Train_EnvstepsSoFar : 54614
+TimeSinceStart : 6.592131853103638
+Done logging...
+
+
+
+********** Iteration 27 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 90.4000015258789
+Eval_StdReturn : 24.113067626953125
+Eval_MaxReturn : 130.0
+Eval_MinReturn : 59.0
+Eval_AverageEpLen : 90.4
+Train_AverageReturn : 71.71428680419922
+Train_StdReturn : 18.2205867767334
+Train_MaxReturn : 104.0
+Train_MinReturn : 36.0
+Train_AverageEpLen : 71.71428571428571
+Actor Loss : -61.752479553222656
+Baseline Loss : 253.88782348632813
+Train_EnvstepsSoFar : 56622
+TimeSinceStart : 6.842827796936035
+Done logging...
+
+
+
+********** Iteration 28 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 84.19999694824219
+Eval_StdReturn : 16.809520721435547
+Eval_MaxReturn : 106.0
+Eval_MinReturn : 63.0
+Eval_AverageEpLen : 84.2
+Train_AverageReturn : 94.54545593261719
+Train_StdReturn : 37.518150329589844
+Train_MaxReturn : 234.0
+Train_MinReturn : 26.0
+Train_AverageEpLen : 94.54545454545455
+Actor Loss : 7.832484245300293
+Baseline Loss : 541.2839538574219
+Train_EnvstepsSoFar : 58702
+TimeSinceStart : 7.096174955368042
+Done logging...
+
+
+
+********** Iteration 29 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 102.75
+Eval_StdReturn : 32.75954055786133
+Eval_MaxReturn : 159.0
+Eval_MinReturn : 77.0
+Eval_AverageEpLen : 102.75
+Train_AverageReturn : 93.2727279663086
+Train_StdReturn : 31.909221649169922
+Train_MaxReturn : 204.0
+Train_MinReturn : 47.0
+Train_AverageEpLen : 93.27272727272727
+Actor Loss : -3.7128334045410156
+Baseline Loss : 419.4547485351562
+Train_EnvstepsSoFar : 60754
+TimeSinceStart : 7.343761444091797
+Done logging...
+
+
+
+********** Iteration 30 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 73.33333587646484
+Eval_StdReturn : 22.25358772277832
+Eval_MaxReturn : 106.0
+Eval_MinReturn : 41.0
+Eval_AverageEpLen : 73.33333333333333
+Train_AverageReturn : 103.3499984741211
+Train_StdReturn : 37.55965042114258
+Train_MaxReturn : 183.0
+Train_MinReturn : 46.0
+Train_AverageEpLen : 103.35
+Actor Loss : 10.51519775390625
+Baseline Loss : 423.77880859375
+Train_EnvstepsSoFar : 62821
+TimeSinceStart : 7.593183517456055
+Done logging...
+
+
+
+********** Iteration 31 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 102.25
+Eval_StdReturn : 31.019147872924805
+Eval_MaxReturn : 154.0
+Eval_MinReturn : 75.0
+Eval_AverageEpLen : 102.25
+Train_AverageReturn : 83.80000305175781
+Train_StdReturn : 23.421356201171875
+Train_MaxReturn : 149.0
+Train_MinReturn : 33.0
+Train_AverageEpLen : 83.8
+Actor Loss : -36.87057876586914
+Baseline Loss : 263.5127014160156
+Train_EnvstepsSoFar : 64916
+TimeSinceStart : 7.851117134094238
+Done logging...
+
+
+
+********** Iteration 32 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 101.5
+Eval_StdReturn : 9.5
+Eval_MaxReturn : 116.0
+Eval_MinReturn : 93.0
+Eval_AverageEpLen : 101.5
+Train_AverageReturn : 77.69230651855469
+Train_StdReturn : 20.767520904541016
+Train_MaxReturn : 116.0
+Train_MinReturn : 43.0
+Train_AverageEpLen : 77.6923076923077
+Actor Loss : 1.7811832427978516
+Baseline Loss : 173.51647338867187
+Train_EnvstepsSoFar : 66936
+TimeSinceStart : 8.093818664550781
+Done logging...
+
+
+
+********** Iteration 33 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 84.0
+Eval_StdReturn : 20.615528106689453
+Eval_MaxReturn : 111.0
+Eval_MinReturn : 55.0
+Eval_AverageEpLen : 84.0
+Train_AverageReturn : 71.72413635253906
+Train_StdReturn : 24.093061447143555
+Train_MaxReturn : 131.0
+Train_MinReturn : 39.0
+Train_AverageEpLen : 71.72413793103448
+Actor Loss : -10.636533737182617
+Baseline Loss : 135.241845703125
+Train_EnvstepsSoFar : 69016
+TimeSinceStart : 8.329111814498901
+Done logging...
+
+
+
+********** Iteration 34 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 67.57142639160156
+Eval_StdReturn : 26.655780792236328
+Eval_MaxReturn : 103.0
+Eval_MinReturn : 19.0
+Eval_AverageEpLen : 67.57142857142857
+Train_AverageReturn : 79.84615325927734
+Train_StdReturn : 27.820430755615234
+Train_MaxReturn : 147.0
+Train_MinReturn : 15.0
+Train_AverageEpLen : 79.84615384615384
+Actor Loss : -54.479427337646484
+Baseline Loss : 180.29013366699218
+Train_EnvstepsSoFar : 71092
+TimeSinceStart : 8.560593366622925
+Done logging...
+
+
+
+********** Iteration 35 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 77.0
+Eval_StdReturn : 23.84673309326172
+Eval_MaxReturn : 118.0
+Eval_MinReturn : 39.0
+Eval_AverageEpLen : 77.0
+Train_AverageReturn : 95.61904907226562
+Train_StdReturn : 42.25374221801758
+Train_MaxReturn : 215.0
+Train_MinReturn : 45.0
+Train_AverageEpLen : 95.61904761904762
+Actor Loss : -5.998486518859863
+Baseline Loss : 358.06464233398435
+Train_EnvstepsSoFar : 73100
+TimeSinceStart : 8.80036735534668
+Done logging...
+
+
+
+********** Iteration 36 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 152.3333282470703
+Eval_StdReturn : 42.62498092651367
+Eval_MaxReturn : 207.0
+Eval_MinReturn : 103.0
+Eval_AverageEpLen : 152.33333333333334
+Train_AverageReturn : 87.08695983886719
+Train_StdReturn : 29.182950973510742
+Train_MaxReturn : 146.0
+Train_MinReturn : 37.0
+Train_AverageEpLen : 87.08695652173913
+Actor Loss : -18.210622787475586
+Baseline Loss : 314.0328674316406
+Train_EnvstepsSoFar : 75103
+TimeSinceStart : 9.04047679901123
+Done logging...
+
+
+
+********** Iteration 37 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 118.5
+Eval_StdReturn : 48.84925842285156
+Eval_MaxReturn : 203.0
+Eval_MinReturn : 87.0
+Eval_AverageEpLen : 118.5
+Train_AverageReturn : 96.61904907226562
+Train_StdReturn : 30.44350814819336
+Train_MaxReturn : 172.0
+Train_MinReturn : 56.0
+Train_AverageEpLen : 96.61904761904762
+Actor Loss : -59.84490203857422
+Baseline Loss : 340.0282775878906
+Train_EnvstepsSoFar : 77132
+TimeSinceStart : 9.27155613899231
+Done logging...
+
+
+
+********** Iteration 38 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 86.4000015258789
+Eval_StdReturn : 44.6031379699707
+Eval_MaxReturn : 158.0
+Eval_MinReturn : 34.0
+Eval_AverageEpLen : 86.4
+Train_AverageReturn : 96.57142639160156
+Train_StdReturn : 33.927894592285156
+Train_MaxReturn : 176.0
+Train_MinReturn : 54.0
+Train_AverageEpLen : 96.57142857142857
+Actor Loss : -30.011577606201172
+Baseline Loss : 355.49705200195314
+Train_EnvstepsSoFar : 79160
+TimeSinceStart : 9.489363193511963
+Done logging...
+
+
+
+********** Iteration 39 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 102.25
+Eval_StdReturn : 44.448707580566406
+Eval_MaxReturn : 157.0
+Eval_MinReturn : 45.0
+Eval_AverageEpLen : 102.25
+Train_AverageReturn : 105.57894897460938
+Train_StdReturn : 58.518836975097656
+Train_MaxReturn : 313.0
+Train_MinReturn : 43.0
+Train_AverageEpLen : 105.57894736842105
+Actor Loss : -29.444530487060547
+Baseline Loss : 503.31226806640626
+Train_EnvstepsSoFar : 81166
+TimeSinceStart : 9.711004257202148
+Done logging...
+
+
+
+********** Iteration 40 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 110.19999694824219
+Eval_StdReturn : 39.19387435913086
+Eval_MaxReturn : 184.0
+Eval_MinReturn : 71.0
+Eval_AverageEpLen : 110.2
+Train_AverageReturn : 114.55555725097656
+Train_StdReturn : 45.70706558227539
+Train_MaxReturn : 231.0
+Train_MinReturn : 61.0
+Train_AverageEpLen : 114.55555555555556
+Actor Loss : -17.97903060913086
+Baseline Loss : 394.85276489257814
+Train_EnvstepsSoFar : 83228
+TimeSinceStart : 9.959181547164917
+Done logging...
+
+
+
+********** Iteration 41 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 161.6666717529297
+Eval_StdReturn : 37.853519439697266
+Eval_MaxReturn : 215.0
+Eval_MinReturn : 131.0
+Eval_AverageEpLen : 161.66666666666666
+Train_AverageReturn : 140.73333740234375
+Train_StdReturn : 51.91848373413086
+Train_MaxReturn : 255.0
+Train_MinReturn : 67.0
+Train_AverageEpLen : 140.73333333333332
+Actor Loss : 27.214523315429688
+Baseline Loss : 483.03558959960935
+Train_EnvstepsSoFar : 85339
+TimeSinceStart : 10.201921463012695
+Done logging...
+
+
+
+********** Iteration 42 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 134.6666717529297
+Eval_StdReturn : 51.90589904785156
+Eval_MaxReturn : 206.0
+Eval_MinReturn : 84.0
+Eval_AverageEpLen : 134.66666666666666
+Train_AverageReturn : 137.06666564941406
+Train_StdReturn : 55.0605354309082
+Train_MaxReturn : 291.0
+Train_MinReturn : 39.0
+Train_AverageEpLen : 137.06666666666666
+Actor Loss : -64.65248107910156
+Baseline Loss : 416.966015625
+Train_EnvstepsSoFar : 87395
+TimeSinceStart : 10.431171655654907
+Done logging...
+
+
+
+********** Iteration 43 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 126.25
+Eval_StdReturn : 8.525696754455566
+Eval_MaxReturn : 139.0
+Eval_MinReturn : 115.0
+Eval_AverageEpLen : 126.25
+Train_AverageReturn : 180.1666717529297
+Train_StdReturn : 88.60289001464844
+Train_MaxReturn : 427.0
+Train_MinReturn : 71.0
+Train_AverageEpLen : 180.16666666666666
+Actor Loss : -53.203426361083984
+Baseline Loss : 609.5340454101563
+Train_EnvstepsSoFar : 89557
+TimeSinceStart : 10.672391176223755
+Done logging...
+
+
+
+********** Iteration 44 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 142.0
+Eval_StdReturn : 33.95094299316406
+Eval_MaxReturn : 174.0
+Eval_MinReturn : 95.0
+Eval_AverageEpLen : 142.0
+Train_AverageReturn : 189.27272033691406
+Train_StdReturn : 94.11027526855469
+Train_MaxReturn : 468.0
+Train_MinReturn : 107.0
+Train_AverageEpLen : 189.27272727272728
+Actor Loss : 4.963474273681641
+Baseline Loss : 510.8846008300781
+Train_EnvstepsSoFar : 91639
+TimeSinceStart : 10.917124032974243
+Done logging...
+
+
+
+********** Iteration 45 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 287.0
+Eval_StdReturn : 134.0
+Eval_MaxReturn : 421.0
+Eval_MinReturn : 153.0
+Eval_AverageEpLen : 287.0
+Train_AverageReturn : 130.75
+Train_StdReturn : 59.75418472290039
+Train_MaxReturn : 278.0
+Train_MinReturn : 34.0
+Train_AverageEpLen : 130.75
+Actor Loss : -88.23509216308594
+Baseline Loss : 351.366015625
+Train_EnvstepsSoFar : 93731
+TimeSinceStart : 11.185912370681763
+Done logging...
+
+
+
+********** Iteration 46 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 211.0
+Eval_StdReturn : 45.0
+Eval_MaxReturn : 256.0
+Eval_MinReturn : 166.0
+Eval_AverageEpLen : 211.0
+Train_AverageReturn : 184.90908813476562
+Train_StdReturn : 79.5103759765625
+Train_MaxReturn : 356.0
+Train_MinReturn : 64.0
+Train_AverageEpLen : 184.9090909090909
+Actor Loss : -64.23957824707031
+Baseline Loss : 500.4127136230469
+Train_EnvstepsSoFar : 95765
+TimeSinceStart : 11.434595584869385
+Done logging...
+
+
+
+********** Iteration 47 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 119.75
+Eval_StdReturn : 16.068214416503906
+Eval_MaxReturn : 142.0
+Eval_MinReturn : 100.0
+Eval_AverageEpLen : 119.75
+Train_AverageReturn : 151.0
+Train_StdReturn : 78.02471923828125
+Train_MaxReturn : 320.0
+Train_MinReturn : 52.0
+Train_AverageEpLen : 151.0
+Actor Loss : -32.2875862121582
+Baseline Loss : 681.9659545898437
+Train_EnvstepsSoFar : 97879
+TimeSinceStart : 11.675806283950806
+Done logging...
+
+
+
+********** Iteration 48 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 306.3333435058594
+Eval_StdReturn : 158.0660858154297
+Eval_MaxReturn : 521.0
+Eval_MinReturn : 145.0
+Eval_AverageEpLen : 306.3333333333333
+Train_AverageReturn : 217.3000030517578
+Train_StdReturn : 149.5988311767578
+Train_MaxReturn : 527.0
+Train_MinReturn : 56.0
+Train_AverageEpLen : 217.3
+Actor Loss : -14.777990341186523
+Baseline Loss : 809.762353515625
+Train_EnvstepsSoFar : 100052
+TimeSinceStart : 11.958552122116089
+Done logging...
+
+
+
+********** Iteration 49 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 232.5
+Eval_StdReturn : 57.5
+Eval_MaxReturn : 290.0
+Eval_MinReturn : 175.0
+Eval_AverageEpLen : 232.5
+Train_AverageReturn : 277.375
+Train_StdReturn : 129.8796844482422
+Train_MaxReturn : 401.0
+Train_MinReturn : 46.0
+Train_AverageEpLen : 277.375
+Actor Loss : -26.971721649169922
+Baseline Loss : 788.9401733398438
+Train_EnvstepsSoFar : 102271
+TimeSinceStart : 12.201971769332886
+Done logging...
+
+
+
+********** Iteration 50 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 195.0
+Eval_StdReturn : 101.419921875
+Eval_MaxReturn : 328.0
+Eval_MinReturn : 82.0
+Eval_AverageEpLen : 195.0
+Train_AverageReturn : 257.625
+Train_StdReturn : 150.68836975097656
+Train_MaxReturn : 515.0
+Train_MinReturn : 71.0
+Train_AverageEpLen : 257.625
+Actor Loss : -1.1275653839111328
+Baseline Loss : 791.0759155273438
+Train_EnvstepsSoFar : 104332
+TimeSinceStart : 12.445132493972778
+Done logging...
+
+
+
+********** Iteration 51 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 172.0
+Eval_StdReturn : 61.64413833618164
+Eval_MaxReturn : 242.0
+Eval_MinReturn : 92.0
+Eval_AverageEpLen : 172.0
+Train_AverageReturn : 221.89999389648438
+Train_StdReturn : 104.53750610351562
+Train_MaxReturn : 379.0
+Train_MinReturn : 91.0
+Train_AverageEpLen : 221.9
+Actor Loss : -34.84676742553711
+Baseline Loss : 686.1873413085938
+Train_EnvstepsSoFar : 106551
+TimeSinceStart : 12.690428733825684
+Done logging...
+
+
+
+********** Iteration 52 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 607.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 607.0
+Eval_MinReturn : 607.0
+Eval_AverageEpLen : 607.0
+Train_AverageReturn : 348.3333435058594
+Train_StdReturn : 198.46717834472656
+Train_MaxReturn : 635.0
+Train_MinReturn : 63.0
+Train_AverageEpLen : 348.3333333333333
+Actor Loss : 37.08549499511719
+Baseline Loss : 714.4987182617188
+Train_EnvstepsSoFar : 108641
+TimeSinceStart : 12.942451477050781
+Done logging...
+
+
+
+********** Iteration 53 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 663.0
+Eval_StdReturn : 337.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 326.0
+Eval_AverageEpLen : 663.0
+Train_AverageReturn : 587.75
+Train_StdReturn : 291.77935791015625
+Train_MaxReturn : 1000.0
+Train_MinReturn : 270.0
+Train_AverageEpLen : 587.75
+Actor Loss : -20.33711051940918
+Baseline Loss : 850.7822021484375
+Train_EnvstepsSoFar : 110992
+TimeSinceStart : 13.2860267162323
+Done logging...
+
+
+
+********** Iteration 54 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 739.6666870117188
+Train_StdReturn : 230.30462646484375
+Train_MaxReturn : 1000.0
+Train_MinReturn : 440.0
+Train_AverageEpLen : 739.6666666666666
+Actor Loss : -1.7091341018676758
+Baseline Loss : 691.2741577148438
+Train_EnvstepsSoFar : 113211
+TimeSinceStart : 13.590796709060669
+Done logging...
+
+
+
+********** Iteration 55 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 431.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 431.0
+Eval_MinReturn : 431.0
+Eval_AverageEpLen : 431.0
+Train_AverageReturn : 378.8333435058594
+Train_StdReturn : 190.79257202148438
+Train_MaxReturn : 756.0
+Train_MinReturn : 187.0
+Train_AverageEpLen : 378.8333333333333
+Actor Loss : -60.37980651855469
+Baseline Loss : 646.9923706054688
+Train_EnvstepsSoFar : 115484
+TimeSinceStart : 13.839256525039673
+Done logging...
+
+
+
+********** Iteration 56 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 593.5
+Eval_StdReturn : 406.5
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 187.0
+Eval_AverageEpLen : 593.5
+Train_AverageReturn : 521.5
+Train_StdReturn : 339.9444885253906
+Train_MaxReturn : 997.0
+Train_MinReturn : 98.0
+Train_AverageEpLen : 521.5
+Actor Loss : -22.07314682006836
+Baseline Loss : 565.6532470703125
+Train_EnvstepsSoFar : 117570
+TimeSinceStart : 14.138939619064331
+Done logging...
+
+
+
+********** Iteration 57 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 358.8571472167969
+Train_StdReturn : 329.8793640136719
+Train_MaxReturn : 1000.0
+Train_MinReturn : 90.0
+Train_AverageEpLen : 358.85714285714283
+Actor Loss : -36.78071594238281
+Baseline Loss : 757.4226928710938
+Train_EnvstepsSoFar : 120082
+TimeSinceStart : 14.471720218658447
+Done logging...
+
+
+
+********** Iteration 58 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 682.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 682.0
+Eval_MinReturn : 682.0
+Eval_AverageEpLen : 682.0
+Train_AverageReturn : 560.75
+Train_StdReturn : 442.9228820800781
+Train_MaxReturn : 1000.0
+Train_MinReturn : 41.0
+Train_AverageEpLen : 560.75
+Actor Loss : -15.673408508300781
+Baseline Loss : 595.4107055664062
+Train_EnvstepsSoFar : 122325
+TimeSinceStart : 14.747835636138916
+Done logging...
+
+
+
+********** Iteration 59 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 718.0
+Train_StdReturn : 398.8082275390625
+Train_MaxReturn : 1000.0
+Train_MinReturn : 154.0
+Train_AverageEpLen : 718.0
+Actor Loss : -23.824003219604492
+Baseline Loss : 518.7912841796875
+Train_EnvstepsSoFar : 124479
+TimeSinceStart : 15.03329062461853
+Done logging...
+
+
+
+********** Iteration 60 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 978.6666870117188
+Train_StdReturn : 30.16988754272461
+Train_MaxReturn : 1000.0
+Train_MinReturn : 936.0
+Train_AverageEpLen : 978.6666666666666
+Actor Loss : -49.803287506103516
+Baseline Loss : 433.10569458007814
+Train_EnvstepsSoFar : 127415
+TimeSinceStart : 15.388808965682983
+Done logging...
+
+
+
+********** Iteration 61 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 784.0
+Train_StdReturn : 305.4701232910156
+Train_MaxReturn : 1000.0
+Train_MinReturn : 352.0
+Train_AverageEpLen : 784.0
+Actor Loss : 42.994293212890625
+Baseline Loss : 461.42759399414064
+Train_EnvstepsSoFar : 129767
+TimeSinceStart : 15.705061912536621
+Done logging...
+
+
+
+********** Iteration 62 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 778.0
+Train_StdReturn : 313.9554138183594
+Train_MaxReturn : 1000.0
+Train_MinReturn : 334.0
+Train_AverageEpLen : 778.0
+Actor Loss : -25.38526153564453
+Baseline Loss : 456.43349609375
+Train_EnvstepsSoFar : 132101
+TimeSinceStart : 16.016102075576782
+Done logging...
+
+
+
+********** Iteration 63 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 880.6666870117188
+Train_StdReturn : 109.25607299804688
+Train_MaxReturn : 1000.0
+Train_MinReturn : 736.0
+Train_AverageEpLen : 880.6666666666666
+Actor Loss : -6.33320426940918
+Baseline Loss : 392.60418090820315
+Train_EnvstepsSoFar : 134743
+TimeSinceStart : 16.375400066375732
+Done logging...
+
+
+
+********** Iteration 64 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -54.3151969909668
+Baseline Loss : 393.95045776367186
+Train_EnvstepsSoFar : 136743
+TimeSinceStart : 16.67134737968445
+Done logging...
+
+
+
+********** Iteration 65 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -0.8054509162902832
+Baseline Loss : 398.1946044921875
+Train_EnvstepsSoFar : 138743
+TimeSinceStart : 16.948397397994995
+Done logging...
+
+
+
+********** Iteration 66 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 705.3333129882812
+Train_StdReturn : 416.7215881347656
+Train_MaxReturn : 1000.0
+Train_MinReturn : 116.0
+Train_AverageEpLen : 705.3333333333334
+Actor Loss : -31.37390899658203
+Baseline Loss : 449.79347534179686
+Train_EnvstepsSoFar : 140859
+TimeSinceStart : 17.231390953063965
+Done logging...
+
+
+
+********** Iteration 67 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -36.23223114013672
+Baseline Loss : 435.7908081054687
+Train_EnvstepsSoFar : 142859
+TimeSinceStart : 17.523229122161865
+Done logging...
+
+
+
+********** Iteration 68 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 702.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 702.0
+Eval_MinReturn : 702.0
+Eval_AverageEpLen : 702.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -3.5881614685058594
+Baseline Loss : 396.3112060546875
+Train_EnvstepsSoFar : 144859
+TimeSinceStart : 17.791944980621338
+Done logging...
+
+
+
+********** Iteration 69 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 812.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 812.0
+Eval_MinReturn : 812.0
+Eval_AverageEpLen : 812.0
+Train_AverageReturn : 771.0
+Train_StdReturn : 235.54335021972656
+Train_MaxReturn : 1000.0
+Train_MinReturn : 447.0
+Train_AverageEpLen : 771.0
+Actor Loss : -21.905452728271484
+Baseline Loss : 438.82216186523436
+Train_EnvstepsSoFar : 147172
+TimeSinceStart : 18.08595585823059
+Done logging...
+
+
+
+********** Iteration 70 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 10.736863136291504
+Baseline Loss : 384.4556091308594
+Train_EnvstepsSoFar : 149172
+TimeSinceStart : 18.379605054855347
+Done logging...
+
+
+
+********** Iteration 71 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 15.218544006347656
+Baseline Loss : 398.2915954589844
+Train_EnvstepsSoFar : 151172
+TimeSinceStart : 18.657585620880127
+Done logging...
+
+
+
+********** Iteration 72 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 22.7738037109375
+Baseline Loss : 397.88795776367186
+Train_EnvstepsSoFar : 153172
+TimeSinceStart : 18.9339280128479
+Done logging...
+
+
+
+********** Iteration 73 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -8.558404922485352
+Baseline Loss : 390.9143005371094
+Train_EnvstepsSoFar : 155172
+TimeSinceStart : 19.213371753692627
+Done logging...
+
+
+
+********** Iteration 74 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 2.8519959449768066
+Baseline Loss : 401.63585205078124
+Train_EnvstepsSoFar : 157172
+TimeSinceStart : 19.492231130599976
+Done logging...
+
+
+
+********** Iteration 75 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 18.162891387939453
+Baseline Loss : 393.6826904296875
+Train_EnvstepsSoFar : 159172
+TimeSinceStart : 19.783777236938477
+Done logging...
+
+
+
+********** Iteration 76 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -11.328777313232422
+Baseline Loss : 394.4099365234375
+Train_EnvstepsSoFar : 161172
+TimeSinceStart : 20.075716733932495
+Done logging...
+
+
+
+********** Iteration 77 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 34.83427429199219
+Baseline Loss : 394.70628051757814
+Train_EnvstepsSoFar : 163172
+TimeSinceStart : 20.369030952453613
+Done logging...
+
+
+
+********** Iteration 78 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -13.110223770141602
+Baseline Loss : 394.5003723144531
+Train_EnvstepsSoFar : 165172
+TimeSinceStart : 20.66205930709839
+Done logging...
+
+
+
+********** Iteration 79 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -27.976945877075195
+Baseline Loss : 394.5100341796875
+Train_EnvstepsSoFar : 167172
+TimeSinceStart : 20.95677423477173
+Done logging...
+
+
+
+********** Iteration 80 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -33.99787902832031
+Baseline Loss : 394.5322631835937
+Train_EnvstepsSoFar : 169172
+TimeSinceStart : 21.23468255996704
+Done logging...
+
+
+
+********** Iteration 81 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 928.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 928.0
+Eval_MinReturn : 928.0
+Eval_AverageEpLen : 928.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -50.330955505371094
+Baseline Loss : 394.5094848632813
+Train_EnvstepsSoFar : 171172
+TimeSinceStart : 21.503254890441895
+Done logging...
+
+
+
+********** Iteration 82 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 50.82849884033203
+Baseline Loss : 394.5132080078125
+Train_EnvstepsSoFar : 173172
+TimeSinceStart : 21.77456307411194
+Done logging...
+
+
+
+********** Iteration 83 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 831.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 831.0
+Eval_MinReturn : 831.0
+Eval_AverageEpLen : 831.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -4.6224212646484375
+Baseline Loss : 394.50987548828124
+Train_EnvstepsSoFar : 175172
+TimeSinceStart : 22.03378415107727
+Done logging...
+
+
+
+********** Iteration 84 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 464.6666564941406
+Eval_StdReturn : 390.00970458984375
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 82.0
+Eval_AverageEpLen : 464.6666666666667
+Train_AverageReturn : 678.0
+Train_StdReturn : 455.37677001953125
+Train_MaxReturn : 1000.0
+Train_MinReturn : 34.0
+Train_AverageEpLen : 678.0
+Actor Loss : -10.87765121459961
+Baseline Loss : 481.4381042480469
+Train_EnvstepsSoFar : 177206
+TimeSinceStart : 22.35205912590027
+Done logging...
+
+
+
+********** Iteration 85 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 679.5
+Eval_StdReturn : 320.5
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 359.0
+Eval_AverageEpLen : 679.5
+Train_AverageReturn : 531.0
+Train_StdReturn : 346.4209899902344
+Train_MaxReturn : 1000.0
+Train_MinReturn : 73.0
+Train_AverageEpLen : 531.0
+Actor Loss : -109.9363021850586
+Baseline Loss : 645.3163818359375
+Train_EnvstepsSoFar : 179330
+TimeSinceStart : 22.68174386024475
+Done logging...
+
+
+
+********** Iteration 86 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 839.6666870117188
+Train_StdReturn : 226.74557495117188
+Train_MaxReturn : 1000.0
+Train_MinReturn : 519.0
+Train_AverageEpLen : 839.6666666666666
+Actor Loss : 34.26751708984375
+Baseline Loss : 448.6369567871094
+Train_EnvstepsSoFar : 181849
+TimeSinceStart : 23.020914793014526
+Done logging...
+
+
+
+********** Iteration 87 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 578.2000122070312
+Train_StdReturn : 352.3670959472656
+Train_MaxReturn : 1000.0
+Train_MinReturn : 226.0
+Train_AverageEpLen : 578.2
+Actor Loss : -85.58090209960938
+Baseline Loss : 600.7872192382813
+Train_EnvstepsSoFar : 184740
+TimeSinceStart : 23.391636610031128
+Done logging...
+
+
+
+********** Iteration 88 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -26.0455322265625
+Baseline Loss : 401.9631713867187
+Train_EnvstepsSoFar : 186740
+TimeSinceStart : 23.677701473236084
+Done logging...
+
+
+
+********** Iteration 89 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 20.66903305053711
+Baseline Loss : 403.31931762695314
+Train_EnvstepsSoFar : 188740
+TimeSinceStart : 23.970001697540283
+Done logging...
+
+
+
+********** Iteration 90 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 29.42552947998047
+Baseline Loss : 401.8408508300781
+Train_EnvstepsSoFar : 190740
+TimeSinceStart : 24.26025938987732
+Done logging...
+
+
+
+********** Iteration 91 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 1.6134343147277832
+Baseline Loss : 399.26515502929686
+Train_EnvstepsSoFar : 192740
+TimeSinceStart : 24.575123071670532
+Done logging...
+
+
+
+********** Iteration 92 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 60.56736755371094
+Baseline Loss : 396.9898254394531
+Train_EnvstepsSoFar : 194740
+TimeSinceStart : 24.863507986068726
+Done logging...
+
+
+
+********** Iteration 93 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 11.823200225830078
+Baseline Loss : 395.2411743164063
+Train_EnvstepsSoFar : 196740
+TimeSinceStart : 25.151910305023193
+Done logging...
+
+
+
+********** Iteration 94 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -57.71110534667969
+Baseline Loss : 394.8214416503906
+Train_EnvstepsSoFar : 198740
+TimeSinceStart : 25.450939416885376
+Done logging...
+
+
+
+********** Iteration 95 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -37.97157669067383
+Baseline Loss : 394.6647521972656
+Train_EnvstepsSoFar : 200740
+TimeSinceStart : 25.73598575592041
+Done logging...
+
+
+
+********** Iteration 96 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -7.417830467224121
+Baseline Loss : 394.57537231445315
+Train_EnvstepsSoFar : 202740
+TimeSinceStart : 26.025176525115967
+Done logging...
+
+
+
+********** Iteration 97 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 4.459580421447754
+Baseline Loss : 394.57135009765625
+Train_EnvstepsSoFar : 204740
+TimeSinceStart : 26.314964056015015
+Done logging...
+
+
+
+********** Iteration 98 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 20.01432991027832
+Baseline Loss : 393.969677734375
+Train_EnvstepsSoFar : 206740
+TimeSinceStart : 26.602622032165527
+Done logging...
+
+
+
+********** Iteration 99 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 30.496923446655273
+Baseline Loss : 393.6669494628906
+Train_EnvstepsSoFar : 208740
+TimeSinceStart : 26.883373737335205
+Done logging...
+
+
+
+********** Iteration 100 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 23.735599517822266
+Baseline Loss : 393.5690063476562
+Train_EnvstepsSoFar : 210740
+TimeSinceStart : 27.176045656204224
+Done logging...
+
+
+
+********** Iteration 101 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -20.099849700927734
+Baseline Loss : 394.9936157226563
+Train_EnvstepsSoFar : 212740
+TimeSinceStart : 27.46416687965393
+Done logging...
+
+
+
+********** Iteration 102 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -1.3999443054199219
+Baseline Loss : 393.98427734375
+Train_EnvstepsSoFar : 214740
+TimeSinceStart : 27.76256799697876
+Done logging...
+
+
+
+********** Iteration 103 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -4.031986236572266
+Baseline Loss : 391.97783203125
+Train_EnvstepsSoFar : 216740
+TimeSinceStart : 28.045243740081787
+Done logging...
+
+
+
+********** Iteration 104 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 41.75507354736328
+Baseline Loss : 396.0655456542969
+Train_EnvstepsSoFar : 218740
+TimeSinceStart : 28.336751461029053
+Done logging...
+
+
+
+********** Iteration 105 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 2.4220056533813477
+Baseline Loss : 395.12489013671876
+Train_EnvstepsSoFar : 220740
+TimeSinceStart : 28.63056707382202
+Done logging...
+
+
+
+********** Iteration 106 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 444.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 444.0
+Eval_MinReturn : 444.0
+Eval_AverageEpLen : 444.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -23.38721466064453
+Baseline Loss : 394.83367309570315
+Train_EnvstepsSoFar : 222740
+TimeSinceStart : 28.87375259399414
+Done logging...
+
+
+
+********** Iteration 107 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 905.3333129882812
+Train_StdReturn : 133.87887573242188
+Train_MaxReturn : 1000.0
+Train_MinReturn : 716.0
+Train_AverageEpLen : 905.3333333333334
+Actor Loss : -38.75363540649414
+Baseline Loss : 421.17222290039064
+Train_EnvstepsSoFar : 225456
+TimeSinceStart : 29.25517249107361
+Done logging...
+
+
+
+********** Iteration 108 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -7.210969924926758
+Baseline Loss : 394.49364013671874
+Train_EnvstepsSoFar : 227456
+TimeSinceStart : 29.55143904685974
+Done logging...
+
+
+
+********** Iteration 109 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 899.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 899.0
+Eval_MinReturn : 899.0
+Eval_AverageEpLen : 899.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 9.744895935058594
+Baseline Loss : 394.69028930664064
+Train_EnvstepsSoFar : 229456
+TimeSinceStart : 29.843414783477783
+Done logging...
+
+
+
+********** Iteration 110 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 431.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 431.0
+Eval_MinReturn : 431.0
+Eval_AverageEpLen : 431.0
+Train_AverageReturn : 748.0
+Train_StdReturn : 356.3818054199219
+Train_MaxReturn : 1000.0
+Train_MinReturn : 244.0
+Train_AverageEpLen : 748.0
+Actor Loss : 4.258261203765869
+Baseline Loss : 495.65077514648436
+Train_EnvstepsSoFar : 231700
+TimeSinceStart : 30.137911319732666
+Done logging...
+
+
+
+********** Iteration 111 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 246.0
+Eval_StdReturn : 75.0
+Eval_MaxReturn : 321.0
+Eval_MinReturn : 171.0
+Eval_AverageEpLen : 246.0
+Train_AverageReturn : 337.5
+Train_StdReturn : 218.4359130859375
+Train_MaxReturn : 817.0
+Train_MinReturn : 192.0
+Train_AverageEpLen : 337.5
+Actor Loss : -6.765135765075684
+Baseline Loss : 902.4901977539063
+Train_EnvstepsSoFar : 233725
+TimeSinceStart : 30.37933039665222
+Done logging...
+
+
+
+********** Iteration 112 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 927.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 927.0
+Eval_MinReturn : 927.0
+Eval_AverageEpLen : 927.0
+Train_AverageReturn : 327.71429443359375
+Train_StdReturn : 106.80384063720703
+Train_MaxReturn : 473.0
+Train_MinReturn : 163.0
+Train_AverageEpLen : 327.7142857142857
+Actor Loss : -60.79168701171875
+Baseline Loss : 840.657568359375
+Train_EnvstepsSoFar : 236019
+TimeSinceStart : 30.69886827468872
+Done logging...
+
+
+
+********** Iteration 113 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 287.0
+Eval_StdReturn : 138.50872802734375
+Eval_MaxReturn : 470.0
+Eval_MinReturn : 135.0
+Eval_AverageEpLen : 287.0
+Train_AverageReturn : 257.5
+Train_StdReturn : 138.51625061035156
+Train_MaxReturn : 543.0
+Train_MinReturn : 97.0
+Train_AverageEpLen : 257.5
+Actor Loss : -30.042064666748047
+Baseline Loss : 828.6409790039063
+Train_EnvstepsSoFar : 238079
+TimeSinceStart : 31.026171922683716
+Done logging...
+
+
+
+********** Iteration 114 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 608.5
+Eval_StdReturn : 391.5
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 217.0
+Eval_AverageEpLen : 608.5
+Train_AverageReturn : 416.3999938964844
+Train_StdReturn : 221.9960479736328
+Train_MaxReturn : 844.0
+Train_MinReturn : 221.0
+Train_AverageEpLen : 416.4
+Actor Loss : -28.336566925048828
+Baseline Loss : 720.0715942382812
+Train_EnvstepsSoFar : 240161
+TimeSinceStart : 31.33532476425171
+Done logging...
+
+
+
+********** Iteration 115 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 24.518346786499023
+Baseline Loss : 645.4284057617188
+Train_EnvstepsSoFar : 242161
+TimeSinceStart : 31.637775182724
+Done logging...
+
+
+
+********** Iteration 116 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 62.69124221801758
+Baseline Loss : 529.3266845703125
+Train_EnvstepsSoFar : 244161
+TimeSinceStart : 31.94951057434082
+Done logging...
+
+
+
+********** Iteration 117 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 13.89964771270752
+Baseline Loss : 472.454638671875
+Train_EnvstepsSoFar : 246161
+TimeSinceStart : 32.248756647109985
+Done logging...
+
+
+
+********** Iteration 118 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 45.76129913330078
+Baseline Loss : 433.2638671875
+Train_EnvstepsSoFar : 248161
+TimeSinceStart : 32.54318952560425
+Done logging...
+
+
+
+********** Iteration 119 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -12.335213661193848
+Baseline Loss : 407.9554382324219
+Train_EnvstepsSoFar : 250161
+TimeSinceStart : 32.82630443572998
+Done logging...
+
+
+
+********** Iteration 120 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -39.57060241699219
+Baseline Loss : 396.2493469238281
+Train_EnvstepsSoFar : 252161
+TimeSinceStart : 33.09144115447998
+Done logging...
+
+
+
+********** Iteration 121 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -31.289230346679688
+Baseline Loss : 395.0971435546875
+Train_EnvstepsSoFar : 254161
+TimeSinceStart : 33.36697554588318
+Done logging...
+
+
+
+********** Iteration 122 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 1.146688461303711
+Baseline Loss : 395.64760131835936
+Train_EnvstepsSoFar : 256161
+TimeSinceStart : 33.63898324966431
+Done logging...
+
+
+
+********** Iteration 123 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -46.012760162353516
+Baseline Loss : 397.20464477539065
+Train_EnvstepsSoFar : 258161
+TimeSinceStart : 33.9193913936615
+Done logging...
+
+
+
+********** Iteration 124 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 39.832916259765625
+Baseline Loss : 396.2032897949219
+Train_EnvstepsSoFar : 260161
+TimeSinceStart : 34.194133043289185
+Done logging...
+
+
+
+********** Iteration 125 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -52.713314056396484
+Baseline Loss : 395.89874267578125
+Train_EnvstepsSoFar : 262161
+TimeSinceStart : 34.47211289405823
+Done logging...
+
+
+
+********** Iteration 126 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 47.98326110839844
+Baseline Loss : 395.4322998046875
+Train_EnvstepsSoFar : 264161
+TimeSinceStart : 34.76371741294861
+Done logging...
+
+
+
+********** Iteration 127 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -10.310981750488281
+Baseline Loss : 394.4732604980469
+Train_EnvstepsSoFar : 266161
+TimeSinceStart : 35.05448055267334
+Done logging...
+
+
+
+********** Iteration 128 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -24.44973373413086
+Baseline Loss : 394.3972412109375
+Train_EnvstepsSoFar : 268161
+TimeSinceStart : 35.32917237281799
+Done logging...
+
+
+
+********** Iteration 129 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -30.85970687866211
+Baseline Loss : 394.28370971679686
+Train_EnvstepsSoFar : 270161
+TimeSinceStart : 35.605631589889526
+Done logging...
+
+
+
+********** Iteration 130 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 12.499549865722656
+Baseline Loss : 394.6617370605469
+Train_EnvstepsSoFar : 272161
+TimeSinceStart : 35.88006830215454
+Done logging...
+
+
+
+********** Iteration 131 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -28.24664306640625
+Baseline Loss : 395.2463439941406
+Train_EnvstepsSoFar : 274161
+TimeSinceStart : 36.1639449596405
+Done logging...
+
+
+
+********** Iteration 132 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 56.457000732421875
+Baseline Loss : 394.99652099609375
+Train_EnvstepsSoFar : 276161
+TimeSinceStart : 36.451000452041626
+Done logging...
+
+
+
+********** Iteration 133 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 20.059656143188477
+Baseline Loss : 394.71710205078125
+Train_EnvstepsSoFar : 278161
+TimeSinceStart : 36.729413986206055
+Done logging...
+
+
+
+********** Iteration 134 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 10.055561065673828
+Baseline Loss : 394.86253051757814
+Train_EnvstepsSoFar : 280161
+TimeSinceStart : 37.00504469871521
+Done logging...
+
+
+
+********** Iteration 135 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 31.88544464111328
+Baseline Loss : 394.5504455566406
+Train_EnvstepsSoFar : 282161
+TimeSinceStart : 37.285804986953735
+Done logging...
+
+
+
+********** Iteration 136 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -30.354511260986328
+Baseline Loss : 394.394482421875
+Train_EnvstepsSoFar : 284161
+TimeSinceStart : 37.56378364562988
+Done logging...
+
+
+
+********** Iteration 137 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 35.85955047607422
+Baseline Loss : 394.906494140625
+Train_EnvstepsSoFar : 286161
+TimeSinceStart : 37.842244386672974
+Done logging...
+
+
+
+********** Iteration 138 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 20.322967529296875
+Baseline Loss : 394.4901489257812
+Train_EnvstepsSoFar : 288161
+TimeSinceStart : 38.12317442893982
+Done logging...
+
+
+
+********** Iteration 139 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 27.264358520507812
+Baseline Loss : 394.59365234375
+Train_EnvstepsSoFar : 290161
+TimeSinceStart : 38.41974711418152
+Done logging...
+
+
+
+********** Iteration 140 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 29.67228889465332
+Baseline Loss : 394.4915771484375
+Train_EnvstepsSoFar : 292161
+TimeSinceStart : 38.70121121406555
+Done logging...
+
+
+
+********** Iteration 141 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 943.0
+Train_StdReturn : 80.61017608642578
+Train_MaxReturn : 1000.0
+Train_MinReturn : 829.0
+Train_AverageEpLen : 943.0
+Actor Loss : -41.181541442871094
+Baseline Loss : 409.6350341796875
+Train_EnvstepsSoFar : 294990
+TimeSinceStart : 39.05370736122131
+Done logging...
+
+
+
+********** Iteration 142 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 31.38860321044922
+Baseline Loss : 393.0362609863281
+Train_EnvstepsSoFar : 296990
+TimeSinceStart : 39.33304762840271
+Done logging...
+
+
+
+********** Iteration 143 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 17.82717514038086
+Baseline Loss : 394.5026000976562
+Train_EnvstepsSoFar : 298990
+TimeSinceStart : 39.61069083213806
+Done logging...
+
+
+
+********** Iteration 144 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 39.09151840209961
+Baseline Loss : 394.17144775390625
+Train_EnvstepsSoFar : 300990
+TimeSinceStart : 39.880502223968506
+Done logging...
+
+
+
+********** Iteration 145 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 13.937053680419922
+Baseline Loss : 395.0544921875
+Train_EnvstepsSoFar : 302990
+TimeSinceStart : 40.16018986701965
+Done logging...
+
+
+
+********** Iteration 146 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -22.153167724609375
+Baseline Loss : 394.386865234375
+Train_EnvstepsSoFar : 304990
+TimeSinceStart : 40.449636936187744
+Done logging...
+
+
+
+********** Iteration 147 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -11.657201766967773
+Baseline Loss : 394.5319580078125
+Train_EnvstepsSoFar : 306990
+TimeSinceStart : 40.7656512260437
+Done logging...
+
+
+
+********** Iteration 148 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : 10.862022399902344
+Baseline Loss : 394.34356079101565
+Train_EnvstepsSoFar : 308990
+TimeSinceStart : 41.079854011535645
+Done logging...
+
+
+
+********** Iteration 149 ************
+
+Collecting data for eval...
+Eval_AverageReturn : 1000.0
+Eval_StdReturn : 0.0
+Eval_MaxReturn : 1000.0
+Eval_MinReturn : 1000.0
+Eval_AverageEpLen : 1000.0
+Train_AverageReturn : 1000.0
+Train_StdReturn : 0.0
+Train_MaxReturn : 1000.0
+Train_MinReturn : 1000.0
+Train_AverageEpLen : 1000.0
+Actor Loss : -15.794063568115234
+Baseline Loss : 394.60480346679685
+Train_EnvstepsSoFar : 310990
+TimeSinceStart : 41.371363401412964
+Done logging...
+
+
