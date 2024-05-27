@@ -131,6 +131,7 @@ dmypy.json
 # new
 **/data/*
 
+
 # latex
 **/*.aux
 **/*.log
@@ -138,3 +139,6 @@ dmypy.json
 **/*.fdb_latexmk
 **/*.synctex.gz
 **/*.out
+
+# HW 2
+!hw2/report/E1/*.log
