@@ -19,8 +19,8 @@ names = [
 
     # 'log_lunar_lander_lambda_0',
     # 'log_lunar_lander_lambda_0.95',
-    # 'log_lunar_lander_lambda_0.98',
-    'log_lunar_lander_lambda_0.99',
+    'log_lunar_lander_lambda_0.98',
+    # 'log_lunar_lander_lambda_0.99',
     # 'log_lunar_lander_lambda_1',
 ]
 for name in names:
@@ -28,4 +28,4 @@ for name in names:
     plot(name)
     print(f'finish {name}')
 plt.legend()
-plt.savefig('./all_E2_comp.png')
+plt.savefig('./E3_0.98.png')

@@ -167,7 +167,7 @@ class PGAgent(nn.Module):
                     slice_r = rewards[begin_point:stop_point]
                     delta = slice_r + self.gamma * slice_value[1:] - slice_value[:-1]
                     reverse_a = np.cumsum(((self.gae_lambda*self.gamma)**(-np.arange(0,leng)))*delta[::-1])
-                    a = (reverse_a)[::-1]*((self.gae_lambda*self.gamma)**(np.arange(0,leng)))
+                    a = (reverse_a*((self.gae_lambda*self.gamma)**(np.arange(0,leng))))[::-1]
                     l.append(a)
                 # remove dummy advantage
                 advantages = np.concatenate(l,axis=0)
