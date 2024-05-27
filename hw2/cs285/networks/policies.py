@@ -113,9 +113,12 @@ class MLPPolicyPG(MLPPolicy):
             # print('MLPPolicyPG, update',advantages.shape)#[22]
             actions = actions.to(torch.long)
             loss = F.nll_loss(torch.log(F.softmax(self(obs),dim=-1))*advantages.reshape(-1,1),actions)
-            self.optimizer.zero_grad()
-            loss.backward()
-            self.optimizer.step()
+            if loss.isnan().any():
+                print('[INFO]: loss is NAN')
+            else:
+                self.optimizer.zero_grad()
+                loss.backward()
+                self.optimizer.step()
         else:
             raise NotImplementedError()
             loss = self(obs).log_prob(actions)*advantages
