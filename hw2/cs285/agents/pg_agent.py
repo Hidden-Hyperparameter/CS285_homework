@@ -140,7 +140,7 @@ class PGAgent(nn.Module):
             if self.gae_lambda is None:
                 # print('if using a baseline, but not GAE, what are the advantages?')
                 # TODO: if using a baseline, but not GAE, what are the advantages?
-                advantages = (values - q_values)
+                advantages = q_values - values
             else:
                 # TODO: implement GAE
                 batch_size = obs.shape[0]
@@ -156,6 +156,7 @@ class PGAgent(nn.Module):
                     
                     # batch size = T+1
                     # i starts from T, ends to 0
+                    raise NotImplementedError()
                     T = batch_size-1
                     if terminals[i]:
                         advantages[i]=advantages[i+1]+rewards[T]-values[T]
@@ -197,6 +198,7 @@ class PGAgent(nn.Module):
             T = len(reward)-1
             gam = self.gamma ** np.arange(0,T+1)
             mask = (np.arange(0,T+1).reshape(-1,1)>=np.arange(0,T+1).reshape(1,-1)).astype(np.float32) # mask[i,j]=1 iff i>=j
-            l.append(np.einsum('pt,t,p->t',mask,gam**-1,gam*reward))
+            ans = np.einsum('pt,t,p->t',mask,gam**-1,gam*reward)
+            l.append(ans)
         # ans = np.einsum('pt,t,p,bp->bt',mask,gam**-1,gam,rewards) # batched
         return np.concatenate(l,axis=0)
