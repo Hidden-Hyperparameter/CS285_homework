@@ -1,5 +1,6 @@
-# lambdas=(0 0.95 0.98 0.99 1)
+lambdas=(0 0.95 0.98 0.99 1)
 # lambdas=(0.98)
+# lambdas=(0.95 0.99)
 
 for lmd in "${lambdas[@]}"
 do
