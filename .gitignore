@@ -142,3 +142,4 @@ dmypy.json
 
 # HW 2
 !hw2/report/**/*.log
+!hw2/*.log
