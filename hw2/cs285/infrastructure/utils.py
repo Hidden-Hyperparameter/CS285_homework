@@ -1,4 +1,5 @@
 from collections import OrderedDict
+import gym.vector
 import numpy as np
 import copy
 from cs285.networks.policies import MLPPolicy
@@ -12,33 +13,34 @@ from typing import Dict, Tuple, List
 
 
 def sample_trajectory(
-    env: gym.Env, policy: MLPPolicy, max_length: int, render: bool = False
+    envs: gym.vector.VectorEnv, policy: MLPPolicy, max_length: int, render: bool = False
 ) -> Dict[str, np.ndarray]:
     """Sample a rollout in the environment from a policy."""
-    ob = env.reset()
+    ob = envs.reset()
     obs, acs, rewards, next_obs, terminals, image_obs = [], [], [], [], [], []
     steps = 0
     while True:
         # render an image
         if render:
-            if hasattr(env, "sim"):
-                img = env.sim.render(camera_name="track", height=500, width=500)[::-1]
+            if hasattr(envs, "sim"):
+                img = envs.sim.render(camera_name="track", height=500, width=500)[::-1]
             else:
-                img = env.render(mode="single_rgb_array")
+                img = envs.render(mode="single_rgb_array")
             image_obs.append(
                 cv2.resize(img, dsize=(250, 250), interpolation=cv2.INTER_CUBIC)
             )
 
         # TODO use the most recent ob and the policy to decide what to do
         if not (isinstance(ob, np.ndarray)):
-            raise NotADirectoryError(NotImplementedError())
+            ob=ob[0]
         ac: np.ndarray = policy.get_action(ob)
         # TODO: use that action to take a step in the environment
-        next_ob, rew, done, _ = env.step(ac)
+        # print(ac)
+        next_ob, rew, done, _,_ = envs.step(ac)
 
         # TODO rollout can end due to done, or due to max_length
         steps += 1
-        rollout_done: bool = done or (steps > max_length)
+        rollout_done: bool = done.all() or steps >= max_length
 
         # record result of taking that action
         obs.append(ob)
@@ -52,7 +54,6 @@ def sample_trajectory(
         # end the rollout if the rollout ended
         if rollout_done:
             break
-
     return {
         "observation": np.array(obs, dtype=np.float32),
         "image_obs": np.array(image_obs, dtype=np.uint8),

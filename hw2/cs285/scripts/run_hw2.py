@@ -1,4 +1,7 @@
 import os
+import gym.envs
+import gym.spaces
+import gym.vector
 from tqdm import tqdm
 import time
 
@@ -28,24 +31,24 @@ def run_training_loop(args):
     ptu.init_gpu(use_gpu=not args.no_gpu, gpu_id=args.which_gpu)
 
     # make the gym environment
-    env = gym.make(args.env_name, render_mode=None)
-    discrete = isinstance(env.action_space, gym.spaces.Discrete)
+    envs = gym.vector.make(args.env_name,num_envs=5)
+    discrete = isinstance(envs.action_space, (gym.spaces.Discrete,gym.spaces.MultiDiscrete))
 
     # add action noise, if needed
     if args.action_noise_std > 0:
         assert not discrete, f"Cannot use --action_noise_std for discrete environment {args.env_name}"
-        env = ActionNoiseWrapper(env, args.seed, args.action_noise_std)
+        envs = ActionNoiseWrapper(envs, args.seed, args.action_noise_std)
 
-    max_ep_len = args.ep_len or env.spec.max_episode_steps
+    max_ep_len = args.ep_len or envs.spec.max_episode_steps
 
-    ob_dim = env.observation_space.shape[0]
-    ac_dim = env.action_space.n if discrete else env.action_space.shape[0]
+    ob_dim = envs.observation_space.shape[-1]
+    ac_dim = envs.action_space.nvec[0] if discrete else envs.action_space.shape[-1]
 
     # simulation timestep, will be used for video saving
-    if hasattr(env, "model"):
-        fps = 1 / env.model.opt.timestep
-    else:
-        fps = env.env.metadata["render_fps"]
+    # if hasattr(envs, "model"):
+    #     fps = 1 / envs.model.opt.timestep
+    # else:
+    #     fps = envs.env.metadata["render_fps"]
 
     # initialize agent
     agent = PGAgent(
@@ -71,7 +74,7 @@ def run_training_loop(args):
         print(f"\n********** Iteration {itr} ************")
         # TODO: sample `args.batch_size` transitions using utils.sample_trajectories
         # make sure to use `max_ep_len`
-        trajs, envsteps_this_batch = utils.sample_trajectories(env,agent.actor,args.batch_size,max_ep_len)
+        trajs, envsteps_this_batch = utils.sample_trajectories(envs,agent.actor,args.batch_size,max_ep_len)
         total_envsteps += envsteps_this_batch
 
         # trajs should be a list of dictionaries of NumPy arrays, where each dictionary corresponds to a trajectory.
@@ -90,7 +93,7 @@ def run_training_loop(args):
             # save eval metrics
             print("\nCollecting data for eval...")
             eval_trajs, eval_envsteps_this_batch = utils.sample_trajectories(
-                env, agent.actor, args.eval_batch_size, max_ep_len
+                envs, agent.actor, args.eval_batch_size, max_ep_len
             )
 
             logs = utils.compute_metrics(trajs, eval_trajs)
@@ -114,7 +117,7 @@ def run_training_loop(args):
         if args.video_log_freq != -1 and itr % args.video_log_freq == 0:
             print("\nCollecting video rollouts...")
             eval_video_trajs = utils.sample_n_trajectories(
-                env, agent.actor, MAX_NVIDEO, max_ep_len, render=True
+                envs, agent.actor, MAX_NVIDEO, max_ep_len, render=True
             )
 
             logger.log_trajs_as_videos(

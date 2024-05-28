@@ -60,32 +60,20 @@ class PGAgent(nn.Module):
         Each input is a list of NumPy arrays, where each array corresponds to a single trajectory. The batch size is the
         total number of samples across all trajectories (i.e. the sum of the lengths of all the arrays).
         """
+        # print('obs',obs)
+        # print('actions',actions)
+        # print('rewards',rewards)
 
         lens = [len(c) for c in obs]
         max_len = max(lens)
-        obs = torch.stack(
-            [torch.cat(
-                (x,torch.zeros([max_len-x.shape[0],x.shape[1]]).to(ptu.device))
-                ,dim=0) for x in obs]
-            ,dim=0)
+        obs = torch.cat(obs,dim=0)
+        actions = torch.cat(actions,dim=0)
+        rewards = torch.cat(rewards,dim=0)
         if self.critic is not None:
             with torch.no_grad():
                 values = self.critic(obs)
         else:
             raise NotImplementedError()
-        if len(actions[0].shape)>1:
-            actions = torch.stack(
-                    [torch.cat(
-                        (x,torch.zeros([max_len-x.shape[0]]+list(x.shape[1:])).to(ptu.device)),dim=0)
-                        for x in actions]
-                    ,dim=0)
-        else:
-            actions = torch.stack(
-                    [torch.cat(
-                        (x,torch.zeros([max_len-x.shape[0]]).to(ptu.device)),dim=0)
-                        for x in actions]
-                    ,dim=0)
-        rewards = torch.stack([torch.cat((x,torch.zeros([max_len-x.shape[0]]).to(ptu.device)),dim=0) for x in rewards],dim=0)
 
         q_values: Sequence[torch.Tensor] = self._calculate_q_vals(rewards)
 
@@ -134,6 +122,7 @@ class PGAgent(nn.Module):
 
         Operates on flat 1D NumPy arrays.
         """
+        print('length:',rewards.shape[0])
         if self.critic is None:
             advantages = q_values
         else:
