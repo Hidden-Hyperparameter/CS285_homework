@@ -17,15 +17,17 @@ names = [
     # 'log_cheetah_baseline_lowlr',
     # 'log_cheetah_baseline_lowgs'
 
-    'log_lunar_lander_lambda_0',
-    'log_lunar_lander_lambda_0.95',
-    'log_lunar_lander_lambda_0.98',
-    'log_lunar_lander_lambda_0.99',
-    'log_lunar_lander_lambda_1',
+    # 'log_lunar_lander_lambda_0',
+    # 'log_lunar_lander_lambda_0.95',
+    # 'log_lunar_lander_lambda_0.98',
+    # 'log_lunar_lander_lambda_0.99',
+    # 'log_lunar_lander_lambda_1',
+
+    'humanoid_final'
 ]
 for name in names:
     load(name)
     plot(name)
     print(f'finish {name}')
 plt.legend()
-plt.savefig('./E3_all.png')
+plt.savefig('./E5.png')
