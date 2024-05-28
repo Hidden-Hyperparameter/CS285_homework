@@ -76,7 +76,7 @@ def run_training_loop(args):
 
         # trajs should be a list of dictionaries of NumPy arrays, where each dictionary corresponds to a trajectory.
         # this line converts this into a single dictionary of lists of NumPy arrays.
-        trajs_dict = {k: [traj[k] for traj in trajs] for k in trajs[0]}
+        trajs_dict = {k: [torch.from_numpy(traj[k]).to(ptu.device) for traj in trajs] for k in trajs[0]}
 
         # TODO: train the agent using the sampled trajectories and the agent's update function
         train_info: dict = agent.update(

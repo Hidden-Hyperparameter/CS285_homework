@@ -100,21 +100,24 @@ class MLPPolicyPG(MLPPolicy):
 
     def update(
         self,
-        obs: np.ndarray,
-        actions: np.ndarray,
-        advantages: np.ndarray,
+        obs: torch.Tensor,
+        actions: torch.Tensor,
+        advantages: torch.Tensor,
     ) -> dict:
         """Implements the policy gradient actor update."""
-        obs = ptu.from_numpy(obs)
-        actions = ptu.from_numpy(actions) 
-        advantages = ptu.from_numpy(advantages) 
+        # obs = ptu.from_numpy(obs)
+        # actions = ptu.from_numpy(actions) 
+        # advantages = ptu.from_numpy(advantages) 
 
         # TODO: implement the policy gradient actor update.
         if self.discrete:
             # print('MLPPolicyPG, update',obs.shape) # [22,4]
             # print('MLPPolicyPG, update',actions.shape)#[22]
             # print('MLPPolicyPG, update',advantages.shape)#[22]
-            actions = actions.to(torch.long)
+            obs = obs.reshape(-1,obs.shape[-1])
+            actions = actions.reshape([-1]).to(torch.long)
+            advantages = advantages.reshape([-1])
+        
             loss = F.nll_loss(torch.log(F.softmax(self(obs),dim=-1))*advantages.reshape(-1,1),actions)
             if loss.isnan().any():
                 print('[INFO]: loss is NAN')
@@ -123,6 +126,19 @@ class MLPPolicyPG(MLPPolicy):
                 loss.backward()
                 self.optimizer.step()
         else:
+            # obs = obs.squeeze(0)
+            # actions = actions.squeeze(0).to(torch.long)
+            # advantages = advantages.squeeze(0).reshape([-1])
+            def remove_dim0(t):
+                if len(t.shape)==0:
+                    return t
+                elif len(t.shape)==1:
+                    return t.reshape(-1)
+                else:
+                    return t.reshape([-1]+list(t.shape[2:]))
+            obs = remove_dim0(obs)
+            actions = remove_dim0(actions)
+            advantages = remove_dim0(advantages)
             loss = -self(obs).log_prob(actions)*advantages.reshape(-1,1)
             loss = loss.sum()
             self.optimizer.zero_grad()

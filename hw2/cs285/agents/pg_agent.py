@@ -49,10 +49,10 @@ class PGAgent(nn.Module):
 
     def update(
         self,
-        obs: Sequence[np.ndarray],
-        actions: Sequence[np.ndarray],
-        rewards: Sequence[np.ndarray],
-        terminals: Sequence[np.ndarray],
+        obs: Sequence[torch.Tensor],
+        actions: Sequence[torch.Tensor],
+        rewards: Sequence[torch.Tensor],
+        terminals: Sequence[torch.Tensor],
     ) -> dict:
         """The train step for PG involves updating its actor using the given observations/actions and the calculated
         qvals/advantages that come from the seen rewards.
@@ -63,22 +63,35 @@ class PGAgent(nn.Module):
 
         lens = [len(c) for c in obs]
         max_len = max(lens)
-        
+        obs = torch.stack(
+            [torch.cat(
+                (x,torch.zeros([max_len-x.shape[0],x.shape[1]]).to(ptu.device))
+                ,dim=0) for x in obs]
+            ,dim=0)
         if self.critic is not None:
-            values = [self.critic(ob) for ob in obs]
+            with torch.no_grad():
+                values = self.critic(obs)
         else:
-            values = [torch.zeros([ob.shape[0],1]) for ob in obs]
+            raise NotImplementedError()
+        if len(actions[0].shape)>1:
+            actions = torch.stack(
+                    [torch.cat(
+                        (x,torch.zeros([max_len-x.shape[0]]+list(x.shape[1:])).to(ptu.device)),dim=0)
+                        for x in actions]
+                    ,dim=0)
+        else:
+            actions = torch.stack(
+                    [torch.cat(
+                        (x,torch.zeros([max_len-x.shape[0]]).to(ptu.device)),dim=0)
+                        for x in actions]
+                    ,dim=0)
+        rewards = torch.stack([torch.cat((x,torch.zeros([max_len-x.shape[0]]).to(ptu.device)),dim=0) for x in rewards],dim=0)
 
-        values = [np.concatenate((x,np.zeros([max_len-x.shape[0],x.shape[1]])),axis=0) for x in values]
-        actions = [np.concatenate((x,np.zeros([max_len-x.shape[0],x.shape[1]])),axis=0) for x in actions]
-        rewards = [np.concatenate((x,np.zeros([max_len-x.shape[0],x.shape[1]])),axis=0) for x in rewards ]
-        # terminals = [np.concatenate((x,np.zeros([max_len-x.shape[0],x.shape[1]])),axis=0) for x in terminals]
-        values = torch.from_numpy(np.stack(values,axis=0)).to(ptu.device)
-        actions = torch.from_numpy(np.stack(actions,axis=0)).to(ptu.device)
-        rewards = torch.from_numpy(np.stack(rewards,axis=0)).to(ptu.device)
-        # terminals = torch.from_numpy(np.stack(terminals,axis=0)).to(ptu.device)
+        q_values: Sequence[torch.Tensor] = self._calculate_q_vals(rewards)
 
-        q_values: Sequence[np.ndarray] = self._calculate_q_vals(rewards)
+        # print('rewards.shape',rewards.shape)
+        # print('q_values.shape',q_values.shape)
+        # print('value.shape',values.shape)
 
         advantages: torch.Tensor = self._estimate_advantage(
             rewards, q_values, values
@@ -131,15 +144,15 @@ class PGAgent(nn.Module):
             else:
                 T = rewards.shape[1]-1
 
-                extended_values = torch.cat(values,torch.zeros([values.shape[0],1]),dim=1)
+                extended_values = torch.cat((values,torch.zeros([values.shape[0],1]).to(ptu.device)),dim=1)
                 delta = rewards + self.gamma * extended_values[:,1:] - extended_values[:,:-1]
                 if abs(self.gae_lambda)>1e-4:
-                    reverse_a = torch.cumsum(((self.gae_lambda*self.gamma)**(-torch.arange(0,T+1)))*delta[::-1])
-                    advantages = (reverse_a*((self.gae_lambda*self.gamma)**(torch.arange(0,T+1))))[::-1]
+                    reverse_a = torch.cumsum(((self.gae_lambda*self.gamma)**(-torch.arange(0,T+1).to(ptu.device)))*delta.flip([-1]),dim=-1)
+                    advantages = (reverse_a*((self.gae_lambda*self.gamma)**(torch.arange(0,T+1).to(ptu.device)))).flip([-1])
                     
                 else:
                     advantages = delta
-                
+        # print('advantages.shape',advantages.shape)
         if self.normalize_advantages:
             advantages = (advantages - advantages.mean(dim=-1,keepdim=True))/advantages.std(dim=-1,keepdim=True)
         return advantages
@@ -153,16 +166,16 @@ class PGAgent(nn.Module):
         involve t)!
         """
         T = rewards.shape[1]-1
-        gam = self.gamma ** np.arange(0,T+1)
+        gam = self.gamma ** torch.arange(0,T+1)
         return torch.einsum('t,b->bt',np.ones([T+1]),torch.einsum('t,bt->b',gam,rewards)) # batched
 
 
-    def _discounted_reward_to_go(self, rewards: Sequence[float]) -> Sequence[float]:
+    def _discounted_reward_to_go(self, rewards):
         """
         Helper function which takes a list of rewards {r_0, r_1, ..., r_t', ... r_T} and returns a list where the entry
         in each index t is sum_{t'=t}^T gamma^(t'-t) * r_{t'}.
         """
         T = rewards.shape[1]-1
-        reverse_a = torch.cumsum((rewards[:,::-1]*(self.gamma**(-torch.arange(0,T+1)))),dim=-1)
-        a = (reverse_a*(self.gamma**(torch.arange(0,T+1))))[:,::-1]
+        reverse_a = torch.cumsum((rewards.flip([-1]) *(self.gamma**(-torch.arange(0,T+1).to(ptu.device)))),dim=-1)
+        a = (reverse_a*(self.gamma**(torch.arange(0,T+1).to(ptu.device)))).flip([-1])
         return a

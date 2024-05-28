@@ -42,8 +42,8 @@ class ValueCritic(nn.Module):
         
 
     def update(self, obs: np.ndarray, q_values: np.ndarray) -> dict:
-        obs = ptu.from_numpy(obs)
-        q_values = ptu.from_numpy(q_values)
+        # obs = ptu.from_numpy(obs)
+        # q_values = ptu.from_numpy(q_values)
 
         # TODO: update the critic using the observations and q_values
         loss = F.mse_loss(self(obs),q_values)
