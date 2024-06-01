@@ -182,6 +182,19 @@ From the figures, we can see that the decreasing the learning rate of the baseli
 
 $\lambda=0$ corresponds to the model only take care of one step when calculating the advantage, while $\lambda=1$ corresponds to not using the GAE method (since the terms cancel out and left only the $Q-V$ term). From the experiment, we can see that $\lambda=1$ is the best (this may be a little bit confusing, since GAE should have improved the result by decreasing bias of the original baseline model). $\lambda=0$ is worse, since it doesn't take the future into account.
 
+\textit{Side Notes.} After I finished this homework, I realized that based on my notes, when $\lambda=0$, the advantage becomes
+
+\[
+r(s_t,a_t)+\gamma V(s_{t+1})-V(s_t)
+\]
+
+which is the estimation of ``vanilla actor-critic algorithm''. When $\lambda=1$, we have the advantage being
+\[
+\sum_{t'\ge t}\gamma^{t'-t}r(s_{t'},a_{t'})-V(s_t),
+\]
+
+which is the advantage function of the state-dependent baseline algorithm. I think that in the experiment 2 (Neural Network Baseline), the instructor intended to let us use the ``vanilla actor-critic'', which should be the case when $\lambda=0$ and has a relative worse performance. However, I used the state-dependent baseline algorithm instead. The difference is quite reasonable, since when $\lambda=0$, there are two model outputs in the advantage function, which of course make the process more unstable.
+
 \end{itemize}
 
 \newpage\section{Hyperparameter Tuning}
