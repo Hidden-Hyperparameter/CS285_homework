@@ -69,6 +69,8 @@ def run_training_loop(
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
     ptu.init_gpu(use_gpu=not args.no_gpu, gpu_id=args.which_gpu)
+    args.my = not args.my
+    ptu.set_strategy(not args.my)
 
     # make the gym environment
     env = config["make_env"]()
@@ -277,6 +279,8 @@ def main():
     parser.add_argument("--seed", type=int, default=1)
     parser.add_argument("--no_gpu", "-ngpu", action="store_true")
     parser.add_argument("--which_gpu", "-g", default=0)
+
+    parser.add_argument('--my',action='store_true')
 
     args = parser.parse_args()
 

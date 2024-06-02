@@ -18,6 +18,7 @@ _str_to_activation = {
 }
 
 device = None
+strategy = False
 
 
 def build_mlp(
@@ -93,3 +94,7 @@ def to_numpy(tensor: Union[torch.Tensor, dict]):
         return {k: to_numpy(v) for k, v in tensor.items()}
     else:
         return tensor.to("cpu").detach().numpy()
+
+def set_strategy(b:bool):
+    global strategy
+    strategy = b

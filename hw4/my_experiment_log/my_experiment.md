@@ -14,6 +14,10 @@ If we use `i`, then this is the traditional algorithm; however, using this rando
 
 ## Problem 2
 
-Old Method avg return: -46.21
-My Method avg return: -43.00
+Old Method avg return: -48.69
 
+My Method avg return: -31.30
+
+## Problem 3,4,5,6
+
+See [report.md](../report.md)
