@@ -41,8 +41,8 @@ class DQNAgent(nn.Module):
 
         self.update_target_critic()
 
-        # print('Agent details:')
-        # print(self.__dict__)
+        print('Agent details:')
+        print(self.__dict__)
 
     def get_action(self, observation: np.ndarray, epsilon: float = 0.02) -> int:
         """
@@ -91,7 +91,7 @@ class DQNAgent(nn.Module):
                 next_action = ...
             
             next_q_values = torch.max(next_qa_values,dim=-1).values
-            target_values = reward + self.discount * next_q_values
+            target_values = reward + self.discount * next_q_values * (1-done.float())
 
         # TODO(student): train the critic with the target values
         qa_values = ...
