@@ -98,7 +98,13 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
 
         next_observation = np.asarray(next_observation)
         truncated = info.get("TimeLimit.truncated", False)
-        done = done or truncated
+
+        """A trajectory can end (done=True) in two ways: the actual end of the trajectory (usually triggered
+        by catastrophic failure, like crashing), or truncation, where the trajectory doesn’t actually end but we stop simulation for some reason (commonly, we truncate trajectories at some maximum episode length). In this latter case, you should still reset the environment, but the done flag for TD-updates (stored in the replay buffer) should be false."""
+
+        if truncated:
+            reset_env_training()
+        
 
         # TODO(student): Add the data to the replay buffer
         if isinstance(replay_buffer, MemoryEfficientReplayBuffer):
