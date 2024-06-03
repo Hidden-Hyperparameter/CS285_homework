@@ -14,7 +14,7 @@ Agent details:
   (0): Linear(in_features=4, out_features=64, bias=True)
   (1): Tanh()
   (2): Linear(in_features=64, out_features=64, bias=True)
-  (3): Tanh()
+  (3): Tanh(z)
   (4): Linear(in_features=64, out_features=2, bias=True)
   (5): Identity()
 )), ('critic_loss', MSELoss())]), 'critic_optimizer': Adam (

@@ -123,16 +123,21 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
             returns = [t["episode_statistics"]["r"] for t in trajectories]
             ep_lens = [t["episode_statistics"]["l"] for t in trajectories]
 
-            logger.log_scalar(np.mean(returns), "eval_return", step)
-            logger.log_scalar(np.mean(ep_lens), "eval_ep_len", step)
+            print('\nstep :',step,flush=True)
+            def wrap(a,b,c):
+                logger.log_scalar(a,b,c)
+                print(f'{b} :',a)
+
+            wrap(np.mean(returns), "eval_return", step)
+            wrap(np.mean(ep_lens), "eval_ep_len", step)
 
             if len(returns) > 1:
-                logger.log_scalar(np.std(returns), "eval/return_std", step)
-                logger.log_scalar(np.max(returns), "eval/return_max", step)
-                logger.log_scalar(np.min(returns), "eval/return_min", step)
-                logger.log_scalar(np.std(ep_lens), "eval/ep_len_std", step)
-                logger.log_scalar(np.max(ep_lens), "eval/ep_len_max", step)
-                logger.log_scalar(np.min(ep_lens), "eval/ep_len_min", step)
+                wrap(np.std(returns), "eval/return_std", step)
+                wrap(np.max(returns), "eval/return_max", step)
+                wrap(np.min(returns), "eval/return_min", step)
+                wrap(np.std(ep_lens), "eval/ep_len_std", step)
+                wrap(np.max(ep_lens), "eval/ep_len_max", step)
+                wrap(np.min(ep_lens), "eval/ep_len_min", step)
 
             if args.num_render_trajectories > 0:
                 video_trajectories = utils.sample_n_trajectories(
