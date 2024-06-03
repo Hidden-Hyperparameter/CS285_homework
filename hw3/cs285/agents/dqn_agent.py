@@ -83,14 +83,14 @@ class DQNAgent(nn.Module):
         # Compute target values
         with torch.no_grad():
             # TODO(student): compute target values
-            next_qa_values = self.target_critic(next_obs)
 
             if self.use_double_q:
-                raise NotImplementedError
+                next_qa_values = torch.argmax(self.critic(next_obs),dim=-1)
+                next_q_values = self.target_critic(next_obs)[torch.arange(0,next_obs.shape[0]),next_qa_values.to(torch.long)]
             else:
                 next_action = ...
-            
-            next_q_values = torch.max(next_qa_values,dim=-1).values
+                next_qa_values = self.target_critic(next_obs)
+                next_q_values = torch.max(next_qa_values,dim=-1).values
             target_values = reward + self.discount * next_q_values * (1-done.float())
 
         # TODO(student): train the critic with the target values
@@ -138,8 +138,6 @@ class DQNAgent(nn.Module):
             next_obs=next_obs,
             done=done
         )
-        if self.use_double_q:
-            raise NotImplementedError()
         if step%(self.target_update_period)==0:
             self.update_target_critic()
 
