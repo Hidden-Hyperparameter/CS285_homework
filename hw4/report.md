@@ -40,7 +40,7 @@ With my method, the avg return is around -31.3087. However, there is a great var
 
 ![](./report/assets/P3-3.png)
 
-Notice that in these three figures, I also show my own method here. I think that in average, my method performs similarly as the original method. I still don't know why.
+Notice that in these three figures, I also show my own method here. I think that in average, my method performs similarly as the original method.
 
 # Problem 4
 

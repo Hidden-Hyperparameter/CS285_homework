@@ -43,7 +43,7 @@ def collect_mbpo_rollout(
         # TODO(student): collect a rollout using the learned dynamics models
         # HINT: get actions from `sac_agent` and `next_ob` predictions from `mb_agent`.
         # Average the ensemble predictions directly to get the next observation.
-        # Get the reward using `env.get_reward`.
+        # Get the reward using `env.get_reward`. 
         raise NotImplementedError()
         obs.append(ob)
         acs.append(ac)
