@@ -178,7 +178,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
             logger.log_scalar(np.mean(returns), "eval_return", step)
             logger.log_scalar(np.mean(ep_lens), "eval_ep_len", step)
             
-            print('step :',step)
+            print('\nstep :',step,flush=True)
             print('eval_return :',np.mean(returns))
             print('eval_ep_len :',np.mean(ep_lens))
 
@@ -228,7 +228,13 @@ def main():
     parser.add_argument("--which_gpu", "-gpu_id", default=0)
     parser.add_argument("--log_interval", type=int, default=1000)
 
+    parser.add_argument('--change_learning_rate',type=float,default=1e-3)
+
     args = parser.parse_args()
+
+    ptu.set_additional_args(args={
+        'learning rate':args.change_learning_rate
+    })
 
     # create directory for logging
     logdir_prefix = "hw3_dqn_"  # keep for autograder

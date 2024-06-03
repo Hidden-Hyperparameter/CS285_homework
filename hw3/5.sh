@@ -1,0 +1,1 @@
+python cs285/scripts/run_hw3_dqn.py -cfg experiments/dqn/hyperparameters/$1.yaml --seed 42 > log5_param$1.log

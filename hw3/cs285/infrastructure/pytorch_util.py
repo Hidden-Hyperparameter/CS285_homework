@@ -18,7 +18,7 @@ _str_to_activation = {
 }
 
 device = None
-
+addition_args = None
 
 def build_mlp(
     input_size: int,
@@ -77,6 +77,9 @@ def init_gpu(use_gpu=True, gpu_id=0):
 def set_device(gpu_id):
     torch.cuda.set_device(gpu_id)
 
+def set_additional_args(args):
+    global addition_args
+    addition_args = args
 
 def from_numpy(data: Union[np.ndarray, dict], **kwargs):
     if isinstance(data, dict):

@@ -29,6 +29,10 @@ def basic_dqn_config(
     batch_size: int = 128,
     **kwargs
 ):
+    learning_rate = ptu.addition_args['learning rate']
+    print('-'*20)
+    print('setting learning rate to',learning_rate)
+    print('-'*20)
     def make_critic(observation_shape: Tuple[int, ...], num_actions: int) -> nn.Module:
         return ptu.build_mlp(
             input_size=np.prod(observation_shape),

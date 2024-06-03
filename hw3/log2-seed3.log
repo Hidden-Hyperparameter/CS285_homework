@@ -1,0 +1,333 @@
+########################
+logging outputs to  /root/CS285_homework/hw3/cs285/scripts/../../data/hw3_dqn_dqn_LunarLander-v2_s64_l2_d0.99_03-06-2024_09-43-35
+########################
+Using GPU id 0
+Agent details:
+{'training': True, '_parameters': OrderedDict(), '_buffers': OrderedDict(), '_non_persistent_buffers_set': set(), '_backward_pre_hooks': OrderedDict(), '_backward_hooks': OrderedDict(), '_is_full_backward_hook': None, '_forward_hooks': OrderedDict(), '_forward_hooks_with_kwargs': OrderedDict(), '_forward_hooks_always_called': OrderedDict(), '_forward_pre_hooks': OrderedDict(), '_forward_pre_hooks_with_kwargs': OrderedDict(), '_state_dict_hooks': OrderedDict(), '_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_post_hooks': OrderedDict(), '_modules': OrderedDict([('critic', Sequential(
+  (0): Linear(in_features=8, out_features=64, bias=True)
+  (1): Tanh()
+  (2): Linear(in_features=64, out_features=64, bias=True)
+  (3): Tanh()
+  (4): Linear(in_features=64, out_features=4, bias=True)
+  (5): Identity()
+)), ('target_critic', Sequential(
+  (0): Linear(in_features=8, out_features=64, bias=True)
+  (1): Tanh()
+  (2): Linear(in_features=64, out_features=64, bias=True)
+  (3): Tanh()
+  (4): Linear(in_features=64, out_features=4, bias=True)
+  (5): Identity()
+)), ('critic_loss', MSELoss())]), 'critic_optimizer': Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.001
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+), 'lr_scheduler': <torch.optim.lr_scheduler.ConstantLR object at 0x7f5bdd2ff310>, 'observation_shape': (8,), 'num_actions': 4, 'discount': 0.99, 'target_update_period': 1000, 'clip_grad_norm': None, 'use_double_q': False}
+
+step : 0
+eval_return : -196.05716
+eval_ep_len : 67.7
+eval return_std : 129.82143
+eval return_max : -29.727066
+eval return_min : -446.3159
+eval ep_len_std : 14.498620624045584
+eval ep_len_max : 89
+eval ep_len_min : 52
+
+step : 10000
+eval_return : -193.5137
+eval_ep_len : 65.6
+eval return_std : 124.03941
+eval return_max : -87.1486
+eval return_min : -437.1371
+eval ep_len_std : 10.846197490365
+eval ep_len_max : 82
+eval ep_len_min : 52
+
+step : 20000
+eval_return : -214.70432
+eval_ep_len : 70.4
+eval return_std : 104.96289
+eval return_max : -73.14352
+eval return_min : -378.2584
+eval ep_len_std : 10.697663296253065
+eval ep_len_max : 85
+eval ep_len_min : 52
+
+step : 30000
+eval_return : -154.68054
+eval_ep_len : 1000.0
+eval return_std : 20.314972
+eval return_max : -125.37853
+eval return_min : -183.27313
+eval ep_len_std : 0.0
+eval ep_len_max : 1000
+eval ep_len_min : 1000
+
+step : 40000
+eval_return : -152.5015
+eval_ep_len : 1000.0
+eval return_std : 19.916765
+eval return_max : -123.202385
+eval return_min : -184.1136
+eval ep_len_std : 0.0
+eval ep_len_max : 1000
+eval ep_len_min : 1000
+
+step : 50000
+eval_return : -100.98463
+eval_ep_len : 598.8
+eval return_std : 157.87695
+eval return_max : 179.50496
+eval return_min : -281.20325
+eval ep_len_std : 223.3435918041975
+eval ep_len_max : 867
+eval ep_len_min : 242
+
+step : 60000
+eval_return : -167.00818
+eval_ep_len : 601.9
+eval return_std : 34.35366
+eval return_max : -109.15777
+eval return_min : -214.20659
+eval ep_len_std : 174.0117524766646
+eval ep_len_max : 1000
+eval ep_len_min : 382
+
+step : 70000
+eval_return : -132.18454
+eval_ep_len : 329.7
+eval return_std : 29.86478
+eval return_max : -81.34361
+eval return_min : -185.51097
+eval ep_len_std : 86.55639779935392
+eval ep_len_max : 535
+eval ep_len_min : 178
+
+step : 80000
+eval_return : -103.58555
+eval_ep_len : 802.2
+eval return_std : 41.75151
+eval return_max : -26.627565
+eval return_min : -186.76875
+eval ep_len_std : 308.24042564206275
+eval ep_len_max : 1000
+eval ep_len_min : 184
+
+step : 90000
+eval_return : -89.74947
+eval_ep_len : 932.8
+eval return_std : 50.711555
+eval return_max : -45.271557
+eval return_min : -212.37166
+eval ep_len_std : 148.83937651038448
+eval ep_len_max : 1000
+eval ep_len_min : 521
+
+step : 100000
+eval_return : -80.09852
+eval_ep_len : 913.4
+eval return_std : 36.161385
+eval return_max : -22.702576
+eval return_min : -144.80042
+eval ep_len_std : 259.8
+eval ep_len_max : 1000
+eval ep_len_min : 134
+
+step : 110000
+eval_return : -152.29106
+eval_ep_len : 437.7
+eval return_std : 88.582146
+eval return_max : -50.219257
+eval return_min : -317.86432
+eval ep_len_std : 311.6389096374199
+eval ep_len_max : 1000
+eval ep_len_min : 133
+
+step : 120000
+eval_return : -135.81003
+eval_ep_len : 791.8
+eval return_std : 80.38875
+eval return_max : -66.128624
+eval return_min : -296.5564
+eval ep_len_std : 297.3135718395647
+eval ep_len_max : 1000
+eval ep_len_min : 129
+
+step : 130000
+eval_return : -48.737926
+eval_ep_len : 922.0
+eval return_std : 22.014505
+eval return_max : -16.716192
+eval return_min : -75.11505
+eval ep_len_std : 234.0
+eval ep_len_max : 1000
+eval ep_len_min : 220
+
+step : 140000
+eval_return : -5.201869
+eval_ep_len : 1000.0
+eval return_std : 20.287405
+eval return_max : 25.666037
+eval return_min : -46.96881
+eval ep_len_std : 0.0
+eval ep_len_max : 1000
+eval ep_len_min : 1000
+
+step : 150000
+eval_return : -60.60805
+eval_ep_len : 980.0
+eval return_std : 45.12233
+eval return_max : -0.958544
+eval return_min : -154.69275
+eval ep_len_std : 60.0
+eval ep_len_max : 1000
+eval ep_len_min : 800
+
+step : 160000
+eval_return : -107.74741
+eval_ep_len : 938.2
+eval return_std : 30.134462
+eval return_max : -61.383583
+eval return_min : -162.46097
+eval ep_len_std : 185.39999999999998
+eval ep_len_max : 1000
+eval ep_len_min : 382
+
+step : 170000
+eval_return : -138.0245
+eval_ep_len : 999.0
+eval return_std : 61.404003
+eval return_max : -13.50493
+eval return_min : -277.85544
+eval ep_len_std : 3.0
+eval ep_len_max : 1000
+eval ep_len_min : 990
+
+step : 180000
+eval_return : 146.06686
+eval_ep_len : 634.9
+eval return_std : 140.62326
+eval return_max : 238.21602
+eval return_min : -151.83232
+eval ep_len_std : 244.35197973415316
+eval ep_len_max : 1000
+eval ep_len_min : 366
+
+step : 190000
+eval_return : 60.610157
+eval_ep_len : 667.3
+eval return_std : 177.05678
+eval return_max : 275.88568
+eval return_min : -150.55367
+eval ep_len_std : 278.497773779253
+eval ep_len_max : 1000
+eval ep_len_min : 319
+
+step : 200000
+eval_return : 60.3276
+eval_ep_len : 679.9
+eval return_std : 164.02655
+eval return_max : 269.27362
+eval return_min : -130.01137
+eval ep_len_std : 281.51499071985495
+eval ep_len_max : 1000
+eval ep_len_min : 309
+
+step : 210000
+eval_return : 202.76949
+eval_ep_len : 373.7
+eval return_std : 115.72778
+eval return_max : 283.21368
+eval return_min : -65.185005
+eval ep_len_std : 211.46964321150207
+eval ep_len_max : 1000
+eval ep_len_min : 249
+
+step : 220000
+eval_return : 101.77671
+eval_ep_len : 421.8
+eval return_std : 181.52371
+eval return_max : 273.99554
+eval return_min : -265.66644
+eval ep_len_std : 182.89603604233747
+eval ep_len_max : 826
+eval ep_len_min : 246
+
+step : 230000
+eval_return : 79.49239
+eval_ep_len : 615.6
+eval return_std : 251.6833
+eval return_max : 293.8691
+eval return_min : -426.1379
+eval ep_len_std : 188.31420551833048
+eval ep_len_max : 1000
+eval ep_len_min : 417
+
+step : 240000
+eval_return : 25.479591
+eval_ep_len : 674.3
+eval return_std : 168.4683
+eval return_max : 233.8533
+eval return_min : -249.72691
+eval ep_len_std : 266.27130900643425
+eval ep_len_max : 1000
+eval ep_len_min : 334
+
+step : 250000
+eval_return : 26.72414
+eval_ep_len : 884.5
+eval return_std : 107.3948
+eval return_max : 226.25299
+eval return_min : -87.41645
+eval ep_len_std : 209.79954718730926
+eval ep_len_max : 1000
+eval ep_len_min : 461
+
+step : 260000
+eval_return : -59.363823
+eval_ep_len : 930.4
+eval return_std : 17.034758
+eval return_max : -39.91134
+eval return_min : -88.71169
+eval ep_len_std : 208.8
+eval ep_len_max : 1000
+eval ep_len_min : 304
+
+step : 270000
+eval_return : -43.859245
+eval_ep_len : 921.0
+eval return_std : 36.768394
+eval return_max : 55.2565
+eval return_min : -81.0489
+eval ep_len_std : 237.0
+eval ep_len_max : 1000
+eval ep_len_min : 210
+
+step : 280000
+eval_return : -24.898066
+eval_ep_len : 789.9
+eval return_std : 132.33627
+eval return_max : 242.14716
+eval return_min : -206.35347
+eval ep_len_std : 319.079128117149
+eval ep_len_max : 1000
+eval ep_len_min : 203
+
+step : 290000
+eval_return : -0.62264556
+eval_ep_len : 922.3
+eval return_std : 90.32386
+eval return_max : 252.97688
+eval return_min : -75.86452
+eval ep_len_std : 233.1
+eval ep_len_max : 1000
+eval ep_len_min : 223
