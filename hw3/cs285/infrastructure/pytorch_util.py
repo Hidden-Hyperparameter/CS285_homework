@@ -80,6 +80,8 @@ def set_device(gpu_id):
 def set_additional_args(args):
     global addition_args
     addition_args = args
+    print('[INFO] setting additional args:')
+    print(addition_args)
 
 def from_numpy(data: Union[np.ndarray, dict], **kwargs):
     if isinstance(data, dict):

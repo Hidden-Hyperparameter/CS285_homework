@@ -1,0 +1,269 @@
+########################
+logging outputs to  /root/CS285_homework/hw3/cs285/scripts/../../data/hw3_sac_sac_hopper_clipq_Hopper-v4_reparametrize_s128_l3_alr0.0003_clr0.0003_b256_d0.99_t0.05_stu0.005_min_03-06-2024_20-11-57
+########################
+Using GPU id 1
+agent info:
+{'training': True, '_parameters': OrderedDict(), '_buffers': OrderedDict(), '_non_persistent_buffers_set': set(), '_backward_pre_hooks': OrderedDict(), '_backward_hooks': OrderedDict(), '_is_full_backward_hook': None, '_forward_hooks': OrderedDict(), '_forward_hooks_with_kwargs': OrderedDict(), '_forward_hooks_always_called': OrderedDict(), '_forward_pre_hooks': OrderedDict(), '_forward_pre_hooks_with_kwargs': OrderedDict(), '_state_dict_hooks': OrderedDict(), '_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_post_hooks': OrderedDict(), '_modules': OrderedDict([('actor', MLPPolicy(
+  (net): Sequential(
+    (0): Linear(in_features=11, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): Tanh()
+    (4): Linear(in_features=128, out_features=128, bias=True)
+    (5): Tanh()
+    (6): Linear(in_features=128, out_features=6, bias=True)
+    (7): Identity()
+  )
+)), ('critics', ModuleList(
+  (0-1): 2 x StateActionCritic(
+    (net): Sequential(
+      (0): Linear(in_features=14, out_features=128, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=128, out_features=128, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=128, out_features=128, bias=True)
+      (5): Tanh()
+      (6): Linear(in_features=128, out_features=1, bias=True)
+      (7): Identity()
+    )
+  )
+)), ('target_critics', ModuleList(
+  (0-1): 2 x StateActionCritic(
+    (net): Sequential(
+      (0): Linear(in_features=14, out_features=128, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=128, out_features=128, bias=True)
+      (3): Tanh()
+      (4): Linear(in_features=128, out_features=128, bias=True)
+      (5): Tanh()
+      (6): Linear(in_features=128, out_features=1, bias=True)
+      (7): Identity()
+    )
+  )
+)), ('critic_loss', MSELoss())]), 'actor_optimizer': Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0003
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+), 'actor_lr_scheduler': <torch.optim.lr_scheduler.ConstantLR object at 0x7fe815da12a0>, 'critic_optimizer': Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0003
+    lr: 0.0003
+    maximize: False
+    weight_decay: 0
+), 'critic_lr_scheduler': <torch.optim.lr_scheduler.ConstantLR object at 0x7fe8081306a0>, 'observation_shape': (11,), 'action_dim': 3, 'discount': 0.99, 'target_update_period': None, 'target_critic_backup_type': 'min', 'num_critic_networks': 2, 'use_entropy_bonus': True, 'temperature': 0.05, 'actor_gradient_type': 'reparametrize', 'num_actor_samples': 1, 'num_critic_updates': 1, 'soft_target_update_rate': 0.005, 'backup_entropy': False}
+
+step : 0
+eval_return : 21.651428
+eval_ep_len : 32.1
+eval/return_std : 13.268281
+eval/return_max : 49.621292
+eval/return_min : 6.00474
+eval/ep_len_std : 16.164467204334326
+eval/ep_len_max : 67
+eval/ep_len_min : 14
+
+step : 5000
+eval_return : 15.837128
+eval_ep_len : 32.4
+eval/return_std : 11.459391
+eval/return_max : 46.208984
+eval/return_min : 6.474331
+eval/ep_len_std : 6.019966777316965
+eval/ep_len_max : 41
+eval/ep_len_min : 22
+
+step : 10000
+eval_return : 25.991146
+eval_ep_len : 32.1
+eval/return_std : 15.151799
+eval/return_max : 53.45648
+eval/return_min : 5.6687374
+eval/ep_len_std : 14.828688411319456
+eval/ep_len_max : 55
+eval/ep_len_min : 10
+
+step : 15000
+eval_return : 177.86185
+eval_ep_len : 83.7
+eval/return_std : 2.9772296
+eval/return_max : 181.6357
+eval/return_min : 172.54315
+eval/ep_len_std : 1.268857754044952
+eval/ep_len_max : 87
+eval/ep_len_min : 83
+
+step : 20000
+eval_return : 266.3589
+eval_ep_len : 115.9
+eval/return_std : 23.051405
+eval/return_max : 305.2854
+eval/return_min : 223.87238
+eval/ep_len_std : 5.734980383575867
+eval/ep_len_max : 124
+eval/ep_len_min : 106
+
+step : 25000
+eval_return : 302.2801
+eval_ep_len : 114.4
+eval/return_std : 6.943913
+eval/return_max : 320.94867
+eval/return_min : 294.16843
+eval/ep_len_std : 1.3564659966250536
+eval/ep_len_max : 117
+eval/ep_len_min : 113
+
+step : 30000
+eval_return : 284.458
+eval_ep_len : 110.5
+eval/return_std : 9.780605
+eval/return_max : 300.04797
+eval/return_min : 263.69357
+eval/ep_len_std : 2.0124611797498106
+eval/ep_len_max : 114
+eval/ep_len_min : 107
+
+step : 35000
+eval_return : 254.81186
+eval_ep_len : 105.4
+eval/return_std : 107.475784
+eval/return_max : 327.25867
+eval/return_min : 37.74453
+eval/ep_len_std : 39.83013934196063
+eval/ep_len_max : 129
+eval/ep_len_min : 24
+
+step : 40000
+eval_return : 305.56235
+eval_ep_len : 118.5
+eval/return_std : 8.4974785
+eval/return_max : 322.59256
+eval/return_min : 294.9827
+eval/ep_len_std : 2.4186773244895647
+eval/ep_len_max : 123
+eval/ep_len_min : 116
+
+step : 45000
+eval_return : 350.38153
+eval_ep_len : 135.7
+eval/return_std : 30.485672
+eval/return_max : 380.5615
+eval/return_min : 282.9318
+eval/ep_len_std : 6.017474553332153
+eval/ep_len_max : 144
+eval/ep_len_min : 125
+
+step : 50000
+eval_return : 353.5178
+eval_ep_len : 142.8
+eval/return_std : 16.769207
+eval/return_max : 370.84515
+eval/return_min : 320.70493
+eval/ep_len_std : 3.0594117081556704
+eval/ep_len_max : 148
+eval/ep_len_min : 137
+
+step : 55000
+eval_return : 360.44196
+eval_ep_len : 143.4
+eval/return_std : 39.490414
+eval/return_max : 419.4214
+eval/return_min : 282.3456
+eval/ep_len_std : 11.306635220082056
+eval/ep_len_max : 156
+eval/ep_len_min : 118
+
+step : 60000
+eval_return : 381.12762
+eval_ep_len : 158.5
+eval/return_std : 56.702904
+eval/return_max : 478.74423
+eval/return_min : 273.38647
+eval/ep_len_std : 21.81398633904404
+eval/ep_len_max : 198
+eval/ep_len_min : 125
+
+step : 65000
+eval_return : 418.9952
+eval_ep_len : 195.7
+eval/return_std : 38.72679
+eval/return_max : 473.818
+eval/return_min : 364.64575
+eval/ep_len_std : 23.443762496664224
+eval/ep_len_max : 232
+eval/ep_len_min : 157
+
+step : 70000
+eval_return : 337.43292
+eval_ep_len : 121.7
+eval/return_std : 2.9014452
+eval/return_max : 340.05176
+eval/return_min : 329.83405
+eval/ep_len_std : 1.345362404707371
+eval/ep_len_max : 125
+eval/ep_len_min : 120
+
+step : 75000
+eval_return : 40.762012
+eval_ep_len : 68.1
+eval/return_std : 5.342121
+eval/return_max : 54.129547
+eval/return_min : 34.47592
+eval/ep_len_std : 5.8898217290508885
+eval/ep_len_max : 83
+eval/ep_len_min : 61
+
+step : 80000
+eval_return : 400.39645
+eval_ep_len : 144.6
+eval/return_std : 84.71245
+eval/return_max : 541.1222
+eval/return_min : 305.1082
+eval/ep_len_std : 18.227451824103117
+eval/ep_len_max : 180
+eval/ep_len_min : 125
+
+step : 85000
+eval_return : 541.4788
+eval_ep_len : 174.5
+eval/return_std : 24.646692
+eval/return_max : 566.39813
+eval/return_min : 480.3611
+eval/ep_len_std : 7.632168761236874
+eval/ep_len_max : 184
+eval/ep_len_min : 156
+
+step : 90000
+eval_return : 486.3478
+eval_ep_len : 165.9
+eval/return_std : 30.51138
+eval/return_max : 525.20825
+eval/return_min : 432.2556
+eval/ep_len_std : 9.61717214153932
+eval/ep_len_max : 178
+eval/ep_len_min : 148
+
+step : 95000
+eval_return : 416.9169
+eval_ep_len : 152.5
+eval/return_std : 37.904167
+eval/return_max : 477.33926
+eval/return_min : 345.035
+eval/ep_len_std : 8.052949770115296
+eval/ep_len_max : 167
+eval/ep_len_min : 137

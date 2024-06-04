@@ -1,0 +1,1 @@
+nohup python cs285/scripts/run_hw4.py -cfg experiments/mpc/halfcheetah_mbpo.yaml --sac_config_file experiments/sac/halfcheetah_clipq_r$1.yaml > log_task6_r$1.log

@@ -33,17 +33,37 @@ labels = {
     # 'lr=0.05':['log3']
 
     # Task 2.6
-    'lr=1.0e-3':['log4_seed1','log4_seed2','log4_seed3'],
-    'lr=3.0e-4':['log5_param1'],
-    'lr=9.0e-4':['log5_param2'],
-    'lr=0.4e-4':['log5_param3']
+    # 'lr=1.0e-3':['log4_seed1','log4_seed2','log4_seed3'],
+    # 'lr=3.0e-4':['log5_param1'],
+    # 'lr=9.0e-4':['log5_param2'],
+    # 'lr=0.4e-4':['log5_param3']
+
+    # Task 3.1.3.1
+    # '':['log6']
+
+    # Task 3.1.4.1
+
+    'reinforce 1':['log7'],
+    'reinforce 10':['log7-2'],
+    'reparameterize':[]
+
+    # Task 3.1.5
+    # 'singleq':['log10-1'],
+    # 'clipq':['log10-2'],
+    # 'doubleq':['log10-3'],
+    # 'redq':['log10-4']
+
+    # Task 3.1.3
+
+    # Task 3.1.4
+
 }
 
 x_axis = 'step'
 y_axises = ['eval_return']
 y_label = 'return'
 plot_title = None
-plot_name = 'P2-6.png'
+plot_name = 'P3-1-5-2.png'
 
 # CONFIG END
 

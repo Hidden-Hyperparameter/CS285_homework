@@ -1,0 +1,1 @@
+python cs285/scripts/run_hw3_sac.py -cfg experiments/sac/hopper.yaml --which_gpu 1 > log10-1.log

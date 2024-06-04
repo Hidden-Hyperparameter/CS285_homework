@@ -23,6 +23,7 @@ from scripting_utils import make_logger, make_config
 
 import argparse
 
+import signal,sys
 
 def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     # set random seeds
@@ -170,7 +171,15 @@ def main():
     parser.add_argument("--which_gpu", "-g", default=0)
     parser.add_argument("--log_interval", type=int, default=1000)
 
+    parser.add_argument('--change_learning_rate',type=float,default=1e-3)
+    parser.add_argument('--bird_method',type=int,default=0)
+
     args = parser.parse_args()
+
+    ptu.set_additional_args(args={
+        # 'learning rate':args.change_learning_rate,
+        'bird method':bool(args.bird_method)
+    })
 
     # create directory for logging
     logdir_prefix = "hw3_sac_"  # keep for autograder
@@ -182,4 +191,8 @@ def main():
 
 
 if __name__ == "__main__":
+    def signal_handeler(signum,frame):
+        sys.stderr.write('[INFO] sighup handled')
+    signal.signal(signal.SIGHUP,signal_handeler)
+    signal.signal(signal.SIGINT,signal_handeler)
     main()

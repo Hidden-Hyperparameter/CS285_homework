@@ -161,9 +161,14 @@ class SoftActorCritic(nn.Module):
             next_qs = tmp
 
         elif self.target_critic_backup_type == "min":
-            next_qs = next_qs.min(dim=0)
+            next_qs = next_qs.min(dim=0).values
         elif self.target_critic_backup_type == "mean":
             next_qs = next_qs.mean(dim=0)
+        elif self.target_critic_backup_type == 'redq':
+            ind1,ind2 = torch.randint(0,next_qs.shape[0],(1,)),torch.randint(0,next_qs.shape[0],(1,))
+            ind1,ind2 = ind1.item(),ind2.item()
+            next_qs = torch.min(next_qs[ind1],next_qs[ind2])
+            pass
         else:
             # Default, we don't need to do anything.
             pass
@@ -270,7 +275,11 @@ class SoftActorCritic(nn.Module):
                 self.action_dim,
             ), action.shape
             # TODO(student): Compute Q-values for the current state-action pair
-            q_values = self.target_critic(torch.tile(obs,dims=(self.num_actor_samples,1,1)),action)
+            if ptu.addition_args['bird method']:
+                q_values = self.critic(torch.tile(obs,dims=(self.num_actor_samples,1,1)),action)
+            else:
+                q_values = self.target_critic(torch.tile(obs,dims=(self.num_actor_samples,1,1)),action)
+
             assert q_values.shape == (
                 self.num_critic_networks,
                 self.num_actor_samples,
@@ -296,13 +305,16 @@ class SoftActorCritic(nn.Module):
 
         # TODO(student): Sample actions
         # Note: Think about whether to use .rsample() or .sample() here...
-        action = action_distribution.rsample()
+        action = action_distribution.rsample([self.num_actor_samples])
 
         # TODO(student): Compute Q-values for the sampled state-action pair
-        q_values = self.target_critic(obs,action)
+        if ptu.addition_args['bird method']:
+            q_values = self.critic(torch.tile(obs,dims=(self.num_actor_samples,1,1)),action)
+        else:
+            q_values = self.target_critic(torch.tile(obs,dims=(self.num_actor_samples,1,1)),action)
 
         # TODO(student): Compute the actor loss
-        loss = -torch.mean(q_values,dim=0)
+        loss = -torch.mean(q_values)
 
         return loss, torch.mean(self.entropy(action_distribution))
 

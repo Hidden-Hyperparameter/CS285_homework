@@ -1,0 +1,1 @@
+nohup python cs285/scripts/run_hw3_sac.py -cfg experiments/sac/sanity_invertedpendulum_reinforce.yaml --bird_method 1 --which_gpu 1 > bird.log

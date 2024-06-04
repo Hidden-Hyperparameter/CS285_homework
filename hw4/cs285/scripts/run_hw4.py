@@ -24,7 +24,7 @@ from cs285.infrastructure.logger import Logger
 
 from scripting_utils import make_logger, make_config
 
-import argparse
+import argparse,sys,signal
 
 from cs285.envs import register_envs
 
@@ -44,7 +44,13 @@ def collect_mbpo_rollout(
         # HINT: get actions from `sac_agent` and `next_ob` predictions from `mb_agent`.
         # Average the ensemble predictions directly to get the next observation.
         # Get the reward using `env.get_reward`. 
-        raise NotImplementedError()
+        if len(obs)==0:
+            ind = torch.randint(0,mb_agent.ensemble_size,(1,)).item()
+            # ob = ob.reshape(1,-1)
+        ac = sac_agent.get_action(ob)
+        rew,_ = env.get_reward(ob,ac)
+        next_ob = mb_agent.get_dynamics_predictions(ind,ob,ac)
+        
         obs.append(ob)
         acs.append(ac)
         rewards.append(rew)
@@ -52,7 +58,6 @@ def collect_mbpo_rollout(
         dones.append(False)
 
         ob = next_ob
-
     return {
         "observation": np.array(obs),
         "action": np.array(acs),
@@ -142,6 +147,7 @@ def run_training_loop(
         # if doing MBPO, add the collected data to the SAC replay buffer as well
         if sac_config is not None:
             for traj in trajs:
+                # print('type(traj["action"])',type(traj["action"]))
                 sac_replay_buffer.batched_insert(
                     observations=traj["observation"],
                     actions=traj["action"],
@@ -160,23 +166,24 @@ def run_training_loop(
         # train agent
         print("Training agent...")
         all_losses = []
-        for _ in tqdm.trange(
-            config["num_agent_train_steps_per_iter"], dynamic_ncols=True
-        ):
-            step_losses = []
+        # for _ in tqdm.trange(
+        #     config["num_agent_train_steps_per_iter"], dynamic_ncols=True
+        # ):
+        #     step_losses = []
             # TODO(student): train the dynamics models
             # HINT: train each dynamics model in the ensemble with a *different* batch of transitions!
             # Use `replay_buffer.sample` with config["train_batch_size"].
-            for i in range(actor_agent.ensemble_size):
-                samples = replay_buffer.sample(config['train_batch_size'])
-                step_losses.append(
-                    actor_agent.update(
-                        i,samples['observations'],samples['actions'],samples['next_observations']
-                    ).reshape(-1)
-                )
-                # print(step_losses)
-            step_losses = np.concatenate(step_losses,axis=0)
-            all_losses.append(np.mean(step_losses))
+            
+            # for i in range(mb_agent.ensemble_size):
+            #     samples = replay_buffer.sample(config['train_batch_size'])
+            #     step_losses.append(
+            #         mb_agent.update(
+            #             i,samples['observations'],samples['actions'],samples['next_observations']
+            #         ).reshape(-1)
+            #     )
+            #     # print(step_losses)
+            # step_losses = np.concatenate(step_losses,axis=0)
+            # all_losses.append(np.mean(step_losses))
 
         # on iteration 0, plot the full learning curve
         if itr == 0:
@@ -207,6 +214,7 @@ def run_training_loop(
                         sac_config["mbpo_rollout_length"],
                     )
                     # insert it into the SAC replay buffer only
+                    # print('type(rollout["action"])',type(rollout["action"]))
                     sac_replay_buffer.batched_insert(
                         observations=rollout["observation"],
                         actions=rollout["action"],
@@ -268,7 +276,7 @@ def run_training_loop(
                 )
 
 
-def main():
+def main():    
     parser = argparse.ArgumentParser()
     parser.add_argument("--config_file", "-cfg", type=str, required=True)
     parser.add_argument("--sac_config_file", type=str, default=None)
@@ -281,8 +289,14 @@ def main():
     parser.add_argument("--which_gpu", "-g", default=0)
 
     parser.add_argument('--my',action='store_true')
+    parser.add_argument('--bird_method',type=int,default=0)
 
     args = parser.parse_args()
+
+    ptu.set_additional_args(args={
+        # 'learning rate':args.change_learning_rate,
+        'bird method':bool(args.bird_method)
+    })
 
     config = make_config(args.config_file)
     logger = make_logger(config)
@@ -296,4 +310,8 @@ def main():
 
 
 if __name__ == "__main__":
+    def signal_hander(x,y):
+        sys.stderr.write('[INFO] signal handeled')
+    signal.signal(signal.SIGINT,signal_hander)
+    signal.signal(signal.SIGHUP,signal_hander)
     main()
