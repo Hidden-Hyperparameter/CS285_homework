@@ -66,7 +66,12 @@ Implement the basic DQN algorithm. You'll implement an update for the $Q$-networ
     
 \MYSOLUTION
 
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../report/assets/P2-4-1.png}
+    \caption{CartPole-v1}
+    \label{fig:q1_cartpole}
+\end{figure}
 
     \item Run DQN with three different seeds on \verb|LunarLander-v2|:
 \begin{lstlisting}[language=bash,breaklines=true]
@@ -75,7 +80,24 @@ Implement the basic DQN algorithm. You'll implement an update for the $Q$-networ
   python cs285/scripts/run_hw3_dqn.py -cfg experiments/dqn/lunarlander.yaml --seed 3
 \end{lstlisting}
 \textbf{Your code may not reach high return (200) on Lunar Lander yet; this is okay!} Your returns may go up for a while and then collapse in some or all of the seeds.
+
+\MYSOLUTION This figure will be shown in question 2.5. 
+
     \item Run DQN on \verb|CartPole-v1|, but change the \verb|learning rate| to 0.05 (you can change this in the YAML config file). What happens to (a) the predicted $Q$-values, and (b) the critic error? Can you relate this to any topics from class or the analysis section of this homework?
+    
+\MYSOLUTION 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{../report/assets/P2-4-3-2.png}
+    \includegraphics[width=0.4\textwidth]{../report/assets/P2-4-3-3.png}
+    \includegraphics[width=0.4\textwidth]{../report/assets/P2-4-3-1.png}
+    \caption{CartPole-v1 with learning rate 0.05 and 1e-3}
+    \label{fig:q1_cartpole_lr}
+\end{figure}
+
+The predicted Q values are larger when the learning rate is bigger (0.05). This may due to the fact that the updating speed of the target is faster, so there will be more bias. The critic loss is larger and more unstable when the learning rate is bigger. This is because the target is moving too quickly, and the model is not able to converge.
+
 \end{itemize}
 
 \subsection{Double Q-Learning}
@@ -98,11 +120,31 @@ Implement this functionality in \verb|dqn_agent.py|.
     
     Plot returns from these three seeds in red, and the ``vanilla'' DQN results in blue, on the same set of axes. Compare the two, and describe in your own words what might cause this difference.
 
+\MYSOLUTION
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../report/assets/P2-5.png}
+    \caption{LunarLander-v2 with double Q learning}
+    \label{fig:q1_lunarlander}
+\end{figure}
+
     \item Run your DQN implementation on the \verb|MsPacman-v0| problem. Our default configuration will use double-$Q$ learning by default. You are welcome to tune hyperparameters to get it to work better, but the default parameters should work (so if they don't, you likely have a bug in your implementation). Your implementation should receive a score of around \textbf{1500} by the end of training (1 million steps. \textbf{This problem will take about 3 hours with a GPU, or {\color{red} 6 hours} without, so start early!}
     \begin{lstlisting}[language=bash,breaklines=true]
     python cs285/scripts/run_hw3_dqn.py -cfg experiments/dqn/mspacman.yaml
     \end{lstlisting}
     \item Plot the average training return (\verb|train_return|) and eval return (\verb|eval_return|) on the same axes. You may notice that they look very different early in training! Explain the difference.
+
+\MYSOLUTION This experiment is no longer viable to run due to
+
+\texttt{
+gym.error.Error: We're Unable to find the game "MsPacman". Note: Gym no longer distributes ROMs. If you own a license to use the necessary ROMs for research purposes you can download them via `pip install gym[accept-rom-license]`.  Otherwise, you should try importing "MsPacman" via the command `ale-import-roms`. If you believe this is a mistake perhaps your copy of "MsPacman" is unsupported. To check if this is the case try providing the environment variable `PYTHONWARNINGS=default::ImportWarning:ale\_py.roms`. 
+}
+
+\texttt{
+For more information see: \url{https://github.com/mgbellemare/Arcade-Learning-Environment\#rom-management}
+}
+
 \end{itemize}
 
 \subsection{Experimenting with Hyperparameters} Now let's analyze the sensitivity of Q-learning to hyperparameters. Choose one hyperparameter of your choice and run at least three other settings of this hyperparameter, in addition to the one used in Question 1, and plot all four values on the same graph. Your choice what you experiment with, but you should explain why you chose this hyperparameter in the caption. Create four config files in \verb|experiments/dqn/hyperparameters|, and look in \verb|cs285/env_configs/basic_dqn_config.py| to see which hyperparameters you're able to change. You can use any of the base YAML files as a reference.
@@ -113,3 +155,14 @@ Hyperparameter options could include:
     \item Network architecture
     \item Exploration schedule (or, if you'd like, you can implement an alternative to $\epsilon$-greedy)
 \end{itemize}
+
+\MYSOLUTION I choose the learning rate for the hyperparameter. The results is shown below:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../report/assets/P2-6.png}
+    \caption{CartPole-v1 with different learning rates}
+    \label{fig:q1_hyperparameter}
+\end{figure}
+
+From the result we can see that a learning rate too low will cause the return to saturate early, hence the final return is low. I can also tell that the selected learning rate are not very large, since there is no unstableness caused by the learning rate.

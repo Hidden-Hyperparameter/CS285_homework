@@ -81,7 +81,11 @@ Below is a comparation of our method and the original method. I can't comment mu
 
 # Problem 6
 
-The code isn't finished yet. I have to finish it after I finish hw3.
+The plot is shown below.
+
+![](./report/assets/P6.png)
+
+From the plot, I can see that the MBPO method runs the best, and Dyna is worse. The reason that Dyna is the worst given the same parameters is that compared with MBPO, it has fewer model-based data; compared with SAC, it introduces the model bias.
 
 # Afterward Notes
 
