@@ -5,7 +5,7 @@ exp_name: sac_humanoid
 num_critic_networks: 2
 target_critic_backup_type: min
 
-total_steps: 5000000
+total_steps: 500000
 random_steps: 5000
 training_starts: 10000
 

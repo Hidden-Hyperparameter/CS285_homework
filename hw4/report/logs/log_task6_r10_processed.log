@@ -1,0 +1,145 @@
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/gym/core.py:317: DeprecationWarning: [33mWARN: Initializing wrapper in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+deprecation(
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/gym/wrappers/step_api_compatibility.py:39: DeprecationWarning: [33mWARN: Initializing environment in old step API which returns one bool instead of two. It is recommended to set `new_step_api=True` to use new step API. This will be the default behaviour in future.[0m
+deprecation(
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/gym/utils/seeding.py:53: DeprecationWarning: [33mWARN: Function `rng.randn(*size)` is marked as deprecated and will be removed in the future. Please use `rng.standard_normal(size)` instead.[0m
+deprecation(
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:227: DeprecationWarning: [33mWARN: Core environment is written in old step API which returns one bool instead of two. It is recommended to rewrite the environment with new step API. [0m
+logger.deprecation(
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+if not isinstance(done, (bool, np.bool8)):
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/gym/utils/passive_env_checker.py:234: UserWarning: [33mWARN: Expects `done` signal to be a boolean, actual type: <class 'numpy.float64'>[0m
+logger.warn(
+/opt/conda/envs/CS285two/lib/python3.10/site-packages/tensorboardX/summary.py:153: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+scalar = float(scalar)
+[INFO] setting additional args:
+{'bird method': False}
+########################
+logging outputs to  /root/CS285_homework/hw4/cs285/scripts/../../data/cheetah-cs285-v0_cheetah_mbpo_l2_h250_mpcrandom_horizon10_actionseq1000_04-06-2024_11-14-29
+########################
+Using GPU id 0
+agent info:
+{'training': True, '_parameters': OrderedDict(), '_buffers': OrderedDict(), '_non_persistent_buffers_set': set(), '_backward_pre_hooks': OrderedDict(), '_backward_hooks': OrderedDict(), '_is_full_backward_hook': None, '_forward_hooks': OrderedDict(), '_forward_hooks_with_kwargs': OrderedDict(), '_forward_hooks_always_called': OrderedDict(), '_forward_pre_hooks': OrderedDict(), '_forward_pre_hooks_with_kwargs': OrderedDict(), '_state_dict_hooks': OrderedDict(), '_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_post_hooks': OrderedDict(), '_modules': OrderedDict([('actor', MLPPolicy(
+(net): Sequential(
+(0): Linear(in_features=21, out_features=128, bias=True)
+(1): Tanh()
+(2): Linear(in_features=128, out_features=128, bias=True)
+(3): Tanh()
+(4): Linear(in_features=128, out_features=128, bias=True)
+(5): Tanh()
+(6): Linear(in_features=128, out_features=12, bias=True)
+(7): Identity()
+)
+)), ('critics', ModuleList(
+(0-1): 2 x StateActionCritic(
+(net): Sequential(
+(0): Linear(in_features=27, out_features=128, bias=True)
+(1): Tanh()
+(2): Linear(in_features=128, out_features=128, bias=True)
+(3): Tanh()
+(4): Linear(in_features=128, out_features=128, bias=True)
+(5): Tanh()
+(6): Linear(in_features=128, out_features=1, bias=True)
+(7): Identity()
+)
+)
+)), ('target_critics', ModuleList(
+(0-1): 2 x StateActionCritic(
+(net): Sequential(
+(0): Linear(in_features=27, out_features=128, bias=True)
+(1): Tanh()
+(2): Linear(in_features=128, out_features=128, bias=True)
+(3): Tanh()
+(4): Linear(in_features=128, out_features=128, bias=True)
+(5): Tanh()
+(6): Linear(in_features=128, out_features=1, bias=True)
+(7): Identity()
+)
+)
+)), ('critic_loss', MSELoss())]), 'actor_optimizer': Adam (
+Parameter Group 0
+amsgrad: False
+betas: (0.9, 0.999)
+capturable: False
+differentiable: False
+eps: 1e-08
+foreach: None
+fused: None
+initial_lr: 0.0003
+lr: 0.0003
+maximize: False
+weight_decay: 0
+), 'actor_lr_scheduler': <torch.optim.lr_scheduler.ConstantLR object at 0x7fa9103a21d0>, 'critic_optimizer': Adam (
+Parameter Group 0
+amsgrad: False
+betas: (0.9, 0.999)
+capturable: False
+differentiable: False
+eps: 1e-08
+foreach: None
+fused: None
+initial_lr: 0.0003
+lr: 0.0003
+maximize: False
+weight_decay: 0
+), 'critic_lr_scheduler': <torch.optim.lr_scheduler.ConstantLR object at 0x7fa9103a24a0>, 'observation_shape': (21,), 'action_dim': 6, 'discount': 0.99, 'target_update_period': None, 'target_critic_backup_type': 'min', 'num_critic_networks': 2, 'use_entropy_bonus': True, 'temperature': 0.05, 'actor_gradient_type': 'reparametrize', 'num_actor_samples': 1, 'num_critic_updates': 1, 'soft_target_update_rate': 0.005, 'backup_entropy': True}
+********** Iteration 0 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 16.545318575769006
+********** Iteration 1 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 4.6192359095466475
+********** Iteration 2 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: -688.04210662986
+********** Iteration 3 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 340.64301493820057
+********** Iteration 4 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 720.9603271178528
+********** Iteration 5 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 849.9689661222521
+********** Iteration 6 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 915.3789419992769
+********** Iteration 7 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 978.2559087863756
+********** Iteration 8 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 1013.5066454080976
+********** Iteration 9 ************
+Collecting data...
+Training agent...
+Training SAC agent...
+Evaluating 10 rollouts...
+Average eval return: 1056.3448703393203

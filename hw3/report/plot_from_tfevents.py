@@ -39,13 +39,17 @@ labels = {
     # 'lr=0.4e-4':['log5_param3']
 
     # Task 3.1.3.1
-    # '':['log6']
+    # 'my':['log6'],
+    # 'bird':['bird']
 
     # Task 3.1.4.1
+    # '':['log8_processed']
+
+    # Task 3.1.4.2 # Unfinished
 
     'reinforce 1':['log7'],
     'reinforce 10':['log7-2'],
-    'reparameterize':[]
+    'reparameterize':['log9.5']
 
     # Task 3.1.5
     # 'singleq':['log10-1'],
@@ -57,13 +61,15 @@ labels = {
 
     # Task 3.1.4
 
+
 }
 
 x_axis = 'step'
 y_axises = ['eval_return']
 y_label = 'return'
 plot_title = None
-plot_name = 'P3-1-5-2.png'
+plot_name = 'P3-1-4-2.png'
+do_smooth = False
 
 # CONFIG END
 
@@ -120,7 +126,7 @@ for label,files in labels.items():
         x_s[i] = np.stack([c[:m_len] for c in x_s[i]],axis=0).mean(axis=0)
         y_s[i] = np.stack([c[:m_len] for c in y_s[i]],axis=0).mean(axis=0)
         print(f'ploting label <{label} {y_axis}>...')
-        if 'train' in y_axis:
+        if 'train' in y_axis or do_smooth:
             plt.plot(x_s[i],smooth(y_s[i]),label=label+' '+y_axis)
         else:
             plt.plot(x_s[i],y_s[i],label=label+' '+y_axis)

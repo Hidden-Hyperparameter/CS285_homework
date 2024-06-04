@@ -16,4 +16,9 @@ def clean_nohup(filename:str):
     open(filename.replace('.log','_processed.log'),'w').writelines(outs)
 
 if __name__ == '__main__':
-    clean_nohup('log_task6_r0.log')
+    for file1 in [
+        # 'log_task6_r0.log',
+        'log_task6_r1.log',
+        'log_task6_r10.log'
+    ]:
+        clean_nohup(file1)

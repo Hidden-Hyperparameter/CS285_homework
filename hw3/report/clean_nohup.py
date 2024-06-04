@@ -16,4 +16,9 @@ def clean_nohup(filename:str):
     open(filename.replace('.log','_processed.log'),'w').writelines(outs)
 
 if __name__ == '__main__':
-    clean_nohup('report/test.log')
+    for file1 in [
+        # 'log7.log',
+        # 'log7-2.log'
+        'log9.5.log'
+    ]:
+        clean_nohup(file1)

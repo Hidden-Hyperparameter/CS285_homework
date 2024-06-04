@@ -50,7 +50,7 @@ def read_tfevents_file(file_path):
     return ret
 
 if __name__ == '__main__':
-    file_path = 'data/hw3_dqn_dqn_LunarLander-v2_s64_l2_d0.99_doubleq_03-06-2024_11-14-42/events.out.tfevents.1717384482.n06'
+    file_path = 'data/hw3_sac_sac_humanoid_Humanoid-v4_reparametrize_s256_l3_alr0.0003_clr0.0003_b256_d0.99_t0.05_stu0.005_doubleq_04-06-2024_08-04-29/events.out.tfevents.1717459469.n06'
     file_path = os.path.abspath(file_path)
     print(file_path)
     assert os.path.exists(file_path)

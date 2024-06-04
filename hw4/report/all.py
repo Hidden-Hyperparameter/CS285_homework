@@ -16,8 +16,12 @@ labels = {
     # 'log_task5':'CEM with cem_iter 4',
     # 'log_task5_itr2':'CEM with cem_iter 2'
 
-    'log_task5':'CEM original',
-    'log_task5_my':'CEM with my method'
+    # 'log_task5':'CEM original',
+    # 'log_task5_my':'CEM with my method'
+
+    'log_task6_r0_processed':'SAC baseline',
+    'log_task6_r1_processed':'Dyna (rollout=1)',
+    'log_task6_r10_processed':'MBPO(rollout=10)',
 }
 
 # E = 'Ensemble Size'
@@ -54,4 +58,4 @@ for name in labels:
     print(f'finish {name}')
 plt.legend()
 # plt.title(f'Different {E}')
-plt.savefig('./P5-mine.png')
+plt.savefig('./P6.png')

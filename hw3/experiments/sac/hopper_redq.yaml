@@ -1,6 +1,6 @@
-num_critic_networks: 1
+num_critic_networks: 10
 target_critic_backup_type: redq
-exp_name: sac_hopper_singlecritic
+exp_name: sac_hopper_redq
 
 # Same for all Hopper experiments
 base_config: sac

@@ -46,6 +46,7 @@ def collect_mbpo_rollout(
         # Get the reward using `env.get_reward`. 
         if len(obs)==0:
             ind = torch.randint(0,mb_agent.ensemble_size,(1,)).item()
+            # ind = 0
             # ob = ob.reshape(1,-1)
         ac = sac_agent.get_action(ob)
         rew,_ = env.get_reward(ob,ac)
@@ -166,24 +167,24 @@ def run_training_loop(
         # train agent
         print("Training agent...")
         all_losses = []
-        # for _ in tqdm.trange(
-        #     config["num_agent_train_steps_per_iter"], dynamic_ncols=True
-        # ):
-        #     step_losses = []
+        for _ in tqdm.trange(
+            config["num_agent_train_steps_per_iter"], dynamic_ncols=True
+        ):
+            step_losses = []
             # TODO(student): train the dynamics models
             # HINT: train each dynamics model in the ensemble with a *different* batch of transitions!
             # Use `replay_buffer.sample` with config["train_batch_size"].
             
-            # for i in range(mb_agent.ensemble_size):
-            #     samples = replay_buffer.sample(config['train_batch_size'])
-            #     step_losses.append(
-            #         mb_agent.update(
-            #             i,samples['observations'],samples['actions'],samples['next_observations']
-            #         ).reshape(-1)
-            #     )
-            #     # print(step_losses)
-            # step_losses = np.concatenate(step_losses,axis=0)
-            # all_losses.append(np.mean(step_losses))
+            for i in range(mb_agent.ensemble_size):
+                samples = replay_buffer.sample(config['train_batch_size'])
+                step_losses.append(
+                    mb_agent.update(
+                        i,samples['observations'],samples['actions'],samples['next_observations']
+                    ).reshape(-1)
+                )
+                # print(step_losses)
+            step_losses = np.concatenate(step_losses,axis=0)
+            all_losses.append(np.mean(step_losses))
 
         # on iteration 0, plot the full learning curve
         if itr == 0:
