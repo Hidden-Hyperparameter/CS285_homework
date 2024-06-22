@@ -151,3 +151,8 @@ dmypy.json
 !hw3/*.log
 !hw3/report/logs/*.log
 hw3/text.json
+
+# Special for HW 5
+!hw5/data/*
+!hw5/datasets/*
+!hw5/*.log

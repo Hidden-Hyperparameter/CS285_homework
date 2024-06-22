@@ -47,8 +47,9 @@ class DQNAgent(nn.Module):
         observation = ptu.from_numpy(np.asarray(observation))[None]
 
         # TODO(student): get the action from the critic using an epsilon-greedy strategy
-        raise NotImplementedError
-        action = ...
+        randomly = (torch.rand(observation.shape[0])<epsilon).float().to(observation.device)
+        action = torch.randint(low=0,high=self.num_actions,size=[observation.shape[0]],device=observation.device) * randomly + self.critic(observation).argmax(axis=-1) * (1-randomly)
+        action = action.to(torch.long)
 
         return ptu.to_numpy(action).squeeze(0).item()
 
@@ -70,21 +71,25 @@ class DQNAgent(nn.Module):
         """
 
         # TODO(student): paste in your code from HW3, and make sure the return values exist
-        raise NotImplementedError
+        batch_size = obs.shape[0]
         with torch.no_grad():
-            next_qa_values = ...
+            next_qa_values = self.target_critic(next_obs)
 
             if self.use_double_q:
-                next_action = ...
+                next_action = torch.argmax(self.critic(next_obs),axis=-1)
             else:
-                next_action = ...
-
-            next_q_values = ...
+                next_action = torch.argmax(self.target_critic(next_obs),axis=-1)
+            # print(next_action.shape)
+            # print(next_qa_values.shape)
+            next_q_values = next_qa_values[torch.arange(0,next_action.shape[-1]),next_action]
             assert next_q_values.shape == (batch_size,), next_q_values.shape
 
-            target_values = ...
+            target_values = next_q_values*self.discount*(1-done.float()) + reward
             assert target_values.shape == (batch_size,), target_values.shape
 
+        qa_values = self.critic(obs)
+        q_values = qa_values[torch.arange(0,action.shape[-1]),action]
+        loss = torch.nn.functional.mse_loss(q_values,target_values)
         return (
             loss,
             {
@@ -137,5 +142,8 @@ class DQNAgent(nn.Module):
         Update the DQN agent, including both the critic and target.
         """
         # TODO(student): paste in your code from HW3
-
+        critic_stats = self.update_critic(obs,action,reward,next_obs,done)
+        if step % self.target_update_period == 0:
+            self.update_target_critic()
+    
         return critic_stats

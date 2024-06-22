@@ -32,21 +32,27 @@ class AWACAgent(DQNAgent):
     ):
         with torch.no_grad():
             # TODO(student): compute the actor distribution, then use it to compute E[Q(s, a)]
-            next_qa_values = ...
+            # Ea′ ∼π [Qϕk−1 (s′ , a′ )])
+            batch_size = next_observations.shape[0]
+            probs = self.actor(next_observations).probs # [128,5]
+            next_qa_values = torch.sum(
+                probs*self.target_critic(next_observations),dim=-1
+            )
 
             # Use the actor to compute a critic backup
 
-            next_qs = ...
+            next_qs = next_qa_values
 
             # TODO(student): Compute the TD target
-            target_values = ...
+            target_values = rewards + next_qs * (1-dones.float()) * self.discount
 
         
         # TODO(student): Compute Q(s, a) and loss similar to DQN
-        q_values = ...
+        qa_values = self.critic(observations)
+        q_values = qa_values[torch.arange(0,actions.shape[0]),actions]
         assert q_values.shape == target_values.shape
 
-        loss = ...
+        loss = torch.nn.functional.mse_loss(q_values,target_values)
 
         return (
             loss,
@@ -68,11 +74,17 @@ class AWACAgent(DQNAgent):
         action_dist: Optional[torch.distributions.Categorical] = None,
     ):
         # TODO(student): compute the advantage of the actions compared to E[Q(s, a)]
-        qa_values = ...
-        q_values = ...
-        values = ...
+        qa_values = self.critic(observations)
+        q_values = qa_values[torch.arange(0,observations.shape[0]),actions]
+        probs = 0
+        if action_dist is not None:
+            probs = action_dist.probs
+        else:
+            print('action distribution is None')
+            probs = torch.ones(observations.shape(0),self.num_actions)/self.num_actions # unifrom distribution
+        values = torch.sum(probs*qa_values,dim=-1)
 
-        advantages = ...
+        advantages = q_values - values
         return advantages
 
     def update_actor(
@@ -81,7 +93,12 @@ class AWACAgent(DQNAgent):
         actions: torch.Tensor,
     ):
         # TODO(student): update the actor using AWAC
-        loss = ...
+        distrs = self.actor(observations)
+        loss = (distrs.probs[torch.arange(0,actions.shape[0]),actions]*torch.exp(1/self.temperature*self.compute_advantage(
+            observations=observations,
+            actions=actions,
+            action_dist=distrs
+        ))).sum(dim=0)
 
         self.actor_optimizer.zero_grad()
         loss.backward()
