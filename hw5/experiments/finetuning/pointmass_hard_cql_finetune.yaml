@@ -6,7 +6,7 @@ total_steps: 200000
 offline_steps: 100000
 dataset_name: "pointmass_hard_rnd"
 
-cql_alpha: 1.0
+cql_alpha: 0.1
 
 hidden_size: 64
 num_layers: 2

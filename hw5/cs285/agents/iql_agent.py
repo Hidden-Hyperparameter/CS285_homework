@@ -38,8 +38,8 @@ class IQLAgent(AWACAgent):
         action_dist: Optional[torch.distributions.Categorical] = None,
     ):
         # TODO(student): Compute advantage with IQL
-        
-        advantages = ...
+
+        advantages = self.target_critic(observations)[torch.arange(0,actions.shape[0]),actions] - self.target_value_critic(observations).flatten()
         return advantages
 
     def update_q(
@@ -56,7 +56,8 @@ class IQLAgent(AWACAgent):
         # TODO(student): Update Q(s, a) to match targets (based on V)
         # LQ (θ) = E(s,a,s′ )∼D [(r(s, a) + γVϕ (s′ ) − Qθ (s, a))2 ]
         q_values = self.critic(observations)[torch.arange(0,actions.shape[0]),actions]
-        target_values = rewards + self.discount * self.target_value_critic(next_observations) * (1-dones.float())
+        with torch.no_grad():
+            target_values = rewards + self.discount * self.target_value_critic(next_observations) * (1-dones.float())
 
         loss = torch.nn.functional.mse_loss(q_values,target_values)
 
@@ -87,7 +88,7 @@ class IQLAgent(AWACAgent):
         # LV (ϕ) = E(s,a)∼D [Lτ2 (Qθ (s, a) − Vϕ (s))]
         weight = torch.tensor([expectile],dtype=torch.float,device=vs.device)-(vs>=target_qs).float()
         return (
-            (target_qs-vs)**2 * weight
+            (target_qs-vs)**2 * torch.abs(weight)
         ).sum()
 
     def update_v(
@@ -102,7 +103,8 @@ class IQLAgent(AWACAgent):
 
         # TODO(student): Update V(s) using the loss from the IQL paper
         vs = self.value_critic(observations)
-        target_values = self.target_critic(observations)[torch.arange(0,actions.shape[0]),actions]
+        with torch.no_grad():
+            target_values = self.target_critic(observations)[torch.arange(0,actions.shape[0]),actions]
         loss = IQLAgent.iql_expectile_loss(self.expectile,vs,target_values)
 
         self.value_critic_optimizer.zero_grad()

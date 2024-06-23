@@ -156,3 +156,5 @@ hw3/text.json
 !hw5/data/*
 !hw5/datasets/*
 !hw5/*.log
+!hw5/report/logs/*.log
+hw5/text.json

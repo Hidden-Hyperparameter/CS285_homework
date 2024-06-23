@@ -34,6 +34,7 @@ class AWACAgent(DQNAgent):
             # TODO(student): compute the actor distribution, then use it to compute E[Q(s, a)]
             # Ea′ ∼π [Qϕk−1 (s′ , a′ )])
             batch_size = next_observations.shape[0]
+            
             probs = self.actor(next_observations).probs # [128,5]
             next_qa_values = torch.sum(
                 probs*self.target_critic(next_observations),dim=-1
@@ -74,17 +75,17 @@ class AWACAgent(DQNAgent):
         action_dist: Optional[torch.distributions.Categorical] = None,
     ):
         # TODO(student): compute the advantage of the actions compared to E[Q(s, a)]
-        qa_values = self.critic(observations)
-        q_values = qa_values[torch.arange(0,observations.shape[0]),actions]
-        probs = 0
-        if action_dist is not None:
-            probs = action_dist.probs
-        else:
-            print('action distribution is None')
-            probs = torch.ones(observations.shape(0),self.num_actions)/self.num_actions # unifrom distribution
-        values = torch.sum(probs*qa_values,dim=-1)
+        with torch.no_grad():
+            qa_values = self.target_critic(observations)
+            q_values = qa_values[torch.arange(0,observations.shape[0]),actions]
+            probs = 0
+            if action_dist is not None:
+                probs = action_dist.probs
+            else:
+                raise NotADirectoryError()
+            values = torch.sum(probs*qa_values,dim=-1)
 
-        advantages = q_values - values
+            advantages = q_values - values
         return advantages
 
     def update_actor(
@@ -94,15 +95,18 @@ class AWACAgent(DQNAgent):
     ):
         # TODO(student): update the actor using AWAC
         distrs = self.actor(observations)
-        loss = (distrs.probs[torch.arange(0,actions.shape[0]),actions]*torch.exp(1/self.temperature*self.compute_advantage(
+        loss = -(torch.log(distrs.probs[torch.arange(0,actions.shape[0]),actions])*torch.exp(self.temperature*self.compute_advantage(
             observations=observations,
             actions=actions,
             action_dist=distrs
-        ))).sum(dim=0)
+        ))).mean(dim=0) # Use MEAN for MLE training! (or tune hyperparam by self) # Use temperature
 
         self.actor_optimizer.zero_grad()
         loss.backward()
         self.actor_optimizer.step()
+        assert any([True for layer in self.actor.logits_net if hasattr(layer,'weight')])
+        if any([layer.weight.isnan().any() for layer in self.actor.logits_net if hasattr(layer,'weight')]):
+            raise UnicodeTranslateError()
 
         return loss.item()
 

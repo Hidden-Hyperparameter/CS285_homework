@@ -1,0 +1,42 @@
+########################
+logging outputs to  /root/CS285_homework/hw5/cs285/scripts/../../data/hw5_explore_PointmassEasy-v0_rnd1.0_23-06-2024_17-35-46
+########################
+
+======================================================================
+Exploration
+
+Generating the dataset for the PointmassEasy-v0 environment using algorithm rnd.
+The results will be stored in datasets/.
+======================================================================
+
+Using GPU id 0
+Saved dataset to datasets/pointmass_easy_rnd.pkl
+Saved final heatmap to exploration_visualization/PointmassEasy-v0_rnd1.0.png
+########################
+logging outputs to  /root/CS285_homework/hw5/cs285/scripts/../../data/hw5_explore_PointmassMedium-v0_rnd1.0_23-06-2024_17-36-57
+########################
+
+======================================================================
+Exploration
+
+Generating the dataset for the PointmassMedium-v0 environment using algorithm rnd.
+The results will be stored in datasets/.
+======================================================================
+
+Using GPU id 0
+Saved dataset to datasets/pointmass_medium_rnd.pkl
+Saved final heatmap to exploration_visualization/PointmassMedium-v0_rnd1.0.png
+########################
+logging outputs to  /root/CS285_homework/hw5/cs285/scripts/../../data/hw5_explore_PointmassHard-v0_rnd1.0_23-06-2024_17-38-09
+########################
+
+======================================================================
+Exploration
+
+Generating the dataset for the PointmassHard-v0 environment using algorithm rnd.
+The results will be stored in datasets.
+======================================================================
+
+Using GPU id 0
+Saved dataset to datasets/pointmass_hard_rnd.pkl
+Saved final heatmap to exploration_visualization/PointmassHard-v0_rnd1.0.png

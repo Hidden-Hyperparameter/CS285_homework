@@ -4,6 +4,7 @@ import pickle
 
 from cs285.agents import agents as agent_types
 from cs285.envs import Pointmass
+from cs285.agents import CQLAgent
 
 import os
 import time
@@ -38,7 +39,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     assert discrete, "DQN only supports discrete action spaces"
 
     agent_cls = agent_types[config["agent"]]
-    agent = agent_cls(
+    agent:CQLAgent = agent_cls(
         env.observation_space.shape,
         env.action_space.n,
         **config["agent_kwargs"],
@@ -49,7 +50,27 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
     observation = None
 
     # Replay buffer
-    replay_buffer = ReplayBuffer(capacity=config["total_steps"])
+    # replay_buffer = ReplayBuffer(capacity=config["total_steps"])
+    with open(os.path.join(args.dataset_dir, f"{config['dataset_name']}.pkl"), "rb") as f:
+        replay_buffer = pickle.load(f)
+        replay_buffer.max_size = config["total_steps"]
+        replay_buffer.observations = np.concatenate(
+            (replay_buffer.observations,np.zeros([config["total_steps"]-replay_buffer.size]+list(replay_buffer.observations.shape[1:]))),axis=0
+        )
+        replay_buffer.actions = np.concatenate(
+            (replay_buffer.actions,np.zeros([config["total_steps"]-replay_buffer.size]+list(replay_buffer.actions.shape[1:]))),axis=0
+        )
+        assert discrete,NotImplementedError()
+        replay_buffer.actions = replay_buffer.actions.astype('int64')
+        replay_buffer.rewards = np.concatenate(
+            (replay_buffer.rewards,np.zeros([config["total_steps"]-replay_buffer.size]+list(replay_buffer.rewards.shape[1:]))),axis=0
+        )
+        replay_buffer.next_observations = np.concatenate(
+            (replay_buffer.next_observations,np.zeros([config["total_steps"]-replay_buffer.size]+list(replay_buffer.next_observations.shape[1:]))),axis=0
+        )
+        replay_buffer.dones = np.concatenate(
+            (replay_buffer.dones,np.zeros([config["total_steps"]-replay_buffer.size]+list(replay_buffer.dones.shape[1:]))),axis=0
+        )
 
     observation = env.reset()
 
@@ -57,9 +78,30 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
 
     num_offline_steps = config["offline_steps"]
     num_online_steps = config["total_steps"] - num_offline_steps
+    epsilon = None
 
     for step in tqdm.trange(config["total_steps"], dynamic_ncols=True):
         # TODO(student): Borrow code from another online training script here. Only run the online training loop after `num_offline_steps` steps.
+
+        if step > num_offline_steps:
+            # do online training: collect one data from env and add to buffer
+            epsilon = exploration_schedule.value(step-num_offline_steps)
+            action = agent.get_action(observation,epsilon=epsilon)
+            next_state,reward,done,info=env.step(action)
+            truncated = info.get('TimeLimit.truncated', False)
+            replay_buffer.insert(
+                observation=observation,
+                action=action,
+                reward=reward,
+                next_observation=next_state,
+                done=done and not truncated
+            )
+            recent_observations.append(observation)
+            # Handle episode termination (copied from explore.py)
+            if done:
+                observation = env.reset()
+            else:
+                observation = next_state
 
         # Main training loop
         batch = replay_buffer.sample(config["batch_size"])
@@ -70,7 +112,7 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
         update_info = agent.update(
             batch["observations"],
             batch["actions"],
-            batch["rewards"] * (1 if config.get("use_reward", False) else 0),
+            batch["rewards"], #* (1 if config.get("use_reward", False) else 0), # No! We must use rewards otherwise there is no way to get to the goal!!!
             batch["next_observations"],
             batch["dones"],
             step,
@@ -106,23 +148,34 @@ def run_training_loop(config: dict, logger: Logger, args: argparse.Namespace):
                 logger.log_scalar(np.std(ep_lens), "eval/ep_len_std", step)
                 logger.log_scalar(np.max(ep_lens), "eval/ep_len_max", step)
                 logger.log_scalar(np.min(ep_lens), "eval/ep_len_min", step)
+            # plot to debug, copied from offline.py
+
+            env_pointmass: Pointmass = env.unwrapped
+            logger.log_figures(
+                [env_pointmass.plot_trajectory(trajectory["next_observation"]) for trajectory in trajectories],
+                "trajectories",
+                step,
+                "eval"
+            )
 
         if step % args.visualize_interval == 0:
             env_pointmass: Pointmass = env.unwrapped
-            observations = np.stack(recent_observations)
-            recent_observations = []
-            logger.log_figure(
-                visualize(env_pointmass, agent, observations),
-                "exploration_trajectories",
-                step,
-                "eval",
-            )
+            if len(recent_observations)!=0:
+                
+                observations = np.stack(recent_observations)
+                recent_observations = []
+                logger.log_figure(
+                    visualize(env_pointmass, agent, observations),
+                    "exploration_trajectories",
+                    step,
+                    "eval",
+                )
 
     # Save the final dataset
-    dataset_file = os.path.join(args.dataset_dir, f"{config['dataset_name']}.pkl")
-    with open(dataset_file, "wb") as f:
-        pickle.dump(replay_buffer, f)
-        print("Saved dataset to", dataset_file)
+    # dataset_file = os.path.join(args.dataset_dir, f"{config['dataset_name']}.pkl")
+    # with open(dataset_file, "wb") as f:
+    #     pickle.dump(replay_buffer, f)
+    #     print("Saved dataset to", dataset_file)
 
     # Render final heatmap
     fig = visualize(

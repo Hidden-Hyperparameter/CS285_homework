@@ -48,7 +48,7 @@ class DQNAgent(nn.Module):
 
         # TODO(student): get the action from the critic using an epsilon-greedy strategy
         randomly = (torch.rand(observation.shape[0])<epsilon).float().to(observation.device)
-        action = torch.randint(low=0,high=self.num_actions,size=[observation.shape[0]],device=observation.device) * randomly + self.critic(observation).argmax(axis=-1) * (1-randomly)
+        action = torch.randint(low=0,high=self.num_actions,size=[observation.shape[0]],device=observation.device) * randomly + self.target_critic(observation).argmax(axis=-1) * (1-randomly) # MUST Use target critic here (bird's method)
         action = action.to(torch.long)
 
         return ptu.to_numpy(action).squeeze(0).item()
