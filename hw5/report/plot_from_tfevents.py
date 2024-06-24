@@ -29,19 +29,22 @@ labels = {
     # 'alpha={:.1f}'.format(i/10):[f'report/logs/exp_alpha{i}'] for i in range(0,12,2)
 
 ###  Task 4.2  ###
-    #### AWAC
-    # '':['report/logs/4.2-awac-medium']
-    # '':['report/logs/4.2-awac-hard']
+    #### Medium
+    # 'awac':['report/logs/4.2-awac-medium'],
+    # 'iql':['report/logs/4.2-iql-medium']
 
-    #### IQL
-    # '':['report/logs/4.2-iql-medium']
-    '':['report/logs/4.2-iql-hard']
+    #### Hard
+    'awac':['report/logs/4.2-awac-hard'],
+    'iql':['report/logs/4.2-iql-hard']
 
 ###  Task 4.3  ###
     # '1000 steps':['report/logs/4.3-step1'],
     # '5000 steps':['report/logs/4.3-step5'],
     # '10000 steps':['report/logs/4.3-step10'],
     # '20000 steps':['report/logs/4.3-step20'],
+
+### Task 5 ###
+    # '':['report/logs/5']
 }
 
 x_axis = 'step'
@@ -50,8 +53,8 @@ x_axis = 'step'
 y_axises = ['eval_return']
 y_label = 'returns'
 plot_title = None
-plot_name = '4.2-iql-hard.png'
-# plot_name = '4.3.png'
+plot_name = '4.2-hard.png'
+# plot_name = '5.png'
 do_smooth = False
 skip_rate = 100 if y_label == 'Q values' else 1
 
@@ -114,6 +117,12 @@ for label,files in labels.items():
             plt.plot(x_s[i][::skip_rate],smooth(y_s[i])[::skip_rate],label=label+' '+y_axis)
         else:
             plt.plot(x_s[i][::skip_rate],y_s[i][::skip_rate],label=label+' '+y_axis)
+
+# plot line between offline and online
+
+# plt.axvline(x=100000, color='r', linestyle='--')
+# plt.text(50000, np.mean(y_s[i]), 'offline', ha='right', va='bottom')
+# plt.text(150000, np.mean(y_s[i]), 'online finetune', ha='right', va='bottom')
 
 plt.xlabel(x_axis)
 plt.ylabel(y_label)

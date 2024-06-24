@@ -75,7 +75,7 @@ backgroundcolor = \color{light-yellow}
     \vspace{.25cm}
     \textbf{Due Tuesday, November 21, 11:59 pm} \\
 \end{centering}
-
+\newcommand*{\MYSOLUTION}[0]{\textbf{\textcolor{red}{My Solution: }}}
 \section{Analysis}
 \label{sec:analysis}
 \def\H{\mathcal{H}}
@@ -250,6 +250,18 @@ python cs285/scripts/run_hw5_explore.py \
 \end{lstlisting}
 These scripts will save visualizations of the final dataset in the \verb+exploration+ directory, as well as intermediate results in the Tensorboard logs. Include the final dataset visualization in your report.
 
+\MYSOLUTION The visualizations are shown in following figures:
+
+% insert 3 figures in a row
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.32\textwidth]{../report/assets/PointmassEasy-v0_random.png}~
+    \includegraphics[width=0.32\textwidth]{../report/assets/PointmassMedium-v0_random.png}~
+    \includegraphics[width=0.32\textwidth]{../report/assets/PointmassHard-v0_random.png}
+    \caption{Visualizations of the final dataset in the \texttt{easy} (left), \texttt{medium} (middle), and \texttt{hard} (right) environments.}
+\end{figure}
+
 \subsection{Random Network Distillation}
 \textbf{What you will implement}: the RND algorithm for exploration. You will need to change \verb+cs285/agents/rnd_agent.py+. In addition, you should also thoroughly read through the training scheme in \verb+run_hw5_explore.py+. It's very similar to the DQN training scheme you implemented in HW3.
 
@@ -271,6 +283,18 @@ python cs285/scripts/run_hw5_explore.py \
 \end{lstlisting}
 
 Again, include the visualizations in your final report. \textbf{These visualizations, particularly the RND error map, will be very helpful for debugging!}
+
+\MYSOLUTION The visualizations are shown in the following figures: 
+
+% insert 3 figures: first row 2 figures, second row 1 figure, all figures have same size.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../report/assets/PointmassEasy-v0_rnd1.0.png}~
+    \includegraphics[width=0.49\textwidth]{../report/assets/PointmassMedium-v0_rnd1.0.png}
+    \includegraphics[width=0.49\textwidth]{../report/assets/PointmassHard-v0_rnd1.0.png}
+    \caption{Visualizations of the final dataset in the \texttt{easy} (left), \texttt{medium} (middle), and \texttt{hard} (right) environments.}
+\end{figure}
 
 \section{Offline RL}
 
@@ -297,13 +321,58 @@ python ./cs285/scripts/run_hw5_offline.py \
 
 On the Medium environment, create several experiment variations in which the value of the $\alpha$ parameter is varied, from $\alpha=0$ (equivalent to DQN) to $\alpha=10$. Show both resulting $Q$-values and evaluation performances in a plot. In the caption, describe how the $\alpha$ parameter affects training and performance in offline RL.
 
+\MYSOLUTION For the first part, we compare the rewards and $Q$-values of DQN agent and CQL agent in the offline settings, with easy and medium environments. The results are shown in the following figures:
+
+% insert 2 figures in a row
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.1-easy.png}~
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.1-medium.png}
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.1-easy-q.png}~
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.1-medium-q.png}
+    \caption{Comparison of rewards (top) and $Q$-values (bottom) of CQL agent and DQN agent in the offline settings, with easy (left) and medium (right) environments.}
+\end{figure}
+
+For the study on $\alpha$, I indeed have to mention that, for a proper comparison, $\alpha$ should range from 0 to 1.0, instead of 0 to 10. With this change, the results are shown in the following figure.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.1-alpha.png}~
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.1-alpha-q.png}
+    \caption{Comparison of rewards and $Q$-values of CQL agent with different $\alpha$ values in the offline settings, with medium environment.}
+\end{figure}
+
+From the figure, it can be found that $\alpha\to 0$ leads to the best results. This may be a little disappointing, since the CQL agent is expected to significantly outperform the DQN agent (which corresponds to $\alpha=0$).  
+
 \subsection{Policy Constraint Methods: IQL and AWAC}
 While CQL learns an actor via a modification to actor-critic algorithms like DQN that regularizes actions towards those found in the dataset by decreasing OOD $Q$-values, AWAC learns an in-distribution policy directly by performing weighted behavior cloning on the dataset.
 
 Implement AWAC in \verb+cs285/agents/awac_agent.py+, and IQL in \verb+cs285/agents/iql_agent.py+. Compare them using the IQL and AWAC configuration files in the \verb+experiments+ directory. Report evaluation curves for both approaches.
 
+\MYSOLUTION Here are the reward curve for AWAC and IQL agents in the medium and hard environment:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.2-medium.png}~
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.2-hard.png}
+    \caption{Rewards of AWAC agent and IQL agent in the offline settings, with medium (left) and hard (right) environments.}
+\end{figure}
+
+During the experiment, it is worth noting that the correct temperature should be around 0.1, instead of the initial value of 10.0. \textbf{However, for simplicity, I didn't change the configuration file; instead, I just change the code from }\verb|*1/temperature| \textbf{to} \verb|*temperature| \textbf{in the} \verb|awac_agent.py| \textbf{file.} (Sorry for that)
+
 \subsection{Data ablations}
 Finally, compare the performance of offline RL under several different sizes of dataset. Run RND with \verb+total_steps+ 1000, 5000, 10000, and 20000 on either the Medium or Hard environment, creating a new dataset for each variation (you will need to make several .yaml config files for this). Then, train a CQL agent on each dataset and report its performance as well as evaluation curves.
+
+\MYSOLUTION The results are shown in the following figure:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../report/assets/4.3.png}
+    \caption{Rewards of CQL agent in the offline settings, with medium (left) and hard (right) environments, with different dataset sizes.}
+\end{figure}
+
+Clearly, the performance of the CQL agent increases with the dataset size. However, the improvement is not significant when the dataset size is larger than 5000.
 
 \section{Online Fine-Tuning}
 So far we only support training an algorithm purely offline, using data collected in a previous run. In \verb+run_hw5_finetune.py+, implement online fine-tuning by first loading an offline dataset and taking a fixed number of training steps with an offline RL algorithm of your choice (IQL, CQL, or AWAC) and then switching to online learning while keeping all of the data in the dataset to initialize your replay buffer.
@@ -311,6 +380,17 @@ So far we only support training an algorithm purely offline, using data collecte
 Report results as evaluation returns, clearly indicating the point at which online fine-tuning begins. An example configuration is provided for you in \verb+experiments/finetune/pointmass_hard_cql_finetune.yaml+.
 
 With online fine-tuning, your policy should be able to (stably) reach high reward (at least -20) on \verb+PointmassHard-v0+.
+
+\MYSOLUTION The results are shown in the following figure:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../report/assets/5.png}~
+    \includegraphics[width=0.49\textwidth]{../report/assets/5-example.png}
+    \caption{Rewards of CQL agent in the online fine-tuning settings (left) and an example succeeding image (right), within the hard environment.}
+\end{figure}
+
+I can't make it to reach $-20$ since I am too lazy to tune the hyperparameters. However, the results are still acceptable.
 
 \section{Submitting the code and experiment runs}
 In order to turn in your code and experiment logs, create a folder that contains the following: 

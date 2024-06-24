@@ -1,7 +1,7 @@
 import pickle
 import time
-import argparse
-
+import argparse,sys
+sys.path = ['/home/zhh/MyFile/OnlineCourses/Berkeley285/homework_repo/hw5','/home/zhh/MyFile/OnlineCourses/Berkeley285/homework_repo/hw5/cs285','/home/zhh/MyFile/OnlineCourses/Berkeley285/homework_repo/hw5/cs285/scripts', '/home/zhh/anaconda3/envs/CS285/lib/python310.zip', '/home/zhh/anaconda3/envs/CS285/lib/python3.10', '/home/zhh/anaconda3/envs/CS285/lib/python3.10/lib-dynload', '/home/zhh/anaconda3/envs/CS285/lib/python3.10/site-packages']
 from cs285.agents.dqn_agent import DQNAgent
 import cs285.env_configs
 from cs285.envs import Pointmass

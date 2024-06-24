@@ -69,7 +69,6 @@ class DQNAgent(nn.Module):
          - metrics: dict, a dictionary of metrics to log
          - variables: dict, a dictionary of variables that can be used in subsequent calculations
         """
-
         # TODO(student): paste in your code from HW3, and make sure the return values exist
         batch_size = obs.shape[0]
         with torch.no_grad():

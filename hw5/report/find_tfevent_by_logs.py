@@ -7,6 +7,8 @@ def get_tfevents_file_folder(log_file_dir:str):
     s = open(log_file_dir).readlines()
     special = 'logging outputs to  '
     tf_dir = [c.removeprefix(special).strip(' \n') for c in s if c.startswith(special)][0]
+    assert '/data' in tf_dir
+    tf_dir = tf_dir[tf_dir.find('/data')+1:]
     tf_dir = os.path.abspath(tf_dir)
     # print(log_path,os.path.exists(log_path))
     if not os.path.exists(tf_dir):

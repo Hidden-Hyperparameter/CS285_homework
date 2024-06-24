@@ -104,9 +104,9 @@ class AWACAgent(DQNAgent):
         self.actor_optimizer.zero_grad()
         loss.backward()
         self.actor_optimizer.step()
-        assert any([True for layer in self.actor.logits_net if hasattr(layer,'weight')])
-        if any([layer.weight.isnan().any() for layer in self.actor.logits_net if hasattr(layer,'weight')]):
-            raise UnicodeTranslateError()
+        # assert any([True for layer in self.actor.logits_net if hasattr(layer,'weight')])
+        # if any([layer.weight.isnan().any() for layer in self.actor.logits_net if hasattr(layer,'weight')]):
+        #     raise UnicodeTranslateError()
 
         return loss.item()
 
